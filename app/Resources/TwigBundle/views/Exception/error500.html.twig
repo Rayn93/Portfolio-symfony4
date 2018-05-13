@@ -1,0 +1,91 @@
+{% extends "PortfolioBundle::base.html.twig" %}
+
+{% block pageTitle %}Błąd 500 {% endblock %}
+
+{% block pageDesc %}Błąd 500 - serwer nie odpowiada.{% endblock %}
+
+{% block stylesheets %}
+
+    {% stylesheets
+        'bundles/portfolio/css/mainpage.css'
+        filter = 'cssrewrite'
+        output ='assets/css/compiled-projects.css'
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+{% endblock %}
+
+
+{% block pageBody %}
+<body class="projekty">
+
+<div class="cover"></div>
+
+<header id="projects_menu">
+    <nav class="navigation">
+        <ul>
+            <li class="scroll"><a href="{{ path('portfolio_main') }}#home">HOME</a></li>
+            <li class="scroll"><a href="{{ path('portfolio_main') }}#kim">KIM JESTEM?</a></li>
+            <li class="scroll"><a href="{{ path('portfolio_main') }}#technologie">TECHNOLOGIE</a></li>
+            <li class="special scroll"><a href="{{ path('portfolio_main') }}#projekty">PROJEKTY</a></li>
+            <li class="scroll"><a href="{{ path('portfolio_main') }}#kontakt">KONTAKT</a></li>
+            {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
+            {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
+        </ul>
+    </nav>
+
+    <div class="burger">
+        <button type="button" class="tcon tcon-menu--xbutterfly" aria-label="toggle menu">
+            <span class="tcon-menu__lines" aria-hidden="true"></span>
+            <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
+
+        <div class="traggle">
+            <ul>
+                <li class="scroll"><a href="{{ path('portfolio_main') }}#home">HOME</a></li>
+                <li class="scroll"><a href="{{ path('portfolio_main') }}#kim">KIM JESTEM?</a></li>
+                <li class="scroll tech"><a href="{{ path('portfolio_main') }}#technologie">TECHNOLOGIE</a></li>
+                <li class="special scroll active"><a href="">PROJEKTY</a></li>
+                <li class="scroll"><a href="{{ path('portfolio_main') }}#kontakt">KONTAKT</a></li>
+                {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
+                {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
+            </ul>
+        </div>
+    </div>
+
+</header>
+
+<section id="error">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Błąd serwera. Spróbuj później</h2>
+                {% image 'bundles/portfolio/img/error500.png' %}
+                    <img class="img-responsive" src="{{ asset_url }}" alt="Błąd 500"/>
+                {% endimage %}
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% javascripts
+        'bundles/portfolio/js/jquery-2.1.3.min.js'
+        'bundles/portfolio/js/bootstrap.min.js'
+        'bundles/portfolio/js/jquery.scrollTo-1.4.3.1-min.js'
+        'bundles/portfolio/js/pace.min.js'
+        'bundles/portfolio/js/transformico.js'
+        'bundles/portfolio/js/main_script.js'
+        output ='assets/js/compiled-projects.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+

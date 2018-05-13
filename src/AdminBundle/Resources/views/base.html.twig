@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel Administracyjny Robert Saternus - portfolio web-developera">
+
+    <title>{% block pageTitle %}{% endblock %} | Portfolio</title>
+
+    <link rel="icon" type="image/png" href="{{ asset('bundles/admin/img/favicon.ico') }}">
+
+
+    {% stylesheets
+        'bundles/admin/css/bootstrap.css'
+        'bundles/admin/css/bootstrap-theme.css'
+        'bundles/admin/css/select2.css'
+        'bundles/admin/css/blog-admin.css'
+        filter = 'cssrewrite'
+        output ='assets/css/admin-compiled-main.css'
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Rozwiń menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="{{ path('portfolio_main') }}">PORTFOLIO</a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+        {% set route = app.request.get('_route') %}
+
+        <ul class="nav navbar-nav">
+            <li {% if route == 'dashboard' %} class="active"{% endif %}><a href="{{ path('dashboard') }}">Kokpit</a></li>
+            <li {% if route == 'listProject' or route == 'addProject' %} class="active"{% endif %}><a href="{{ path('listProject') }}">Projekty</a></li>
+            <li class="dropdown {% if route == 'listCategory' or  route == 'listTag' or route == 'addCategory' or route == 'deleteCategory' or route == 'deleteTag' or route == 'addTag' %}active{% endif %}">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Taksonomie <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('listCategory') }}">Kategorie</a></li>
+                    <li><a href="{{ path('listTag') }}">Tagi</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Robert Saternus</a></li>
+            <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- alerts container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Sukces!</strong> {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+            {#<div class="alert alert-info alert-dismissable">#}
+                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>#}
+                {#<strong>Info!</strong> Przed zapisaniem sprawdź poprawność danych!#}
+            {#</div>#}
+
+            {#<div class="alert alert-warning alert-dismissable">#}
+                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>#}
+                {#<strong>Uwaga!</strong> Popraw błędy formularza#}
+            {#</div>#}
+
+            {% for flashMessage in app.session.flashbag.get('danger') %}
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Błąd!</strong> {{ flashMessage }}
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<!-- /alerts container -->
+
+<!-- content container -->
+
+{% block adminContent %}{% endblock %}
+
+<!-- /content container -->
+
+{% javascripts
+    'bundles/admin/js/vendor/jquery-1.10.2.min.js'
+    'bundles/admin/js/vendor/bootstrap.js'
+    'bundles/admin/js/vendor/select2.min.js'
+    'bundles/admin/js/scripts.js'
+    output ='assets/js/admin-compiled-main.js'
+%}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+
+</body>
+</html>

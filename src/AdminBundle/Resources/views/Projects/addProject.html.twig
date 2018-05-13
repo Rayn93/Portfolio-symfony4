@@ -1,0 +1,111 @@
+{% extends 'AdminBundle::base.html.twig' %}
+{#{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}#}
+{% form_theme form 'AdminBundle:Form:form_template.html.twig' %}
+
+{% set pageTitle = project.id == null ? 'Dodawanie nowego projektu' : 'Edycja projektu "%s"'|format(project.title) %}
+
+{% block pageTitle %}{{ pageTitle }}{% endblock %}
+
+{% block adminContent %}
+
+    <div class="container">
+        {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {{ pageTitle }}
+                        </div>
+                        <div class="panel-body">
+                            {{ form_row(form.title) }}
+                            {{ form_row(form.slug) }}
+                            {{ form_row(form.link) }}
+                            {{ form_row(form.content) }}
+                        </div>
+                    </div>
+                </div> <!-- .col-md-8 -->
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Akcje
+                                </div>
+                                <div class="panel-body">
+                                    {{ form_widget(form.save, {'attr': {'class': 'btn-success'}}) }}
+                                </div>
+                            </div>
+                        </div> <!-- .col-md-12 -->
+
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Miniaturka
+                                </div>
+                                <div class="panel-body">
+                                    {% if project.thumbnail is null %}
+                                        <p>Brak miniaturki</p>
+                                    {% else %}
+                                        <p><img src="{{ vich_uploader_asset(project, 'thumbnailFile') }}" alt="" class="img-thumbnail"></p>
+                                    {% endif %}
+
+                                    {{ form_widget(form.thumbnailFile) }}
+                                    {{ form_errors(form.thumbnailFile) }}
+                                </div>
+                            </div>
+                        </div> <!-- .col-md-12 -->
+
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Właściwości
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        {#<label class="col-lg-5 required">Data publikacji</label>#}
+                                        {#<div class="col-lg-7">#}
+                                            {#<div>#}
+                                                {#<input type="date" id="date" name="date" class="form-control">#}
+                                                {#<input type="time" id="time" name="time" class="form-control">#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                        {{ form_label(form.publishedDate, null, {'label_attr': {'class': 'col-lg-5'}}) }}
+                                        {{ form_widget(form.publishedDate, {'attr': {'class': 'col-lg-7'}}) }}
+
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_row(form.homePage, {'attr': {'class': 'col-lg-2'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Taksonomie
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        {{ form_label(form.category, null, {'label_attr': {'class': 'col-lg-3'}}) }}
+                                        {{ form_widget(form.category, {'attr': {'class': 'col-lg-9 select-block'}}) }}
+                                    </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(form.tags, null, {'label_attr': {'class': 'col-lg-3'}}) }}
+                                        {{ form_widget(form.tags, {'attr': {'class': 'col-lg-9 select-block'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- .col-md-12 -->
+
+                    </div>
+                </div>  <!-- .col-md-4 -->
+            </div> <!-- .row -->
+              {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div> <!-- .container -->
+
+{% endblock %}

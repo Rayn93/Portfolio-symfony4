@@ -1,0 +1,61 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+
+{% block pageTitle %}Lista kategorii {% endblock %}
+
+{% block adminContent %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Kategorie</div>
+                    <div class="panel-body">
+
+                        <ul class="nav nav-pills">
+                            <li><a class="btn btn-primary" href="{{ path('addCategory') }}">Dodaj nową</a></li>
+                        </ul>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>{{ knp_pagination_sortable(allCategory, 'ID', 't.id') }}</th>
+                                    <th>{{ knp_pagination_sortable(allCategory, 'Nazwa', 't.name') }}</th>
+                                    <th>{{ knp_pagination_sortable(allCategory, 'Ilość przypisanych postów', 'projectCount') }}</th>
+                                    <th class="actions">Akcje</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for row in allCategory %}
+                                {% set category = row[0] %}
+
+                                <tr>
+                                    <td>{{ category.id }}</td>
+                                    <td><a href="{{ path('addCategory', {'id': category.id}) }}">{{ category.name }}</a></td>
+                                    <td>{{ row['projectCount'] }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ path('addCategory', {'id': category.id}) }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                                            <a href="{{ path('deleteCategory', {'id': category.id}) }}" class="btn btn-danger" data-confirmAction=""><span class="glyphicon glyphicon-trash"></span></a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {{ knp_pagination_render(allCategory, 'PortfolioBundle:Pagination:pagination.html.twig') }}
+
+                    </div>  <!-- .panel-body -->
+                </div>  <!-- .panel -->
+            </div> <!-- .col-md-12 -->
+        </div> <!-- .row -->
+    </div> <!-- .container -->
+
+{% endblock %}

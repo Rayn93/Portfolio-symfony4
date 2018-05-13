@@ -1,0 +1,28 @@
+{% extends 'AdminBundle::base.html.twig' %}
+{% form_theme form 'AdminBundle:Form:form_template.html.twig' %}
+
+{% block pageTitle %}Usuń Kategorie{% endblock %}
+
+{% block adminContent %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Usuwanie kategorii "{{ category.name }}"
+                    </div>
+                    <div class="panel-body">
+
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        {{ form_end(form) }}
+
+
+                    </div>
+                </div> <!-- .panel -->
+            </div> <!-- .col-md-12 -->
+        </div> <!-- .row -->
+    </div> <!-- .container -->
+
+{% endblock %}

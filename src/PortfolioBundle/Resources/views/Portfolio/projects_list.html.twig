@@ -1,0 +1,161 @@
+{% extends "PortfolioBundle::base.html.twig" %}
+
+{% block pageTitle %}Robert Saternus - portfolio webdevelopera{% endblock %}
+
+{% block pageDesc %}Projekty stron i aplikacji webowych stworzonych przez Roberta Saternus. Potrzebujesz stworzyć wyjątkową stronę, serwis lub sklep internetowy. Zajrzyj tutaj!{% endblock %}
+
+{% block stylesheets %}
+
+    {% stylesheets
+        'bundles/portfolio/css/mainpage.css'
+        filter = 'cssrewrite'
+        output ='assets/css/compiled-projects.css'
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+{% endblock %}
+
+
+{% block pageBody %}
+<body class="projekty">
+
+<div class="cover"></div>
+
+<header id="projects_menu">
+    <nav class="navigation">
+        <ul>
+            <li class="scroll"><a href="{{ path('portfolio_main') }}#home">HOME</a></li>
+            <li class="scroll"><a href="{{ path('portfolio_main') }}#kim">KIM JESTEM?</a></li>
+            <li class="scroll"><a href="{{ path('portfolio_main') }}#technologie">TECHNOLOGIE</a></li>
+            <li class="special scroll"><a class="active" href="">PROJEKTY</a></li>
+            <li class="scroll"><a href="{{ path('portfolio_main') }}#kontakt">KONTAKT</a></li>
+            <li><a href="{{ path('portfolio_free_form') }}">BEZPŁATNA WYCENA</a></li>
+            {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
+            {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
+        </ul>
+    </nav>
+
+    <div class="burger">
+        <button type="button" class="tcon tcon-menu--xbutterfly" aria-label="toggle menu">
+            <span class="tcon-menu__lines" aria-hidden="true"></span>
+            <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
+
+        <div class="traggle">
+            <ul>
+                <li class="scroll"><a href="{{ path('portfolio_main') }}#home">HOME</a></li>
+                <li class="scroll"><a href="{{ path('portfolio_main') }}#kim">KIM JESTEM?</a></li>
+                <li class="scroll tech"><a href="{{ path('portfolio_main') }}#technologie">TECHNOLOGIE</a></li>
+                <li class="special scroll active"><a href="">PROJEKTY</a></li>
+                <li class="scroll"><a href="{{ path('portfolio_main') }}#kontakt">KONTAKT</a></li>
+                <li><a class="active" href="{{ path('portfolio_free_form') }}">BEZPŁATNA WYCENA</a></li>
+                {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
+                {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
+            </ul>
+        </div>
+    </div>
+
+</header>
+
+
+<section id="projekty">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>{{ title|raw }}</h1>
+
+                {% if category_search  is defined  %}
+                    <div class="dropdown">
+                        {% if all_projects is defined  %}
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{ all_projects }}
+                        {% elseif current_category is defined  %}
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{ current_category.name }}
+                        {% endif %}
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('portfolio_projects') }}">WSZYSTKIE</a></li>
+                            {% for category in all_category %}
+                                <li><a href="{{ path('portfolio_projects_categories', {'slug': category.slug}) }}">{{ category.name|upper }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                {% endif %}
+            </div>
+
+            {% for project in projects %}
+
+                <div class="row">
+                    <div class="col-md-6 computer  {{ cycle(["col-md-push-6", ""], loop.index) }}">
+                        {#{% image 'bundles/portfolio/img/pidsthailand.jpg' %}#}
+                        {#<img class="img-responsive" src="{{ asset_url }}" alt="{{ project.title }}"/>#}
+                        {#{% endimage %}#}
+                        <img class="img-responsive" src="{{ asset('uploads/' ~ project.thumbnail)}}" alt="{{ project.title }}"/>
+                    </div>
+
+                    <div class="col-md-6 project_desc {{ cycle(["col-md-pull-6", ""], loop.index)}}">
+                        <h3>{{ project.title }}</h3>
+
+                        <p>{{ project.content }}</p>
+                        <ul>
+                            {% for tag in project.tags %}
+                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <a class="button" href="{{ project.link }}" target="_blank"> Zobacz projekt </a>
+                    </div>
+                </div>
+
+                {% if loop.last == false %}
+                    <div class="separator">
+                        <div class="mask"></div>
+                    </div>
+                {% endif %}
+
+
+            {% endfor %}
+
+            {% if tag_cloud is defined  %}
+                <div class="separator">
+                    <div class="mask"></div>
+                </div>
+
+                <div class="col-md-12 project_desc ">
+                    <div id="tagCloud">
+                        <h3>Chmura tagów</h3>
+                        <ul>
+                            {% for tag in tag_cloud %}
+                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+
+            {{ knp_pagination_render(projects, 'PortfolioBundle:Pagination:pagination.html.twig') }}
+
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% javascripts
+        'bundles/portfolio/js/jquery-2.1.3.min.js'
+        'bundles/portfolio/js/bootstrap.min.js'
+        'bundles/portfolio/js/jquery.scrollTo-1.4.3.1-min.js'
+        'bundles/portfolio/js/pace.min.js'
+        'bundles/portfolio/js/transformico.js'
+        'bundles/portfolio/js/main_script.js'
+        output ='assets/js/compiled-projects.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+

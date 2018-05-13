@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: portfolio
+    database_user: root
+    database_password: bosman93
+    mailer_transport: gmail
+    mailer_host: null
+    mailer_user: robert.saternus@gmail.com
+    mailer_password: bosman93
+    secret: 9eff58892lc735ac8e1ckalb9c91f61c7785382c
+    locale: pl
+    admin.pagination_limit: 10
+    portfolio.pagination_limit: 8
+    upload_directory: 'uploads'

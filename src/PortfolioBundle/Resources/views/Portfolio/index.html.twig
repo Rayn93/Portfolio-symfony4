@@ -1,0 +1,281 @@
+{% extends "PortfolioBundle::base.html.twig" %}
+
+{% block pageTitle %}Robert Saternus - portfolio webdevelopera{% endblock %}
+
+{% block pageDesc %}"Portfolio freelancera - webdevelopera. Tworzenie stron internetowych, wizytówek, portfolia, sklepy internetowe, blogi, aplikacje. Potrzebujesz stworzyć wyjątkową stronę, serwis lub sklep internetowy. Zajrzyj tutaj!"{% endblock %}
+
+{% block stylesheets %}
+
+
+    <script src="{{ asset('bundles/portfolio/assets/sliderparallax/js/modernizr.custom.28468.js') }}"></script>
+
+    {% stylesheets
+        'bundles/portfolio/css/mainpage.css'
+        'bundles/portfolio/assets/sliderparallax/css/parallax-slider.css'
+        filter = 'cssrewrite'
+        output ='assets/css/compiled-main.css'
+    %}
+     <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+{% endblock %}
+
+
+{% block pageBody %}
+<body class="home">
+
+<div class="cover"></div>
+
+    <header id="home">
+        <nav class="navigation">
+            <ul>
+                <li class="scroll"><a href="#home">HOME</a></li>
+                <li class="scroll"><a href="#kim">KIM JESTEM?</a></li>
+                <li class="scroll"><a href="#technologie">TECHNOLOGIE</a></li>
+                <li class="special scroll"><a href="#projekty">PROJEKTY</a></li>
+                <li class="scroll"><a href="#kontakt">KONTAKT</a></li>
+                <li><a href="{{ path('portfolio_free_form') }}">BEZPŁATNA WYCENA</a></li>
+                {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
+                {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
+            </ul>
+        </nav>
+
+        <div class="burger">
+            <button type="button" class="tcon tcon-menu--xbutterfly" aria-label="toggle menu">
+                <span class="tcon-menu__lines" aria-hidden="true"></span>
+                <span class="tcon-visuallyhidden">toggle menu</span>
+            </button>
+
+            <div class="traggle">
+                <ul>
+                    <li class="scroll"><a href="#home">HOME</a></li>
+                    <li class="scroll"><a href="#kim">KIM JESTEM?</a></li>
+                    <li class="scroll tech"><a href="#technologie">TECHNOLOGIE</a></li>
+                    <li class="special scroll"><a href="#projekty">PROJEKTY</a></li>
+                    <li class="scroll"><a href="#kontakt">KONTAKT</a></li>
+                    <li><a href="{{ path('portfolio_free_form') }}">BEZPŁATNA WYCENA</a></li>
+                    {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
+                    {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div id="imie">
+            <h1>Robert Saternus <br /><strong><span>portfolio</span> webdevelopera</strong></h1>
+            <a class="button scroll" href="#projekty"> ZOBACZ PROJEKTY  </a>
+        </div>
+
+    </header>
+
+
+    <section id="kim">
+        <div class="container">
+            <div class="row">
+                <div class="omnie col-md-6 col-xs-12">
+                    <h2>Kila słów <span>o mnie</span></h2>
+                    <p>Student geofizyki, <span>webdeveloper z pasji</span>. Na co dzień freelancer, który tworzy strony i serwisy internetowe, co sprawia mu ogromną radość. Głównie tworzy kod w technologiach <span>front-end-owych</span> ale w głębi duszy jest ogromnym fanem języka <span>PHP</span>. Od czasu do czasu zajmuje się również prostą grafiką</p> <p>W wolnych chwilach podróżuje po świecie, biega w maratonach i uwielbia wszystko co zwiększa poziom adrenaliny.</p>
+
+                    <a class="button" href="https://www.freelancer.com/u/robertsaternus.html#resume" target="_blank">OPINIE</a>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    {% image 'bundles/portfolio/img/o-mnie.JPG' %}
+                        <img src="{{ asset_url }}" alt="Robert Saternus" />
+                    {% endimage %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technologie">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="parallax col-xs-12">
+                    <h2><span>Technologie</span>, z którymi pracuję</h2>
+                </div>
+
+                <div id="da-slider" class="da-slider">
+                    <div class="col-md-6 col-xs-12 da-slide">
+                        <h2>Front-end</h2>
+                        <p>Swoje projekty koduję w zastosowaniu o najnowsze technologie, takie jak <span>HTML5, CSS3 czy JavaScript</span>. Dzięki czemu strony, które tworzę są zgodne z najnowszymi wytycznymi światowych organizacji oraz są przyjazne dla wyszukiwarek.</p>
+                        <div class="da-img button">
+                            {% image 'bundles/portfolio/img/html5-css-javascript.png' %}
+                                 <img class="img-responsive" src="{{ asset_url }}" alt="html5 css3 javascript" />
+                            {% endimage %}
+                        </div>
+                    </div>
+                    <div class="da-slide">
+                        <h2>Back-end</h2>
+                        <p>Język <span>PHP</span> to technologia, którą fascynuję się najbardziej. Umożliwia mi tworzenie niezwykłych rzeczy w wirtualnym świecie a wykorzystanie frameworka <span> Symfony</span> umożliwia mi zadowolenie nawet najbardziej "niecierpliwych" klientów </p>
+                        <div class="da-img button">
+                            {% image 'bundles/portfolio/img/php.png' %}
+                                <img class="img-responsive" src="{{ asset_url }}" alt="PHP" />
+                            {% endimage %}
+                        </div>
+                    </div>
+                    <div class="da-slide">
+                        <h2>Systemy CMS</h2>
+                        <p>Specjalizuję się w systemie <span>Wordpress</span> i właśnie na tą platformę najchętniej wykonuję projekty od stron wizytówek po sklepy online. Natomiast jeżeli potrzebujesz bardziej złożonego sklepu internetowego, chętnie wykonam go na platformie <span>Prestashop</span>. Wszystko to pozwoli Ci na bardzo łatwe aktualizacje zawartości stworzonego serwisu, bez znajomości programowania</p>
+                        <div class="da-img">
+                            {% image 'bundles/portfolio/img/wordpress.png' %}
+                                <img class="img-responsive" src="{{ asset_url }}" alt="CSM" />
+                            {% endimage %}
+                        </div>
+                    </div>
+                    <div class="da-slide">
+                        <h2>Grafika</h2>
+                        <p>Choć nie uważam się za grafika, to również zdarza mi się tworzenie szblonów jak i graficznych elementów na strony komercyjne. W tym celu wykorzystuję takie programy jak <span>Photoshop i Ilustrator</span></p>
+                        <div class="da-img">
+                            {% image 'bundles/portfolio/img/photo_ilu.png' %}
+                                <img class="img-responsive" src="{{ asset_url }}" alt="photoshop&ilustrator" />
+                            {% endimage %}
+                        </div>
+                    </div>
+                    <nav class="da-arrows">
+                        <span class="da-arrows-prev"></span>
+                        <span class="da-arrows-next"></span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projekty">
+        <div class="container">
+            <div class="row">
+                <div class="parallax col-xs-12">
+                    <h2>Moje najnowsze <span>projekty</span></h2>
+                </div>
+
+                {% for project in projects %}
+
+                <div class="row row{{ loop.index }}">
+                    <div class="col-md-6 computer {{  cycle(["parallax_right", "parallax_left"], loop.index) }} {{ cycle(["col-md-push-6", ""], loop.index) }}">
+                        {#{% image 'bundles/portfolio/img/pidsthailand.jpg' %}#}
+                        {#<img class="img-responsive" src="{{ asset_url }}" alt="{{ project.title }}"/>#}
+                        {#{% endimage %}#}
+                        <img class="img-responsive" src="{{ asset('uploads/' ~ project.thumbnail)}}" alt="{{ project.title }}"/>
+                    </div>
+
+                    <div class="col-md-6 project_desc {{ cycle(["col-md-pull-6", ""], loop.index)}}">
+                        <h3>{{ project.title }}</h3>
+
+                        <p>{{ project.content }}</p>
+                        <ul>
+                            {% for tag in project.tags %}
+                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <a class="button" href="{{ project.link }}" target="_blank"> Zobacz projekt </a>
+                    </div>
+                </div>
+
+                {% if loop.last == false %}
+                    <div class="separator">
+                        <div class="mask"></div>
+                    </div>
+                {% endif %}
+
+                {% endfor %}
+
+
+                <a class="button bigger" href="{{ path('portfolio_projects') }}">Zobacz więcej moich realizacji</a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="wspolpraca">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-5 hidden-xs"></div>
+                <div class="col-lg-4 col-md-6 col-sm-7 col-xs-12">
+                    <h2>Zapraszam do współpracy</h2>
+                    <p>Jako wolny strzelec, nie muszący opłacać biura czy pracowników, oferuję bardzo konkurencyjne ceny. Specjalizuję się w <span> systemie Wodpress (tworzenie szablonów, pluginów) oraz framework-u Symfony.</span> Wykonuję praktycznie każdy rodzaj stron:<span> wizytówki firm, sklepy internetowe, blogi, portfolia</span> oraz <span>aplikacje webowe.</span> </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <div class="container">
+
+            {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="feedback_good">
+                {{ flashMessage }}
+            </div>
+            {% endfor %}
+
+            {% for flashMessage in app.session.flashbag.get('fail') %}
+                <div class="feedback_bad">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <h2>KONTAKT</h2>
+                    <p><span>email:</span> robert.saternus<span>@</span>gmail.com</p>
+                    <p><span>tel:</span> (+48) 791-680-323</p>
+                    <p><span>skype:</span> roberto93123</p>
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+
+                    <form class="form-horizontal" method="post" action="{{ path('portfolio_main') }}" novalidate>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{ form_widget(contactForm.name, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_widget(contactForm.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{ form_widget(contactForm.message, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{ form_widget(contactForm.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                            </div>
+                        </div>
+                        {{ form_rest(contactForm) }}
+                        <input type="hidden" name="checker" value="1" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    <script>
+        var slide1 = "{{ asset('bundles/portfolio/img/slide1.jpg') }}";
+        var slide2 = "{{ asset('bundles/portfolio/img/slide2.jpg') }}";
+        var slide3 = "{{ asset('bundles/portfolio/img/slide3.jpg') }}";
+        var slide4 = "{{ asset('bundles/portfolio/img/slide4.jpg') }}";
+        var slide5 = "{{ asset('bundles/portfolio/img/slide5.jpg') }}";
+    </script>
+
+    {% javascripts
+        'bundles/portfolio/js/jquery-2.1.3.min.js'
+        'bundles/portfolio/js/bootstrap.min.js'
+        'bundles/portfolio/js/pace.min.js'
+        'bundles/portfolio/assets/sliderparallax/js/jquery.cslider.js'
+        'bundles/portfolio/js/jquery.scrollTo-1.4.3.1-min.js'
+        'bundles/portfolio/js/transformico.js'
+        'bundles/portfolio/js/jquery.bgswitcher.js'
+        'bundles/portfolio/js/main_script.js'
+        output ='assets/js/compiled-main.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+
