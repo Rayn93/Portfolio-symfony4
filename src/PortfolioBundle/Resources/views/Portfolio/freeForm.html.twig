@@ -9,7 +9,9 @@
 {% block stylesheets %}
 
     {% stylesheets
+        'bundles/portfolio/css/font-awesome.min.css'
         'bundles/portfolio/css/mainpage.css'
+        'bundles/portfolio/css/media-queries.css'
         filter = 'cssrewrite'
         output ='assets/css/compiled-projects.css'
     %}
@@ -25,35 +27,19 @@
 <div class="cover"></div>
 
 <header id="projects_menu">
-    <nav class="navigation">
-        <ul>
-            <li class="scroll"><a href="{{ path('portfolio_main') }}#home">HOME</a></li>
-            <li class="scroll"><a href="{{ path('portfolio_main') }}#kim">KIM JESTEM?</a></li>
-            <li class="scroll"><a href="{{ path('portfolio_main') }}#technologie">TECHNOLOGIE</a></li>
-            <li class="special scroll"><a  href="{{ path('portfolio_main') }}#projekty">PROJEKTY</a></li>
-            <li class="scroll"><a href="{{ path('portfolio_main') }}#kontakt">KONTAKT</a></li>
-            <li><a class="active" href="{{ path('portfolio_free_form') }}">BEZPŁATNA WYCENA</a></li>
 
-        </ul>
-    </nav>
+    {% include "PortfolioBundle::sticky-header.html.twig" %}
 
-    <div class="burger">
-        <button type="button" class="tcon tcon-menu--xbutterfly" aria-label="toggle menu">
-            <span class="tcon-menu__lines" aria-hidden="true"></span>
-            <span class="tcon-visuallyhidden">toggle menu</span>
-        </button>
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="static-top">
+                {% image 'bundles/portfolio/img/slide4.jpg' %}
+                    <img class="img-background" src="{{ asset_url }}" alt="object_bq" />
+                {% endimage %}
 
-        <div class="traggle">
-            <ul>
-                <li class="scroll"><a href="{{ path('portfolio_main') }}#home">HOME</a></li>
-                <li class="scroll"><a href="{{ path('portfolio_main') }}#kim">KIM JESTEM?</a></li>
-                <li class="scroll tech"><a href="{{ path('portfolio_main') }}#technologie">TECHNOLOGIE</a></li>
-                <li class="special scroll active"><a href="">PROJEKTY</a></li>
-                <li class="scroll"><a href="{{ path('portfolio_main') }}#kontakt">KONTAKT</a></li>
-                <li><a class="active" href="{{ path('portfolio_free_form') }}">BEZPŁATNA WYCENA</a></li>
-                {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
-                {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
-            </ul>
+                <h1>Formularz bezpłatnej wyceny</h1>
+
+            </div>
         </div>
     </div>
 
@@ -64,7 +50,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>Formularz bezpłatnej wyceny</h1>
+
                 <p class="lead">Potrzebujesz stworzyć stronę internetową? Myślisz o otwarciu sklepu w sieci? A może chcesz zmienić wygląd Twojego bloga? We wszystkich tych sprawach (i nie tylko) mogę Tobie pomóc. Przygotowałem dla Ciebie <span class="highlight"> darmową wycenę ze wstępnym szkicem Twojego nowego projektu</span>. Wystarczy, że wypełnisz poniższy formularz a ja do 3 dni roboczych prześlę na Twojego maila, <span class="highlight">moją propozycję dla Ciebie</span>. W ten sposób nic nie ryzykujesz.</p>
 
                 {% for flashMessage in app.session.flashbag.get('success') %}
@@ -93,10 +79,9 @@
 
     {% javascripts
         'bundles/portfolio/js/jquery-2.1.3.min.js'
+        'bundles/portfolio/js/jquery-ui.min.js'
         'bundles/portfolio/js/bootstrap.min.js'
-        'bundles/portfolio/js/jquery.scrollTo-1.4.3.1-min.js'
         'bundles/portfolio/js/pace.min.js'
-        'bundles/portfolio/js/transformico.js'
         'bundles/portfolio/js/main_script.js'
         output ='assets/js/compiled-projects.js'
     %}
