@@ -61,7 +61,8 @@ class PortfolioController extends Controller
 
         return array(
             'projects' => $projects,
-            'contactForm' => $contactForm->createView()
+            'contactForm' => $contactForm->createView(),
+            'current_page' => 'home'
         );
     }
 
@@ -99,7 +100,8 @@ class PortfolioController extends Controller
             'title' => 'Projekty i realizacje',
             'all_projects' => 'WSZYSTKIE',
             'category_search' => true,
-            'all_category' => $AllCategory
+            'all_category' => $AllCategory,
+            'current_page' => 'projects'
         );
     }
 
@@ -137,7 +139,8 @@ class PortfolioController extends Controller
         return array(
             'projects' => $pagination,
             'tag_cloud' => $TagsCloud,
-            'title' => sprintf("Projekty z tagiem: <span class=\"highlight\">%s</span>", $Tag->getName())
+            'title' => sprintf("Projekty z tagiem: <span class=\"highlight\">%s</span>", $Tag->getName()),
+            'current_page' => 'projects'
         );
     }
 
@@ -177,9 +180,26 @@ class PortfolioController extends Controller
             'title' => sprintf("Projekty z kategorii: <span class=\"highlight\">%s</span>", $CurrentCategory->getName()),
             'current_category' => $CurrentCategory,
             'category_search' => true,
-            'all_category' => $AllCategory
+            'all_category' => $AllCategory,
+            'current_page' => 'projects'
         );
     }
+
+    /**
+     * @Route(
+     *      "/cv",
+     *       name="portfolio_cv",
+     * )
+     * @Template("PortfolioBundle:Portfolio:cv.html.twig")
+     */
+    public function cvAction()
+    {
+        return array(
+            'current_page' => 'cv'
+        );
+    }
+
+
 
     /**
      * @Route(
@@ -244,9 +264,13 @@ class PortfolioController extends Controller
         }
 
         return array(
-            'freeForm' => $freeForm->createView()
+            'freeForm' => $freeForm->createView(),
+            'current_page' => 'freeForm'
         );
     }
+
+
+
 
 //######################################################################################################
 

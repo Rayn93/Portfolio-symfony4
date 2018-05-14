@@ -14,20 +14,20 @@
 
         <nav>
             <ul>
-                <li class="active"><a href="{{ path('portfolio_main') }}#home"><i class="fa fa-home" aria-hidden="true"></i>HOME</a></li>
-                <li><a href="{{ path('portfolio_free_form') }}"><i class="fa fa-user" aria-hidden="true"></i>KIM JESTEM?</a></li>
-                <li><a href="{{ path('portfolio_projects') }}"><i class="fa fa-rocket" aria-hidden="true"></i>PROJEKTY</a></li>
-                <li><a href="{{ path('portfolio_free_form') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i>BLOG</a></li>
+                <li class={{ current_page == "home" ? "active" : "" }}><a href="{{ path('portfolio_main') }}#home"><i class="fa fa-home" aria-hidden="true"></i>HOME</a></li>
+                <li class={{ current_page == "cv" ? "active" : "" }} ><a href="{{ path('portfolio_cv') }}"><i class="fa fa-user" aria-hidden="true"></i>KIM JESTEM?</a></li>
+                <li class={{ current_page == "projects" ? "active" : "" }}><a href="{{ path('portfolio_projects') }}"><i class="fa fa-rocket" aria-hidden="true"></i>PROJEKTY</a></li>
+                <li class={{ current_page == "blog" ? "active" : "" }}><a href="{{ path('portfolio_free_form') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i>BLOG</a></li>
                 <li><a href="{{ path('portfolio_main') }}#kontakt"><i class="fa fa-envelope" aria-hidden="true"></i>KONTAKT</a></li>
-                <li><a href="{{ path('portfolio_free_form') }}"><i class="fa fa-cube" aria-hidden="true"></i>BEZPŁ. WYCENA</a></li>
+                <li class={{ current_page == "freeForm" ? "active" : "" }}><a href="{{ path('portfolio_free_form') }}"><i class="fa fa-cube" aria-hidden="true"></i>BEZPŁ. WYCENA</a></li>
 
             </ul>
         </nav>
 
         <ul class="social-media">
-            <li><a href="https://github.com/Rayn93"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/robert-saternus-91b931107/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.facebook.com/robert.saternus.5"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://github.com/Rayn93" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/robert-saternus-91b931107/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/robert.saternus.5" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
         </ul>
 
         <ul class="languages">

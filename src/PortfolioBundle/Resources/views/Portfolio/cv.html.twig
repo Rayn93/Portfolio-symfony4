@@ -1,0 +1,528 @@
+{% extends "PortfolioBundle::base.html.twig" %}
+
+
+{% block pageTitle %}CV | Robert Saternus{% endblock %}
+
+{% block pageDesc %}Internetowe CV Web Developera. Poznaj życiorys Roberta Saternus - freelancer, programista, geofizyk.{% endblock %}
+
+{% block stylesheets %}
+
+    {% stylesheets
+        'bundles/portfolio/css/font-awesome.min.css'
+        'bundles/portfolio/css/mainpage.css'
+        'bundles/portfolio/css/media-queries.css'
+        filter = 'cssrewrite'
+        output ='assets/css/compiled-projects.css'
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+{% endblock %}
+
+
+{% block pageBody %}
+<body id="cv">
+
+<div class="cover"></div>
+
+<header id="cv-header">
+
+    {% include "PortfolioBundle::sticky-header.html.twig" %}
+
+    <!--Top Imagine for static pages-->
+    <div class="container-fluid nopadding">
+        <div class="row nomargin">
+            <div class="cv-top">
+                <h1>ROBERT SATERNUS</h1>
+                <h2>Web Developer</h2>
+                <a href="{{ asset('bundles/portfolio/assets/cv-saternus.pdf') }}" class="btn">POBIERZ CV</a>
+            </div>
+        </div>
+    </div>
+    <!--END Object top info-->
+
+</header>
+
+<main>
+    <section id="personal-info">
+        <div class="container personal-info">
+            <div class="row nopadding">
+                <div class="col-sm-5 hidden-xs nopadding">
+                    {% image 'bundles/portfolio/img/robert.jpg' %}
+                        <img class="img-responsive" src="{{ asset_url }}" alt="Robert Saternus" />
+                    {% endimage %}
+
+
+                </div>
+                <div class="col-sm-7 nopadding relative">
+
+                    <h2>ROBERT SATERNUS</h2>
+                    <h3>Programista PHP, Freelancer, Geofizyk</h3>
+
+                    <hr >
+
+                    <p>
+                        Od 3 lat zajmuję się komercyjnym tworzeniem stron internetowych, sklepów online oraz aplikacji webowych. Programowanie to moja pasja i sposób na życie.
+                    </p>
+
+                    <ul class="main-info">
+                        <li><strong>Wiek:</strong> 25 lat</li>
+                        <li><strong>Adres:</strong> Mysłowice, Śląsk</li>
+                        <li><strong>E-mail:</strong> robert.saternus@gmail.com</li>
+                        <li><strong>Telefon:</strong> +48 791-680-323</li>
+                        <li><strong>Portfolio:</strong> robertsaternus.pl</li>
+                    </ul>
+
+                    <ul class="social">
+                        <li><a href="https://www.facebook.com/robert.saternus.5" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/Rayn93" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/robert-saternus-91b931107/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        <li><a href="mailto:robert.saternus@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/Franky__S" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="service">
+        <div class="container service">
+            <div class="row">
+
+                <h2 class="cv-title">CO DLA CIEBIE MOGĘ ZROBIĆ?</h2>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="box">
+                        <div class="box2">
+                            <p>Bardzo dobrze znam HTML 5, CSS3, JavaScript oraz jQuery co pozwola mi na zaprojektowanie i wykonanie dowolnego projektu webowego.</p>
+                        </div>
+                        <i class="fa fa-laptop" aria-hidden="true"></i>
+                        <h3>PROGRAMOWANIE <br /> FRONT-END</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="box">
+                        <div class="box2">
+                            <p>Jako programista PHP specjalizuję się w tworzeniu logiki aplikacji, dzięki czemu oddane projekty działają szybko, stabilnie i bezpiecznie.</p>
+                        </div>
+                        <i class="fa fa-desktop" aria-hidden="true"></i>
+                        <h3>PROGRAMOWANIE <br /> BACK-END</h3>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="box">
+                        <div class="box2">
+                            <p>Specjalizuję się w tworzeniu dedykowanych aplikacji webowych w nowoczesnych frameworkach Symfony i Django. Potrzebujesz coś nieszablonowego? Wykonam to dla Ciebie.</p>
+                        </div>
+                        <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                        <h3>DEDYKOWANE <br /> APLIKACJE WEBOWE</h3>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="box">
+                        <div class="box2">
+                            <p>Specjalizuję się w systemie WordPress. Tworzenie autorskich motywów czy dedykowanych wtyczek nie jest dla mnie obce.</p>
+                        </div>
+                        <i class="fa fa-wordpress" aria-hidden="true"></i>
+                        <h3>WORDPRESS</h3>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="box">
+                        <div class="box2">
+                            <p>Potrzebujesze stworzyć sklep internetowy? Zrobię to dla Ciebie w takim systemie jak PrestaShop czy WooCommerce</p>
+                        </div>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <h3>ROZWIĄZANIA E-COMMERCE</h3>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="box">
+                        <div class="box2">
+                            <p>Swoich klientów wspieram w zaistnieniu w internecie. Jeżeli nie masz swojego serwera, nic się nie martw. Dostarczam również usług hostingowych.</p>
+                        </div>
+                        <i class="fa fa-server" aria-hidden="true"></i>
+                        <h3>WEB HOSTING</h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skill">
+
+        <h2 class="cv-title">MOJE UMIEJĘTNOŚCI</h2>
+
+        <div class="container skill">
+            <div class="row">
+
+
+
+                <div class="col-md-6">
+
+                    <div class="line">
+                        <h6 class="tech">HTML 5</h6>
+                        <h6 class="level">Bardzo dobrze</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">CSS 3</h6>
+                        <h6 class="level">Bardzo dobrze</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">JavaSccript</h6>
+                        <h6 class="level">Średnio</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">jQuery</h6>
+                        <h6 class="level">Dobrze</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">Bootstrap 3</h6>
+                        <h6 class="level">Świetnie</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">WordPress</h6>
+                        <h6 class="level">Bardzo dobrze</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="line">
+                        <h6 class="tech">PHP 7</h6>
+                        <h6 class="level">Bardzo dobrze</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">mySQL</h6>
+                        <h6 class="level">Dobrze</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">Symfony 3</h6>
+                        <h6 class="level">Dobrze</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">Python 3</h6>
+                        <h6 class="level">Średnio</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">Django 2</h6>
+                        <h6 class="level">Średnio</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <h6 class="tech">PrestaShop</h6>
+                        <h6 class="level">Dobrze</h6>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+
+        <h2 class="cv-title">EDUKACJA I CERTYFIKATY</h2>
+
+        <div class="container">
+            <div class="row">
+
+                <ul class="timeline">
+
+
+                    <li class="left">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">Uniwersytet Śląski</p>
+                            <p class="title">Studia licencjackie - Geofizyka</p>
+                            <p class="time">2012 - 2015</p>
+                            {#<a class="cert btn" href="#">Dyplom</a>#}
+                        </div>
+                    </li>
+
+                    <li class="right mt60">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">Technical University of Ostrava (Czechy)</p>
+                            <p class="title">Międzynarodowa wymiana studencka Erasmus + </p>
+                            <p class="time">2014 - 2015</p>
+                            <!--<a class="cert btn" href="#">Certyfikat</a>-->
+                        </div>
+                    </li>
+
+                    <li class="left">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">edx.org</p>
+                            <p class="title">Kurs - Bootstrap</p>
+                            <p class="time">2015</p>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/bootstrap-edx.pdf') }}">Certyfikat</a>
+                        </div>
+                    </li>
+
+                    <li class="right">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">edx.org</p>
+                            <p class="title">Kurs - HTML 5</p>
+                            <p class="time">2015</p>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/HTML5-edx.pdf') }}">Certyfikat</a>
+                        </div>
+                    </li>
+
+                    <li class="left">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">edx.org</p>
+                            <p class="title">Kurs - jQuery</p>
+                            <p class="time">2016</p>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/jQuery-edx.pdf') }}">Certyfikat</a>
+                        </div>
+                    </li>
+
+                    <li class="right ">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">Akademia Górniczo - Hutnicza</p>
+                            <p class="title">Studia podyplomowe - Programowanie Aplikacji Webowych</p>
+                            <p class="time">2016 - 2017</p>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/dyplom-agh.jpg') }}">Dyplom</a>
+                        </div>
+                    </li>
+
+                    <li class="left">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">University of Patras (Grecja)</p>
+                            <p class="title">Międzynarodowa wymiana studencka Erasmus  +</p>
+                            <p class="time">2017</p>
+                            <!--<a class="cert btn" href="#">Certyfikat</a>-->
+                        </div>
+                    </li>
+
+                    <li class="right">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">University of Ljubljana (Słowenia)</p>
+                            <p class="title">Międzynarodowa wymiana studencka Erasmus  +</p>
+                            <p class="time">2018</p>
+                            <!--<a class="cert btn" href="#">Certyfikat</a>-->
+                        </div>
+                    </li>
+
+                    <li class="left">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">Uniwersytet Śląski</p>
+                            <p class="title">Studia magisterskie - Geofizyka</p>
+                            <p class="time">2016 - 2018</p>
+                            {#<a class="cert btn" href="#">Dyplom</a>#}
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="experience">
+
+        <h2 class="cv-title">DOŚWIADCZENIE ZAWODOWE</h2>
+
+        <div class="container">
+            <div class="row">
+
+                <ul class="timeline">
+
+
+                    <li class="left">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">Państwowa Akademia Nauk</p>
+                            <p class="title">3 miesięczny staż</p>
+                            <p class="time">2015</p>
+                            {#<a class="cert btn" href="#">Rekomendacja</a>#}
+                        </div>
+                    </li>
+
+                    <li class="right mt60">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">Travel Asia Blue</p>
+                            <p class="title">Junior Full Stack Web Developer</p>
+                            <p class="time">2016</p>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/recommedation-letter-asia-blue.pdf') }}">Rekomendacja</a>
+                        </div>
+                    </li>
+
+                    <li class="left">
+                        <div class="timeline-badge">
+                            <i class="fa fa-circle"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <p class="university">Samozatrudniony</p>
+                            <p class="title">Full Stack Web Developer - freelancer</p>
+                            <p class="time">2015 - Obecnie</p>
+                            <!--<a class="cert btn" href="#">Certyfikat</a>-->
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="separator">
+        <div class="mask"></div>
+    </div>
+
+    <section id="additional">
+
+        <div class="row">
+            <div class="container">
+
+                <div class="col-md-6">
+
+                    <div class="box">
+                        <h2 class="title">DODATKOWE UMIEJĘTNOŚCI</h2>
+                        <ul>
+                            <li><i class="fa fa-language"></i>Języka Angielski - poziom C1</li>
+                            <li><i class="fa fa-american-sign-language-interpreting"></i>Języka Hiszpański - poziom A1/A2</li>
+                            <li><i class="fa fa-car"></i>Prawojazdy - kat B</li>
+                            <li><i class="fa fa-laptop"></i>Photoshop - mocne podstawy</li>
+                            <li><i class="fa fa-pie-chart"></i>Matlab - znajomość podstawowa</li>
+                            <li><i class="fa fa-briefcase"></i>MS Office - znajomość dobra</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="box">
+
+                        <h2 class="title">PASJE I ZAINTERESOWANIA</h2>
+
+                        <ul>
+                            <li><i class="fa fa-rocket"></i>Nowe technologie</li>
+                            <li><i class="fa fa-graduation-cap"></i>Rozwój osobisty</li>
+                            <li><i class="fa fa-fighter-jet"></i>Sporty ekstremalne</li>
+                            <li><i class="fa fa-bicycle"></i>Triathlon</li>
+                            <li><i class="fa fa-globe"></i>Podróże</li>
+                            <li><i class="fa fa-tree"></i>Góry i natura</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% javascripts
+        'bundles/portfolio/js/jquery-2.1.3.min.js'
+        'bundles/portfolio/js/jquery-ui.min.js'
+        'bundles/portfolio/js/bootstrap.min.js'
+        'bundles/portfolio/js/pace.min.js'
+        'bundles/portfolio/js/main_script.js'
+        output ='assets/js/compiled-projects.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+

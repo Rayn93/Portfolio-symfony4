@@ -74,7 +74,11 @@ input.btn-primary:focus {
 a.button:hover,
 input.btn-primary:hover,
 #free_form_save:hover,
-button.btn-primary:hover{
+button.btn-primary:hover,
+a.button:focus,
+input.btn-primary:focus,
+#free_form_save:focus,
+button.btn-primary:focus{
     background: #0BC687;
     border: 2px solid #0BC687;
     color: #fff;
@@ -984,6 +988,7 @@ footer {
     padding: 10px 15px;
     font-size: 22px;
     font-weight: bold;
+    color: #fff;
 }
 
 .open > .dropdown-toggle.btn-primary {
