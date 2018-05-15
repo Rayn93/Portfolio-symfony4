@@ -1,7 +1,7 @@
 {% extends 'AdminBundle::base.html.twig' %}
 {% form_theme form 'AdminBundle:Form:form_template.html.twig' %}
 
-{% set pageTitle = testimonial.id == null ? 'Dodaj nową opinie' : 'Edytuj opinie od %s'|format(testimonial.author) %}
+{% set pageTitle = technology.id == null ? 'Dodaj nową technologie' : 'Edytuj technologie %s'|format(technology.title) %}
 
 {% block pageTitle %} {{ pageTitle }} {% endblock %}
 
@@ -16,12 +16,8 @@
                         {{ pageTitle }}
                     </div>
                     <div class="panel-body">
-                        {{ form_row(form.author) }}
-                        {{ form_row(form.company) }}
-                        {{ form_row(form.role) }}
-                        {{ form_row(form.link) }}
+                        {{ form_row(form.title) }}
                         {{ form_row(form.content) }}
-                        {{ form_row(form.contentShort) }}
                     </div>
                 </div>
             </div> <!-- .col-md-8 -->
@@ -45,14 +41,14 @@
                                 Avatar
                             </div>
                             <div class="panel-body">
-                                {% if testimonial.avatar is null %}
+                                {% if technology.thumbnail is null %}
                                     <p>Brak miniaturki</p>
                                 {% else %}
-                                    <p><img src="{{ vich_uploader_asset(testimonial, 'avatarFile') }}" alt="" class="img-thumbnail"></p>
+                                    <p><img src="{{ vich_uploader_asset(technology, 'thumbnailFile') }}" alt="" class="img-thumbnail"></p>
                                 {% endif %}
 
-                                {{ form_widget(form.avatarFile) }}
-                                {{ form_errors(form.avatarFile) }}
+                                {{ form_widget(form.thumbnailFile) }}
+                                {{ form_errors(form.thumbnailFile) }}
                             </div>
                         </div>
                     </div> <!-- .col-md-12 -->
@@ -79,5 +75,6 @@
     {{ form_rest(form) }}
     {{ form_end(form) }}
     </div> <!-- .container -->
+
 
 {% endblock %}

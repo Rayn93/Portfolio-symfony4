@@ -74,42 +74,12 @@
                             <h2>{{ technology.title }}</h2>
                             <p>{{ technology.content|raw }}</p>
                             <div class="da-img button">
-                                {% image 'bundles/portfolio/img/html5-css-javascript.png' %}
-                                     <img class="img-responsive" src="{{ asset_url }}" alt="html5 css3 javascript" />
-                                {% endimage %}
-                                {#<img class="img-responsive" src="{{ asset('uploads/testimonial-authors' ~ technology.thumbnail )}}" alt="{{ technology.title }}"/>#}
+                                <img class="img-responsive" src="{{ asset('uploads/technology/' ~ technology.thumbnail )}}" alt="{{ technology.title }}"/>
                             </div>
                         </div>
 
                     {% endfor %}
 
-                    {#<div class="da-slide">#}
-                        {#<h2>Back-end</h2>#}
-                        {#<p>Język <span>PHP</span> to technologia, którą fascynuję się najbardziej. Umożliwia mi tworzenie niezwykłych rzeczy w wirtualnym świecie a wykorzystanie frameworka <span> Symfony</span> umożliwia mi zadowolenie nawet najbardziej "niecierpliwych" klientów. </p>#}
-                        {#<div class="da-img button">#}
-                            {#{% image 'bundles/portfolio/img/php.png' %}#}
-                                {#<img class="img-responsive" src="{{ asset_url }}" alt="PHP" />#}
-                            {#{% endimage %}#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="da-slide">#}
-                        {#<h2>Systemy CMS</h2>#}
-                        {#<p>Specjalizuję się w systemie <span>Wordpress</span> na którym wykonuję projekty od stron wizytówek aż po sklepy online. Bardziej profesjonalne sklepy wykonuję go na platformie <span>Prestashop</span>. Wszystko to pozwoli Ci na łatwe zarządzanie treści stworzonego serwisu, bez znajomości programowania.</p>#}
-                        {#<div class="da-img">#}
-                            {#{% image 'bundles/portfolio/img/wordpress.png' %}#}
-                                {#<img class="img-responsive" src="{{ asset_url }}" alt="CSM" />#}
-                            {#{% endimage %}#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="da-slide">#}
-                        {#<h2>Grafika</h2>#}
-                        {#<p>Choć nie uważam się za grafika, to również zdarza mi się tworzenie szblonów jak i graficznych elementów na strony komercyjne. W tym celu wykorzystuję takie programy jak <span>Photoshop i Ilustrator.</span></p>#}
-                        {#<div class="da-img">#}
-                            {#{% image 'bundles/portfolio/img/photo_ilu.png' %}#}
-                                {#<img class="img-responsive" src="{{ asset_url }}" alt="photoshop&ilustrator" />#}
-                            {#{% endimage %}#}
-                        {#</div>#}
-                    {#</div>#}
                     <nav class="da-arrows">
                         <span class="da-arrows-prev"></span>
                         <span class="da-arrows-next"></span>
