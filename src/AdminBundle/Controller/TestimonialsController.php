@@ -31,7 +31,8 @@ class TestimonialsController extends Controller
         $pagination = $paginator->paginate($AllTestimonials, $page, $paginationLimit);
 
         return array(
-            'allTestimonials' => $pagination
+            'allTestimonials' => $pagination,
+            'current_page' => 'testimonial'
         );
     }
 
@@ -70,7 +71,8 @@ class TestimonialsController extends Controller
 
         return array(
             'form' => $form->createView(),
-            'testimonial' => $Testimonial
+            'testimonial' => $Testimonial,
+            'current_page' => 'testimonial'
         );
     }
 

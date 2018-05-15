@@ -51,7 +51,8 @@ class ProjectsController extends Controller
             'queryParams' => $queryParams,
 
             'paginationLimit' => $limit,
-            'limits' => $limits
+            'limits' => $limits,
+            'current_page' => 'project'
         );
     }
 
@@ -92,93 +93,10 @@ class ProjectsController extends Controller
 
         return array(
             'form' => $form->createView(),
-            'project' => $Project
+            'project' => $Project,
+            'current_page' => 'project'
         );
     }
-
-
-//    /**
-//     * @Route(
-//     *      "/dodaj-projekt",
-//     *      name="addProject",
-//     * )
-//     * @Template("AdminBundle:Projects:addProject.html.twig")
-//     */
-//    public function addProjectAction(Request $request)
-//    {
-//        $Project = new Project();
-//        $form = $this->createForm(ProjectType::class, $Project);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//
-//            $file = $Project->getThumbnail();
-//            $fileName = $this->get('app.thumbnail_uploader')->upload($file);
-//            $Project->setThumbnail($fileName);
-//
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($Project);
-//            $em->flush();
-//
-//            $message = 'Poprawnie dodałeś nowy projekt do bazy';
-//            $this->get('session')->getFlashBag()->add('success', $message);
-//
-//            return $this->redirect($this->generateUrl('editProject', array('id' => $Project->getId())));
-//        }
-//
-//        return array(
-//            'form' => $form->createView(),
-//            'project' => $Project
-//        );
-//    }
-//
-//
-//    /**
-//     * @Route(
-//     *      "/edytuj-projekt/{id}",
-//     *      name="editProject",
-//     *      requirements={"id"="\d+"},
-//     *      defaults={"id"=NULL}
-//     * )
-//     * @Template("AdminBundle:Projects:addProject.html.twig")
-//     */
-//    public function editProjectAction(Request $request, Project $Project)
-//    {
-////        $Project->setThumbnail(
-////            new File($this->getParameter('upload_directory').'/'.$Project->getThumbnail())
-////            new File('uploads/1f36e18b4fc68263d0d24128ef644a98.jpeg')
-////        );
-//
-////        $oldFile =$Project->getThumbnail();
-//
-//        $form = $this->createForm(ProjectType::class, $Project);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//
-////            unlink($oldFile);
-//
-////            $file = $Project->getThumbnail();
-////            $fileName = $this->get('app.thumbnail_uploader')->upload($file);
-////            $Project->setThumbnail($fileName);
-//
-//
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($Project);
-//            $em->flush();
-//
-//            $message = 'Poprawnie dokonałeś edycji projektu';
-//            $this->get('session')->getFlashBag()->add('success', $message);
-//
-//            return $this->redirect($this->generateUrl('editProject', array('id' => $Project->getId())));
-//        }
-//
-//
-//        return array(
-//            'form' => $form->createView(),
-//            'project' => $Project
-//        );
-//    }
 
 
     /**

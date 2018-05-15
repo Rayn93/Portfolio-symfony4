@@ -32,7 +32,8 @@ class TechnologyController extends Controller
         $pagination = $paginator->paginate($AllTechnology, $page, $paginationLimit);
 
         return array(
-            'allTechnology' => $pagination
+            'allTechnology' => $pagination,
+            'current_page' => 'technology'
         );
     }
 
@@ -71,7 +72,8 @@ class TechnologyController extends Controller
 
         return array(
             'form' => $form->createView(),
-            'technology' => $Technology
+            'technology' => $Technology,
+            'current_page' => 'technology'
         );
     }
 

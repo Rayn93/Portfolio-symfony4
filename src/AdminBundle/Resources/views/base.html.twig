@@ -38,20 +38,18 @@
 
     <div class="collapse navbar-collapse navbar-ex1-collapse">
 
-        {% set route = app.request.get('_route') %}
-
         <ul class="nav navbar-nav">
-            <li {% if route == 'dashboard' %} class="active"{% endif %}><a href="{{ path('dashboard') }}">Kokpit</a></li>
-            <li {% if route == 'listProject' or 'admin_projectForm' %} class="active"{% endif %}><a href="{{ path('listProject') }}">Projekty</a></li>
-            <li class="dropdown {% if route == 'listCategory' or  route == 'listTag' or route == 'addCategory' or route == 'deleteCategory' or route == 'deleteTag' or route == 'addTag' %}active{% endif %}">
+            <li class="{{ current_page == "dashboard" ? "active" : "" }}"><a href="{{ path('dashboard') }}">Kokpit</a></li>
+            <li class="{{ current_page == "project" ? "active" : "" }}"><a href="{{ path('listProject') }}">Projekty</a></li>
+            <li class="dropdown {{ current_page == "taxonomy" ? "active" : "" }}">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Taksonomie <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ path('listCategory') }}">Kategorie</a></li>
                     <li><a href="{{ path('listTag') }}">Tagi</a></li>
                 </ul>
             </li>
-            <li {% if route == 'listTestimonial' %} class="active"{% endif %}><a href="{{ path('listTestimonial') }}">Opinie klientów</a></li>
-            <li {% if route == 'listTechnology' %} class="active"{% endif %}><a href="{{ path('listTechnology') }}">Technologie</a></li>
+            <li class="{{ current_page == "testimonial" ? "active" : "" }}"><a href="{{ path('listTestimonial') }}">Opinie klientów</a></li>
+            <li class="{{ current_page == "technology" ? "active" : "" }}"><a href="{{ path('listTechnology') }}">Technologie</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

@@ -32,7 +32,8 @@ class TagsController extends Controller
         $pagination = $paginator->paginate($AllTags, $page, $paginationLimit);
 
         return array(
-            'allTag' => $pagination
+            'allTag' => $pagination,
+            'current_page' => 'taxonomy'
         );
     }
 
@@ -70,7 +71,8 @@ class TagsController extends Controller
 
         return array(
             'form' => $form->createView(),
-            'tag' => $Tag
+            'tag' => $Tag,
+            'current_page' => 'taxonomy'
         );
     }
 

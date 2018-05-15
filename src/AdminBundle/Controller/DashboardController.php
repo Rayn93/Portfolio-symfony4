@@ -17,6 +17,8 @@ class DashboardController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        return array(
+            'current_page' => 'dashboard'
+        );
     }
 }

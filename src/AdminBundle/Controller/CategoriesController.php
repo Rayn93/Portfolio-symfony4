@@ -34,7 +34,8 @@ class CategoriesController extends Controller
         $pagination = $paginator->paginate($AllCategory, $page, $paginationLimit);
 
         return array(
-            'allCategory' => $pagination
+            'allCategory' => $pagination,
+            'current_page' => 'taxonomy'
         );
     }
 
@@ -71,8 +72,8 @@ class CategoriesController extends Controller
 
         return array(
             'form' => $form->createView(),
-            'category' => $Category
-
+            'category' => $Category,
+            'current_page' => 'taxonomy'
         );
     }
 
