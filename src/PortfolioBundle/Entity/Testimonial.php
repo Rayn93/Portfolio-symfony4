@@ -87,11 +87,19 @@ class Testimonial
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="content", type="text", )
      *
      * @Assert\NotBlank()
      */
     private $content;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content_short", type="text", nullable=true)
+     *
+     */
+    private $contentShort;
 
     /**
      * @var string
@@ -249,6 +257,31 @@ class Testimonial
     }
 
     /**
+     * Get contentShort
+     *
+     * @return string
+     */
+    public function getContentShort()
+    {
+        return $this->contentShort;
+    }
+
+
+    /**
+     * Set contentShort
+     *
+     * @param string $contentShort
+     *
+     * @return Testimonial
+     */
+    public function setContentShort($contentShort)
+    {
+        $this->contentShort = $contentShort;
+
+        return $this;
+    }
+
+    /**
      * Get content
      *
      * @return string
@@ -257,6 +290,8 @@ class Testimonial
     {
         return $this->content;
     }
+
+
 
     /**
      * Get thumbnail

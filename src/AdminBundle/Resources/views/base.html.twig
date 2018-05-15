@@ -42,7 +42,7 @@
 
         <ul class="nav navbar-nav">
             <li {% if route == 'dashboard' %} class="active"{% endif %}><a href="{{ path('dashboard') }}">Kokpit</a></li>
-            <li {% if route == 'listProject' or route == 'addProject' %} class="active"{% endif %}><a href="{{ path('listProject') }}">Projekty</a></li>
+            <li {% if route == 'listProject' or 'admin_projectForm' %} class="active"{% endif %}><a href="{{ path('listProject') }}">Projekty</a></li>
             <li class="dropdown {% if route == 'listCategory' or  route == 'listTag' or route == 'addCategory' or route == 'deleteCategory' or route == 'deleteTag' or route == 'addTag' %}active{% endif %}">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Taksonomie <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -50,6 +50,8 @@
                     <li><a href="{{ path('listTag') }}">Tagi</a></li>
                 </ul>
             </li>
+            <li {% if route == 'admin_testimonial' %} class="active"{% endif %}><a href="{{ path('admin_testimonial') }}">Opinie klientów</a></li>
+            <li {% if route == 'admin_technology' %} class="active"{% endif %}><a href="{{ path('admin_technology') }}">Technologie</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

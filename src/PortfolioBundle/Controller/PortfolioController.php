@@ -32,12 +32,17 @@ class PortfolioController extends Controller
             'orderDir' => 'DESC'
         ));
 
-
         $query = $qb->getQuery();
         $projects = $query->getResult();
 
-        //Rendering a contact form
 
+        //Get Testimonials
+        $Testimonial = $this->getDoctrine()->getRepository('PortfolioBundle:Testimonial')->findAll();
+
+        //Get Technology
+        $Technology = $this->getDoctrine()->getRepository('PortfolioBundle:Technology')->findAll();
+
+        //Rendering a contact form
         $contactForm = $this->createForm(ContactFormType::class);
 
         if ($request->isMethod('POST')) {
@@ -61,6 +66,8 @@ class PortfolioController extends Controller
 
         return array(
             'projects' => $projects,
+            'testimonials' => $Testimonial,
+            'technologies' => $Technology,
             'contactForm' => $contactForm->createView(),
             'current_page' => 'home'
         );
@@ -194,6 +201,7 @@ class PortfolioController extends Controller
      */
     public function cvAction()
     {
+
         return array(
             'current_page' => 'cv'
         );

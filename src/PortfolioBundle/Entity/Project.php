@@ -71,7 +71,7 @@ class Project{
 
 
     /**
-     * @Vich\UploadableField(mapping="project_image", fileNameProperty="thumbnail")
+     * @Vich\UploadableField(mapping="testimonial_image", fileNameProperty="thumbnail")
      *
      *
      * @var File

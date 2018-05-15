@@ -67,42 +67,49 @@
                 </div>
 
                 <div id="da-slider" class="da-slider">
-                    <div class="da-slide">
-                        <h2>Front-end</h2>
-                        <p>Swoje projekty koduję w zastosowaniu o najnowsze technologie, takie jak <span>HTML5, CSS3 czy JavaScript</span>. Dzięki czemu strony, które tworzę są zgodne z najnowszymi wytycznymi światowych organizacji oraz są przyjazne dla wyszukiwarek.</p>
-                        <div class="da-img button">
-                            {% image 'bundles/portfolio/img/html5-css-javascript.png' %}
-                                 <img class="img-responsive" src="{{ asset_url }}" alt="html5 css3 javascript" />
-                            {% endimage %}
+
+
+                    {% for technology in technologies %}
+                        <div class="da-slide">
+                            <h2>{{ technology.title }}</h2>
+                            <p>{{ technology.content|raw }}</p>
+                            <div class="da-img button">
+                                {% image 'bundles/portfolio/img/html5-css-javascript.png' %}
+                                     <img class="img-responsive" src="{{ asset_url }}" alt="html5 css3 javascript" />
+                                {% endimage %}
+                                {#<img class="img-responsive" src="{{ asset('uploads/testimonial-authors' ~ technology.thumbnail )}}" alt="{{ technology.title }}"/>#}
+                            </div>
                         </div>
-                    </div>
-                    <div class="da-slide">
-                        <h2>Back-end</h2>
-                        <p>Język <span>PHP</span> to technologia, którą fascynuję się najbardziej. Umożliwia mi tworzenie niezwykłych rzeczy w wirtualnym świecie a wykorzystanie frameworka <span> Symfony</span> umożliwia mi zadowolenie nawet najbardziej "niecierpliwych" klientów. </p>
-                        <div class="da-img button">
-                            {% image 'bundles/portfolio/img/php.png' %}
-                                <img class="img-responsive" src="{{ asset_url }}" alt="PHP" />
-                            {% endimage %}
-                        </div>
-                    </div>
-                    <div class="da-slide">
-                        <h2>Systemy CMS</h2>
-                        <p>Specjalizuję się w systemie <span>Wordpress</span> na którym wykonuję projekty od stron wizytówek aż po sklepy online. Bardziej profesjonalne sklepy wykonuję go na platformie <span>Prestashop</span>. Wszystko to pozwoli Ci na łatwe zarządzanie treści stworzonego serwisu, bez znajomości programowania.</p>
-                        <div class="da-img">
-                            {% image 'bundles/portfolio/img/wordpress.png' %}
-                                <img class="img-responsive" src="{{ asset_url }}" alt="CSM" />
-                            {% endimage %}
-                        </div>
-                    </div>
-                    <div class="da-slide">
-                        <h2>Grafika</h2>
-                        <p>Choć nie uważam się za grafika, to również zdarza mi się tworzenie szblonów jak i graficznych elementów na strony komercyjne. W tym celu wykorzystuję takie programy jak <span>Photoshop i Ilustrator.</span></p>
-                        <div class="da-img">
-                            {% image 'bundles/portfolio/img/photo_ilu.png' %}
-                                <img class="img-responsive" src="{{ asset_url }}" alt="photoshop&ilustrator" />
-                            {% endimage %}
-                        </div>
-                    </div>
+
+                    {% endfor %}
+
+                    {#<div class="da-slide">#}
+                        {#<h2>Back-end</h2>#}
+                        {#<p>Język <span>PHP</span> to technologia, którą fascynuję się najbardziej. Umożliwia mi tworzenie niezwykłych rzeczy w wirtualnym świecie a wykorzystanie frameworka <span> Symfony</span> umożliwia mi zadowolenie nawet najbardziej "niecierpliwych" klientów. </p>#}
+                        {#<div class="da-img button">#}
+                            {#{% image 'bundles/portfolio/img/php.png' %}#}
+                                {#<img class="img-responsive" src="{{ asset_url }}" alt="PHP" />#}
+                            {#{% endimage %}#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="da-slide">#}
+                        {#<h2>Systemy CMS</h2>#}
+                        {#<p>Specjalizuję się w systemie <span>Wordpress</span> na którym wykonuję projekty od stron wizytówek aż po sklepy online. Bardziej profesjonalne sklepy wykonuję go na platformie <span>Prestashop</span>. Wszystko to pozwoli Ci na łatwe zarządzanie treści stworzonego serwisu, bez znajomości programowania.</p>#}
+                        {#<div class="da-img">#}
+                            {#{% image 'bundles/portfolio/img/wordpress.png' %}#}
+                                {#<img class="img-responsive" src="{{ asset_url }}" alt="CSM" />#}
+                            {#{% endimage %}#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="da-slide">#}
+                        {#<h2>Grafika</h2>#}
+                        {#<p>Choć nie uważam się za grafika, to również zdarza mi się tworzenie szblonów jak i graficznych elementów na strony komercyjne. W tym celu wykorzystuję takie programy jak <span>Photoshop i Ilustrator.</span></p>#}
+                        {#<div class="da-img">#}
+                            {#{% image 'bundles/portfolio/img/photo_ilu.png' %}#}
+                                {#<img class="img-responsive" src="{{ asset_url }}" alt="photoshop&ilustrator" />#}
+                            {#{% endimage %}#}
+                        {#</div>#}
+                    {#</div>#}
                     <nav class="da-arrows">
                         <span class="da-arrows-prev"></span>
                         <span class="da-arrows-next"></span>
@@ -175,78 +182,41 @@
                         <div role="tabpanel">
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="tab1">
-                                    <div class="testimonial-image col-md-3">
-                                        {% image 'bundles/portfolio/img/rafal.JPG' %}
-                                            <img src="{{ asset_url }}" alt="t1" />
-                                        {% endimage %}
-                                        <br />
-                                        <p class="testimonial-author">Rafał Kupczak</p>
-                                        <p class="company">Prezes <a class href="http://divesupreme.pl" target="_blank">divesupreme.pl</a></p>
-                                    </div>
-                                    <div class="testimonial-text col-md-9 ">
-                                        <p class="test-long">Robert pomagał mi w zaprojektowaniu i wykonaniu strony dla Akademii Nurkowania Dive Supreme. Robert przeszedł moje najśmielsze oczekiwania: strona powstala błyskawicznie, kontakt był zapewniony praktycznie 24h na dobę, na wszelkie pytania otrzymałem wyczerpujace odpowiedzi. Malo tego, oprócz stworzenia strony Robert nauczył mnie obsługiwać system Woocommerce, dobrał świetne zdjęcia pasujace do klimatu strony i pomogł skonfigurowac moduł PayPal. Moge śmiało powiedzieć, że ten czlowiek to wymierajacy gatunek: skromny, pracowity, cierpliwy a przy tym diabelsko skuteczny. Absolutnie polecam Roberta i pozostaje do dyspozycji w razie potrzeby osobistej rekomendacji.</p>
-                                        <p class="test-short">Robert pomagał mi w zaprojektowaniu i wykonaniu strony dla Akademii Nurkowania Dive Supreme. Robert przeszedł moje najśmielsze oczekiwania: strona powstala błyskawicznie, kontakt był zapewniony praktycznie 24h na dobę. Moge śmiało powiedzieć, że ten czlowiek to wymierajacy gatunek: skromny, pracowity, cierpliwy a przy tym diabelsko skuteczny. Absolutnie polecam Roberta.</p>
-                                    </div>
-                                </div>
 
-                                <div role="tabpanel" class="tab-pane fade " id="tab2">
-                                    <div class="testimonial-image col-md-3">
-                                        {% image 'bundles/portfolio/img/michail.jpg' %}
-                                            <img src="{{ asset_url }}" alt="t1" />
-                                        {% endimage %}
-                                        <p class="testimonial-author">Michael Fairfax Fishwick</p>
-                                        <p class="company">CEO <a href="http://beachresorthacienda.com/" target="_blank">Travell Asia Blue</a></p>
-                                    </div>
-                                    <div class="testimonial-text col-md-9">
-                                        <p>Robert as a Web Developer designed and created for my company several websites. He is great in user-friendly interface and automation of e-commerce systems. Mr. Saternus was highly motivated to work well as part of a team during his tenure. I found his sincere, hardworking, technically sound and result oriented.  </p>
-                                    </div>
-                                </div>
+                                {% for testimonial in testimonials %}
 
-                                <div role="tabpanel" class="tab-pane fade " id="tab3">
-                                    <div class="testimonial-image col-md-3">
-                                        {% image 'bundles/portfolio/img/Barbara_Bieta.jpg' %}
-                                            <img src="{{ asset_url }}" alt="t1" />
-                                        {% endimage %}
-                                        <br />
-                                        <p class="testimonial-author">Rafał Kupczak</p>
-                                        <p class="company">Prezes <a class href="http://divesupreme.pl">divesupreme.pl</a></p>
+                                    <div role="tabpanel" class="tab-pane fade in {{ loop.first ? "active" : "" }}" id="tab{{ loop.index }}">
+                                        <div class="testimonial-image col-md-3">
+                                            {% image 'bundles/portfolio/img/rafal.JPG' %}
+                                                <img src="{{ asset_url }}" alt="t1" />
+                                            {% endimage %}
+                                            {#<img class="img-responsive" src="{{ asset('uploads/testimonial-authors' ~ testimonial.avatar )}}" alt="{{ testimonial.author }}"/>#}
+                                            <br />
+                                            <p class="testimonial-author">{{ testimonial.author }}</p>
+                                            <p class="company">{{ testimonial.role }} <a class href="{{ testimonial.link }}" target="_blank">{{ testimonial.company }}</a></p>
+                                        </div>
+                                        <div class="testimonial-text col-md-9 ">
+                                            <p class="test-long">{{ testimonial.content }}</p>
+                                            {% if testimonial.contentShort is not empty %}
+                                                <p class="test-short">{{ testimonial.contentShort }}</p>
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                    <div class="testimonial-text col-md-9">
-                                        <p>Robert pomagał mi w zaprojektowaniu i wykonaniu strony dla Akademii Nurkowania Dive Supreme. Kiedy się zdzwanialiśmy po raz pierwszy jeszcze nie wiedziałem z kim bede miał okazje pracować. </p>
-                                    </div>
-                                </div>
 
-                                <div role="tabpanel" class="tab-pane fade " id="tab4">
-                                    <div class="testimonial-image col-md-3">
-                                        {% image 'bundles/portfolio/img/adept.jpg' %}
-                                            <img src="{{ asset_url }}" alt="t1" />
-                                        {% endimage %}
-                                        <br />
-                                        <p class="testimonial-author">Rafał Kupczak</p>
-                                        <p class="company">Prezes <a class href="http://divesupreme.pl" target="_blank" >divesupreme.pl</a></p>
-                                    </div>
-                                    <div class="testimonial-text col-md-9">
-                                        <p>Robert pomagał mi w zaprojektowaniu i wykonaniu strony dla Akademii Nurkowania Dive Supreme. Kiedy się zdzwanialiśmy po raz pierwszy jeszcze nie wiedziałem z kim bede miał okazje pracować. Okazało sie, ze Robert przeszedł moje najśmielsze oczekiwania: strona powstala błyskawicznie, kontakt był zapewniony praktycznie 24h na dobę, na wszelkie pytania otrzymałem wyczerpujace odpowiedzi. Malo tego, oprócz stworzenia strony Robert nauczył mnie obsługiwać system Woocommerce, dobrał </p>
-                                    </div>
-                                </div>
+                                {% endfor %}
 
                             </div>
+
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"></a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"></a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab"></a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab"></a>
-                                </li>
+
+                                {% for testimonial in testimonials %}
+                                    <li role="presentation" class="{{ loop.first ? "active" : "" }}">
+                                        <a href="#tab{{ loop.index }}" aria-controls="tab{{ loop.index }}" role="tab" data-toggle="tab"></a>
+                                    </li>
+                                {% endfor %}
                             </ul>
+
                         </div>
                     </div>
                 </div>

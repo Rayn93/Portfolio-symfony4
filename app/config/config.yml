@@ -109,3 +109,11 @@ vich_uploader:
                 inject_on_load:     false
                 delete_on_update:   true
                 delete_on_remove:   true
+
+            technology_image:
+                            uri_prefix: /portfolio/web/uploads/technology
+                            upload_destination: '%kernel.root_dir%/../web/uploads/technology'
+
+                            inject_on_load:     false
+                            delete_on_update:   true
+                            delete_on_remove:   true
