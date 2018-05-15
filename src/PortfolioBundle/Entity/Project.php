@@ -64,7 +64,7 @@ class Project{
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank()
+     *
      *
      */
     private $thumbnail;
@@ -72,7 +72,6 @@ class Project{
 
     /**
      * @Vich\UploadableField(mapping="testimonial_image", fileNameProperty="thumbnail")
-     *
      *
      * @var File
      */
@@ -215,9 +214,9 @@ class Project{
     public function getThumbnail()
     {
 
-//        if($this->thumbnail == null ){
-//            return Project::DEFAULT_THUMBNAIL;
-//        }
+        if($this->thumbnail == null ){
+            return Project::DEFAULT_THUMBNAIL;
+        }
 
         return $this->thumbnail;
     }

@@ -690,7 +690,7 @@ header #header-top .languages li a:hover {
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    margin-top: 40px;
+    margin: 40px auto 0 auto;
 }
 
 .testimonial-list .testimonial-text {

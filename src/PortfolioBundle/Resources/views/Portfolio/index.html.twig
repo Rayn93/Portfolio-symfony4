@@ -187,10 +187,7 @@
 
                                     <div role="tabpanel" class="tab-pane fade in {{ loop.first ? "active" : "" }}" id="tab{{ loop.index }}">
                                         <div class="testimonial-image col-md-3">
-                                            {% image 'bundles/portfolio/img/rafal.JPG' %}
-                                                <img src="{{ asset_url }}" alt="t1" />
-                                            {% endimage %}
-                                            {#<img class="img-responsive" src="{{ asset('uploads/testimonial-authors' ~ testimonial.avatar )}}" alt="{{ testimonial.author }}"/>#}
+                                            <img class="img-responsive" src="{{ asset('uploads/testimonial-authors/' ~ testimonial.avatar )}}" alt="{{ testimonial.author }}"/>
                                             <br />
                                             <p class="testimonial-author">{{ testimonial.author }}</p>
                                             <p class="company">{{ testimonial.role }} <a class href="{{ testimonial.link }}" target="_blank">{{ testimonial.company }}</a></p>

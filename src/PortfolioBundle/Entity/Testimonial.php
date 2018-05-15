@@ -22,6 +22,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Testimonial
 {
+
+    const DEFAULT_AVATAR = 'defoult_avatar.jpg';
+
+
     /**
      * @var int
      *
@@ -34,12 +38,12 @@ class Testimonial
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=30)
+     * @ORM\Column(name="author", type="string", length=50)
      *
      * @Assert\NotBlank()
      * @Assert\Length(
-     *      min = 4,
-     *      max = 30
+     *      min = 2,
+     *      max = 50
      * )
      *
      */
@@ -48,12 +52,12 @@ class Testimonial
     /**
      * @var string
      *
-     * @ORM\Column(name="role", type="string", length=30)
+     * @ORM\Column(name="role", type="string", length=50)
      *
      * @Assert\NotBlank()
      * @Assert\Length(
-     *      min = 4,
-     *      max = 30
+     *      min = 2,
+     *      max = 50
      * )
      */
     private $role;
@@ -61,12 +65,12 @@ class Testimonial
     /**
      * @var string
      *
-     * @ORM\Column(name="company", type="string", length=30)
+     * @ORM\Column(name="company", type="string", length=50)
      *
      * @Assert\NotBlank()
      * @Assert\Length(
-     *      min = 4,
-     *      max = 30
+     *      min = 2,
+     *      max = 50
      * )
      */
     private $company;
@@ -74,12 +78,12 @@ class Testimonial
     /**
      * @var string
      *
-     * @ORM\Column(name="link", type="string", length=40)
+     * @ORM\Column(name="link", type="string", length=100)
      *
      * @Assert\NotBlank()
      * @Assert\Length(
-     *      min = 4,
-     *      max = 30
+     *      min = 2,
+     *      max = 50
      * )
      */
     private $link;
@@ -106,7 +110,6 @@ class Testimonial
      *
      * @ORM\Column(name="avatar", type="string", length=255)
      *
-     * @Assert\NotBlank()
      */
     private $avatar;
 
@@ -292,6 +295,21 @@ class Testimonial
     }
 
 
+    /**
+     * Set thumbnail
+     *
+     * @param string $thumbnail
+     *
+     * @return Testimonial
+     */
+    public function setAvatar($avatar)
+    {
+
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
 
     /**
      * Get thumbnail
@@ -301,9 +319,9 @@ class Testimonial
     public function getAvatar()
     {
 
-//        if($this->thumbnail == null ){
-//            return Project::DEFAULT_THUMBNAIL;
-//        }
+        if($this->avatar == null ){
+            return Testimonial::DEFAULT_AVATAR;
+        }
 
         return $this->avatar;
     }

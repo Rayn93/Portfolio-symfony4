@@ -1,0 +1,105 @@
+{% extends 'AdminBundle::base.html.twig' %}
+{% form_theme form 'AdminBundle:Form:form_template.html.twig' %}
+
+{% set pageTitle = testimonial.id == null ? 'Dodaj nową opinie' : 'Edytuj opinie od %s'|format(testimonial.author) %}
+
+{% block pageTitle %} {{ pageTitle }} {% endblock %}
+
+{% block adminContent %}
+
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ pageTitle }}
+                    </div>
+                    <div class="panel-body">
+                        {{ form_row(form.author) }}
+                        {{ form_row(form.company) }}
+                        {{ form_row(form.role) }}
+                        {{ form_row(form.link) }}
+                        {{ form_row(form.content) }}
+                        {{ form_row(form.contentShort) }}
+                    </div>
+                </div>
+            </div> <!-- .col-md-8 -->
+
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Akcje
+                            </div>
+                            <div class="panel-body">
+                                {{ form_widget(form.save, {'attr': {'class': 'btn-success'}}) }}
+                            </div>
+                        </div>
+                    </div> <!-- .col-md-12 -->
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Avatar
+                            </div>
+                            <div class="panel-body">
+                                {% if testimonial.avatar is null %}
+                                    <p>Brak miniaturki</p>
+                                {% else %}
+                                    <p><img src="{{ vich_uploader_asset(testimonial, 'avatarFile') }}" alt="" class="img-thumbnail"></p>
+                                {% endif %}
+
+                                {{ form_widget(form.avatarFile) }}
+                                {{ form_errors(form.avatarFile) }}
+                            </div>
+                        </div>
+                    </div> <!-- .col-md-12 -->
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Właściwości
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    {{ form_label(form.publishedDate, null, {'label_attr': {'class': 'col-lg-5'}}) }}
+                                    {{ form_widget(form.publishedDate, {'attr': {'class': 'col-lg-7'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- .col-md-12 -->
+
+            </div>
+        </div>  <!-- .col-md-4 -->
+    </div> <!-- .row -->
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+    </div> <!-- .container -->
+
+    {#<div class="container">#}
+        {#<div class="row">#}
+            {#<div class="col-md-12">#}
+                {#<div class="panel panel-default">#}
+                    {#<div class="panel-heading">#}
+                        {#{{ pageTitle }}#}
+                    {#</div>#}
+                    {#<div class="panel-body">#}
+
+                        {#{{ form_start(form) }}#}
+                        {#{{ form_row(form.author) }}#}
+                        {#{{ form_row(form.company) }}#}
+                        {#{{ form_widget(form.save, {'attr': {'class': 'btn-success  pull-right'}}) }}#}
+                        {#{{ form_rest(form) }}#}
+                        {#{{ form_end(form) }}#}
+
+                    {#</div>#}
+                {#</div> <!-- .panel -->#}
+            {#</div> <!-- .col-md-12 -->#}
+        {#</div> <!-- .row -->#}
+    {#</div> <!-- .container -->#}
+
+{% endblock %}

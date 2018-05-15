@@ -99,21 +99,21 @@ vich_uploader:
                 upload_destination: '%kernel.root_dir%/../web/uploads'
 
                 inject_on_load:     false
-                delete_on_update:   true
-                delete_on_remove:   true
+                delete_on_update:   false
+                delete_on_remove:   false
 
             testimonial_image:
                 uri_prefix: /portfolio/web/uploads/testimonial-authors
                 upload_destination: '%kernel.root_dir%/../web/uploads/testimonial-authors'
 
                 inject_on_load:     false
-                delete_on_update:   true
-                delete_on_remove:   true
+                delete_on_update:   false
+                delete_on_remove:   false
 
             technology_image:
-                            uri_prefix: /portfolio/web/uploads/technology
-                            upload_destination: '%kernel.root_dir%/../web/uploads/technology'
+                uri_prefix: /portfolio/web/uploads/technology
+                upload_destination: '%kernel.root_dir%/../web/uploads/technology'
 
-                            inject_on_load:     false
-                            delete_on_update:   true
-                            delete_on_remove:   true
+                inject_on_load:     false
+                delete_on_update:   false
+                delete_on_remove:   false

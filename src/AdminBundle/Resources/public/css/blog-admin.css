@@ -167,7 +167,7 @@ body.login {
     border-top-right-radius: 0;
 }
 
-textarea#project_content{
+.form-horizontal textarea{
     width: 100%;
 }
 

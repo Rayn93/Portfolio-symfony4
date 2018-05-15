@@ -20,6 +20,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Technology
 {
+
+    const DEFAULT_THUMBNAIL = 'defoult_thumbnail';
+
+
     /**
      * @var int
      *
@@ -56,13 +60,12 @@ class Technology
      *
      * @ORM\Column(name="thumbnail", type="string", length=100)
      *
-     * @Assert\NotBlank()
+     *
      */
     private $thumbnail;
 
     /**
      * @Vich\UploadableField(mapping="technology_image", fileNameProperty="thumbnail")
-     *
      *
      * @var File
      */
@@ -167,9 +170,9 @@ class Technology
     public function getThumbnail()
     {
 
-//        if($this->thumbnail == null ){
-//            return Project::DEFAULT_THUMBNAIL;
-//        }
+        if($this->thumbnail == null ){
+            return Technology::DEFAULT_THUMBNAIL;
+        }
 
         return $this->thumbnail;
     }
