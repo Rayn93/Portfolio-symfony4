@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="pl">
+<html lang="{{ app.request.getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,7 +54,7 @@
 
 
 
-<footer>&copy; Projekt i realizacja: Robert Saternus {{ "now"|date("Y") }}</footer>
+<footer>&copy; {% trans %}Projekt i realizacja{% endtrans %}: Robert Saternus {{ "now"|date("Y") }}</footer>
 
 {% block scripts %}
 

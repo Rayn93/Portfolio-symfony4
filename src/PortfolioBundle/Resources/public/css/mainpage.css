@@ -136,6 +136,10 @@ header #header-top {
     z-index: 900;
 }
 
+#cv header #header-top{
+    background: rgba(00, 00, 00, 0.2);
+}
+
 header #header-top.sticky {
     background: rgba(22, 22, 22, 0.4);
     height: 50px;
@@ -316,6 +320,28 @@ header #header-top .languages li a {
 
 header #header-top .social-media li a:hover,
 header #header-top .languages li a:hover {
+    color: #0BC687;
+}
+
+header #header-top .bar-lang{
+    margin-top: -3px;
+}
+
+header #header-top.sticky .bar-lang{
+    margin-top: 0;
+}
+
+header #header-top .bar-lang a{
+    font-size: 19px;
+    font-weight: bold;
+}
+
+header #header-top.sticky .bar-lang a{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header #header-top .bar-lang a.active{
     color: #0BC687;
 }
 

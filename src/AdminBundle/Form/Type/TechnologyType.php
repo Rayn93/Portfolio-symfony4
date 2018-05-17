@@ -11,41 +11,31 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 
 class TechnologyType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder,  array $options){
 
-
         $builder
-//            ->add('title', Type\TextType::class, array(
-//                'label' => 'Tytuł',
-//                'attr' => array(
-//                    'placeholder' => 'Tytuł technologii',
-//                ),
-//            ))
-//
-//            ->add('content', Type\TextareaType::class, array(
-//                'label' => 'Treść',
-//                'attr' => array(
-//                    'rows' => 10,
-//                    'placeholder' => 'Treść dla technologii',
-//                )
-//            ))
-
-            // here we can override bundle configuration from config.yml
-//            'locales' => ['en', 'pl', 'fr', 'es', 'de']
             ->add('translations', TranslationsType::class, [
-            // fields that we want to translate
             'fields' => [
                 'title' => [
                     'field_type' => Type\TextType::class,
-//                    // here we can add standard field options like label, constraints, etc and locale options
-//                    'constraints'   => new NotBlank
+                    'constraints'   => new NotBlank,
+                    'label' => 'Tytuł',
+                    'attr' => array(
+                        'placeholder' => 'Tytuł technologii',
+                    ),
                 ],
                 'content' => [
-//                    'constraints'   => new NotBlank
+                    'constraints'   => new NotBlank,
+                    'label' => 'Content',
+                    'attr' => array(
+                        'rows' => 10,
+                        'placeholder' => 'Treść dla technologii',
+                    )
                 ]
             ]
             ])
