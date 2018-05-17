@@ -144,12 +144,12 @@
                                             <img class="img-responsive" src="{{ asset('uploads/testimonial-authors/' ~ testimonial.avatar )}}" alt="{{ testimonial.author }}"/>
                                             <br />
                                             <p class="testimonial-author">{{ testimonial.author }}</p>
-                                            <p class="company">{{ testimonial.role }} <a class href="{{ testimonial.link }}" target="_blank">{{ testimonial.company }}</a></p>
+                                            <p class="company">{{ testimonial.translate().role }} <a class href="{{ testimonial.link }}" target="_blank">{{ testimonial.company }}</a></p>
                                         </div>
                                         <div class="testimonial-text col-md-9 ">
-                                            <p class="test-long">{{ testimonial.content }}</p>
-                                            {% if testimonial.contentShort is not empty %}
-                                                <p class="test-short">{{ testimonial.contentShort }}</p>
+                                            <p class="test-long">{{ testimonial.translate().content }}</p>
+                                            {% if testimonial.translate().contentShort is not empty %}
+                                                <p class="test-short">{{ testimonial.translate().contentShort }}</p>
                                             {% endif %}
                                         </div>
                                     </div>

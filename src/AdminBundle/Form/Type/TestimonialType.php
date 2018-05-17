@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type as Type;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 
 class TestimonialType extends AbstractType
@@ -18,18 +20,42 @@ class TestimonialType extends AbstractType
 
 
         $builder
+            ->add('translations', TranslationsType::class, [
+                'fields' => [
+                    'role' => [
+                        'field_type' => Type\TextType::class,
+                        'constraints'   => new NotBlank,
+                        'label' => 'Rola',
+                        'attr' => array(
+                            'placeholder' => 'Rola autora',
+                        ),
+                    ],
+                    'content' => [
+                        'constraints'   => new NotBlank,
+                        'label' => 'Opini',
+                        'attr' => array(
+                            'rows' => 10,
+                            'placeholder' => 'Treść opini',
+                        )
+                    ],
+                    'contentShort' => [
+                        'label' => 'Opini krótka',
+                        'attr' => array(
+                            'rows' => 10,
+                            'placeholder' => 'Treść opini krótkiej',
+                        )
+                    ]
+                ]
+            ])
+
+
             ->add('author', Type\TextType::class, array(
                 'label' => 'Autor',
                 'attr' => array(
                     'placeholder' => 'Autor',
                 ),
             ))
-            ->add('role', Type\TextType::class, array(
-                'label' => 'Rola',
-                'attr' => array(
-                    'placeholder' => 'Rola autora',
-                ),
-            ))
+
             ->add('company', Type\TextType::class, array(
                 'label' => 'Firma',
                 'attr' => array(
@@ -43,20 +69,7 @@ class TestimonialType extends AbstractType
                     'placeholder' => 'Link do strony klienta',
                 )
             ))
-            ->add('content', Type\TextareaType::class, array(
-                'label' => 'Opinia',
-                'attr' => array(
-                    'rows' => 10,
-                    'placeholder' => 'Opinia klienta długa',
-                )
-            ))
-            ->add('contentShort', Type\TextareaType::class, array(
-                'label' => 'Opinia krótka',
-                'attr' => array(
-                    'rows' => 10,
-                    'placeholder' => 'Opinia klienta krótka',
-                )
-            ))
+
             ->add('avatarFile', Type\FileType::class, array(
                 'label' => 'Avatar',
                 'data_class' => null,

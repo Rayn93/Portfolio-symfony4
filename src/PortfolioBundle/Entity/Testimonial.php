@@ -4,11 +4,10 @@ namespace PortfolioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\ExecutionContext;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Testimonial
@@ -22,6 +21,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Testimonial
 {
+    use ORMBehaviors\Translatable\Translatable;
 
     const DEFAULT_AVATAR = 'defoult_avatar.jpg';
 
@@ -49,18 +49,6 @@ class Testimonial
      */
     private $author;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=50)
-     *
-     * @Assert\NotBlank()
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 50
-     * )
-     */
-    private $role;
 
     /**
      * @var string
@@ -87,23 +75,6 @@ class Testimonial
      * )
      */
     private $link;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="text", )
-     *
-     * @Assert\NotBlank()
-     */
-    private $content;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="content_short", type="text", nullable=true)
-     *
-     */
-    private $contentShort;
 
     /**
      * @var string
@@ -174,30 +145,6 @@ class Testimonial
     }
 
     /**
-     * Set role
-     *
-     * @param string $role
-     *
-     * @return Testimonial
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Get role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
-
-    /**
      * Set company
      *
      * @param string $company
@@ -243,55 +190,6 @@ class Testimonial
     public function getLink()
     {
         return $this->link;
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Testimonial
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get contentShort
-     *
-     * @return string
-     */
-    public function getContentShort()
-    {
-        return $this->contentShort;
-    }
-
-
-    /**
-     * Set contentShort
-     *
-     * @param string $contentShort
-     *
-     * @return Testimonial
-     */
-    public function setContentShort($contentShort)
-    {
-        $this->contentShort = $contentShort;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
     }
 
 
