@@ -84,16 +84,13 @@
 
                 <div class="row row{{ loop.index }}">
                     <div class="col-md-6 computer {{  cycle(["parallax_right", "parallax_left"], loop.index) }} {{ cycle(["col-md-push-6", ""], loop.index) }}">
-                        {#{% image 'bundles/portfolio/img/pidsthailand.jpg' %}#}
-                        {#<img class="img-responsive" src="{{ asset_url }}" alt="{{ project.title }}"/>#}
-                        {#{% endimage %}#}
-                        <img class="img-responsive" src="{{ asset('uploads/' ~ project.thumbnail)}}" alt="{{ project.title }}"/>
+                        <img class="img-responsive" src="{{ asset('uploads/' ~ project.thumbnail)}}" alt="{{ project.translate().title }}"/>
                     </div>
 
                     <div class="col-md-6 project_desc {{ cycle(["col-md-pull-6", ""], loop.index)}}">
-                        <h3>{{ project.title }}</h3>
+                        <h3>{{ project.translate().title }}</h3>
 
-                        <p>{{ project.content }}</p>
+                        <p>{{ project.translate().content }}</p>
                         <ul>
                             {% for tag in project.tags %}
                                 <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>

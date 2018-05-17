@@ -5,22 +5,22 @@ namespace PortfolioBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\ExecutionContext;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity(repositoryClass="PortfolioBundle\Repository\ProjectRepository")
  * @ORM\Table(name="project")
  * @ORM\HasLifecycleCallbacks
  *
- * @UniqueEntity(fields={"title"})
- * @UniqueEntity(fields={"slug"})
  *
  * @Vich\Uploadable
  */
 class Project{
+
+    use ORMBehaviors\Translatable\Translatable;
 
     const DEFAULT_THUMBNAIL = 'defoult_thumbnail.jpeg';
     const UPLOAD_DIR = 'uploads';
@@ -33,36 +33,6 @@ class Project{
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=150, unique=true)
-     *
-     * @Assert\NotBlank()
-     * @Assert\Length(
-     *      min = 4,
-     *      max = 150
-     * )
-     */
-    private $title;
-
-    /**
-     * @ORM\Column(type="string", length=150, unique=true)
-     *
-     * @Assert\NotBlank()
-     * @Assert\Length(
-     *      min = 4,
-     *      max = 150
-     * )
-     */
-    private $slug;
-
-    /**
-     * @ORM\Column(type="text")
-     *
-     * @Assert\NotBlank()
-     *
-     */
-    private $content;
-
-    /**
      * @ORM\Column(type="string", length=100)
      *
      *
@@ -71,7 +41,7 @@ class Project{
 
 
     /**
-     * @Vich\UploadableField(mapping="testimonial_image", fileNameProperty="thumbnail")
+     * @Vich\UploadableField(mapping="project_image", fileNameProperty="thumbnail")
      *
      * @var File
      */
@@ -142,54 +112,6 @@ class Project{
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Project
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Project
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
     }
 
     /**
@@ -375,30 +297,6 @@ class Project{
         return $this->tags;
     }
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Project
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = \PortfolioBundle\Libs\Utils::sluggify($slug) ;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
 
 
     /**
@@ -432,10 +330,6 @@ class Project{
      * @ORM\PreUpdate
      */
     public function preSave(){
-
-        if($this->slug === NULL){
-            $this->setSlug($this->getTitle());
-        }
 
         if(null == $this->publishedDate){
             $this->publishedDate = new \DateTime();

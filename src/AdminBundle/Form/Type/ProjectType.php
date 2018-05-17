@@ -11,6 +11,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 
 class ProjectType extends AbstractType
@@ -19,31 +21,60 @@ class ProjectType extends AbstractType
 
 
         $builder
-            ->add('title', Type\TextType::class, array(
-                'label' => 'Tytuł',
-                'attr' => array(
-                    'placeholder' => 'Tytuł',
-                ),
-            ))
-            ->add('slug', Type\TextType::class, array(
-                'label' => 'Alias',
-                'attr' => array(
-                    'placeholder' => 'Alias',
-                )
-            ))
+            ->add('translations', TranslationsType::class, [
+                'fields' => [
+                    'title' => [
+                        'field_type' => Type\TextType::class,
+                        'constraints'   => new NotBlank,
+                        'label' => 'Tytuł',
+                        'attr' => array(
+                            'placeholder' => 'Tytuł projektu',
+                        ),
+                    ],
+                    'slug' => [
+                        'field_type' => Type\TextType::class,
+//                        'constraints'   => new NotBlank,
+                        'label' => 'Alias',
+                        'attr' => array(
+                            'placeholder' => 'Alias projektu',
+                        ),
+                    ],
+                    'content' => [
+                        'constraints'   => new NotBlank,
+                        'label' => 'Opis',
+                        'attr' => array(
+                            'rows' => 10,
+                            'placeholder' => 'Opis projektu',
+                        )
+                    ]
+                ]
+            ])
+
+//            ->add('title', Type\TextType::class, array(
+//                'label' => 'Tytuł',
+//                'attr' => array(
+//                    'placeholder' => 'Tytuł',
+//                ),
+//            ))
+//            ->add('slug', Type\TextType::class, array(
+//                'label' => 'Alias',
+//                'attr' => array(
+//                    'placeholder' => 'Alias',
+//                )
+//            ))
             ->add('link', Type\TextType::class, array(
                 'label' => 'Link',
                 'attr' => array(
                     'placeholder' => 'Link do projektu',
                 )
             ))
-            ->add('content', Type\TextareaType::class, array(
-                'label' => 'Opis',
-                'attr' => array(
-                    'rows' => 10,
-                    'placeholder' => 'Opis projektu',
-                )
-            ))
+//            ->add('content', Type\TextareaType::class, array(
+//                'label' => 'Opis',
+//                'attr' => array(
+//                    'rows' => 10,
+//                    'placeholder' => 'Opis projektu',
+//                )
+//            ))
             ->add('thumbnailFile', Type\FileType::class, array(
                 'label' => 'Miniaturka',
                 'data_class' => null,
