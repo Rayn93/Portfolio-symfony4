@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type as Type;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 
 
 class TechnologyType extends AbstractType
@@ -18,20 +19,36 @@ class TechnologyType extends AbstractType
 
 
         $builder
-            ->add('title', Type\TextType::class, array(
-                'label' => 'Tytuł',
-                'attr' => array(
-                    'placeholder' => 'Tytuł technologii',
-                ),
-            ))
+//            ->add('title', Type\TextType::class, array(
+//                'label' => 'Tytuł',
+//                'attr' => array(
+//                    'placeholder' => 'Tytuł technologii',
+//                ),
+//            ))
+//
+//            ->add('content', Type\TextareaType::class, array(
+//                'label' => 'Treść',
+//                'attr' => array(
+//                    'rows' => 10,
+//                    'placeholder' => 'Treść dla technologii',
+//                )
+//            ))
 
-            ->add('content', Type\TextareaType::class, array(
-                'label' => 'Treść',
-                'attr' => array(
-                    'rows' => 10,
-                    'placeholder' => 'Treść dla technologii',
-                )
-            ))
+            // here we can override bundle configuration from config.yml
+//            'locales' => ['en', 'pl', 'fr', 'es', 'de']
+            ->add('translations', TranslationsType::class, [
+            // fields that we want to translate
+            'fields' => [
+                'title' => [
+                    'field_type' => Type\TextType::class,
+//                    // here we can add standard field options like label, constraints, etc and locale options
+//                    'constraints'   => new NotBlank
+                ],
+                'content' => [
+//                    'constraints'   => new NotBlank
+                ]
+            ]
+            ])
 
             ->add('thumbnailFile', Type\FileType::class, array(
                 'label' => 'Miniaturka',

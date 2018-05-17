@@ -16,8 +16,9 @@ class PortfolioController extends Controller
 
     /**
      * @Route(
-     *      "/",
-     *      name="portfolio_main"
+     *      "/{_locale}",
+     *      name="portfolio_main",
+     *     defaults={"_locale" = "pl"},
      * )
      * @Template("PortfolioBundle:Portfolio:index.html.twig")
      */
@@ -55,11 +56,11 @@ class PortfolioController extends Controller
                 $message = $contactForm->getData()['message'];
 
                 $this->sendMails($name, $email, $message);
-                $this->get('session')->getFlashBag()->add('success', 'Dziękuję! Twoja wiadomość została wysłana. Odpiszę tak szybko jak to tylko możliwe');
+                $this->get('session')->getFlashBag()->add('success', $this->get('translator')->trans('contact.message.email_has_not_been_sent'));
                 return $this->redirect($this->generateUrl('portfolio_main').'#kontakt');
             }
             else{
-                $this->get('session')->getFlashBag()->add('fail', 'Nie udało się wysłać wiadomości. Sprawdź wszystkie pola formularza. Wszystkie pola są wymagane');
+                $this->get('session')->getFlashBag()->add('fail', $this->get('translator')->trans('contact.message.email_has_been_sent'));
                 return $this->redirect($this->generateUrl('portfolio_main').'#kontakt');
             }
         }
@@ -194,8 +195,9 @@ class PortfolioController extends Controller
 
     /**
      * @Route(
-     *      "/cv",
+     *      "/{_locale}/cv",
      *       name="portfolio_cv",
+     *       defaults={"_locale" = "pl"},
      * )
      * @Template("PortfolioBundle:Portfolio:cv.html.twig")
      */

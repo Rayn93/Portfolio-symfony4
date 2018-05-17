@@ -15,6 +15,23 @@
 
     {% block stylesheets %}
 
+        <script src="{{ asset('bundles/portfolio/assets/sliderparallax/js/modernizr.custom.28468.js') }}"></script>
+
+        {% stylesheets
+            'bundles/portfolio//css/html5reset-1.6.1.css'
+            'bundles/portfolio/css/bootstrap.min.css'
+            'bundles/portfolio/css/pace-theme-bounce.css'
+            'bundles/portfolio/css/nice-select.css'
+            'bundles/portfolio/assets/sliderparallax/css/parallax-slider.css'
+            'bundles/portfolio/css/font-awesome.min.css'
+            'bundles/portfolio/css/mainpage.css'
+            'bundles/portfolio/css/media-queries.css'
+            filter = 'cssrewrite'
+            output ='assets/css/compiled-projects.css'
+        %}
+            <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+        {% endstylesheets %}
+
     {% endblock %}
 
     {#Google Analitic#}

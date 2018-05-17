@@ -933,12 +933,6 @@ $(document).ready(function () {
         $(".cover").fadeOut(2000);
     });
 
-    //SCRIPTS FOR PROJECTS SUBPAGES
-
-    if($('body').hasClass('projekty')){
-        $('select').niceSelect();
-    }
-
 
     // OSKRYPTOWANIE DLA MENU
     var $height = $(window).height();
@@ -951,6 +945,21 @@ $(document).ready(function () {
 
     $(".close").click(function () {
         $(".traggle-menu").hide("slide", "right", 500);
+    });
+
+    // //SCRIPTS FOR PROJECTS SUBPAGES
+    // if($('body').hasClass('projekty')){
+    //     $('select').niceSelect();
+    // }
+
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if( target.length ) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
     });
 
 });
@@ -1022,7 +1031,7 @@ $(document).ready(function () {
     //KONIEC SLAJDERU
 
     //Testimonials
-    $('.testimonials-container').backstretch("./img/backgrounds/1.jpg");
+    $('.testimonials-container').backstretch(testimonialbg);
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(){
         $('.testimonials-container').backstretch("resize");

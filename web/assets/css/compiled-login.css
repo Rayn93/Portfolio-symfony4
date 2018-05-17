@@ -1,12 +1,17 @@
 /*IMPORT ZEWNĘTRZNYCH PLIKÓW CSS*/
-@import url('../../../bundles/portfolio/css/html5reset-1.6.1.css');
-@import url('../../../bundles/portfolio/css/bootstrap.min.css');
-@import url('../../../bundles/portfolio/css/pace-theme-bounce.css');
-@import url('../../../bundles/portfolio/css/nice-select.css');
+/*@import url('html5reset-1.6.1.css');*/
+/*@import url('bootstrap.min.css');*/
+/*@import url('pace-theme-bounce.css');*/
+/*@import url('nice-select.css');*/
 
 /*old color 0BC687*/
 /*new one #0BC687;*/
 
+span.highlight {
+    color: #0BC687;
+    font-weight: bold;
+
+}
 
 .test-short{
     display: none;
@@ -39,7 +44,9 @@
 }
 
 a.button,
-input.btn-primary {
+input.btn-primary,
+button.btn-primary,
+#free_form_save{
     display: inline-block;
     background: none;
     border: 2px solid #0BC687;
@@ -65,7 +72,13 @@ input.btn-primary:focus {
 }
 
 a.button:hover,
-input.btn-primary:hover {
+input.btn-primary:hover,
+#free_form_save:hover,
+button.btn-primary:hover,
+a.button:focus,
+input.btn-primary:focus,
+#free_form_save:focus,
+button.btn-primary:focus{
     background: #0BC687;
     border: 2px solid #0BC687;
     color: #fff;
@@ -156,7 +169,7 @@ header .burger i {
 
 header .traggle-menu {
     display: none;
-    width: 210px;
+    width: 215px;
     background: #141212;
     position: absolute;
     top: 0;
@@ -338,7 +351,7 @@ header #header-top .languages li a:hover {
 #login-modal .modal-content,
 #search-modal .modal-content {
     color: #fff;
-    background: url("../../../bundles/portfolio/img/modal_bg.jpg") center no-repeat;
+    background: url("../../bundles/portfolio/img/modal_bg.jpg") center no-repeat;
     border: 4px solid #0BC687;
     background-size: cover;
 }
@@ -503,7 +516,7 @@ header #header-top .languages li a:hover {
 
 #technologie {
     min-height: 500px;
-    background: url(../../../bundles/portfolio/img/bg.slajder_01.jpg) right;
+    background: url(../../bundles/portfolio/img/bg.slajder_01.jpg) right;
     padding-top: 60px;
 }
 
@@ -574,6 +587,16 @@ header #header-top .languages li a:hover {
     border-radius: 3px;
     margin-top: 6px;
     margin-left: 3px;
+}
+
+#projekty .project_desc ul li a{
+    color: #fff;
+    transition: 0.4s;
+}
+
+#projekty .project_desc ul li a:hover{
+    color: #102216;
+    text-decoration: none;
 }
 
 .separator {
@@ -667,7 +690,7 @@ header #header-top .languages li a:hover {
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    margin-top: 40px;
+    margin: 40px auto 0 auto;
 }
 
 .testimonial-list .testimonial-text {
@@ -787,6 +810,7 @@ header #header-top .languages li a:hover {
     font-size: 17px;
     color: #333;
     text-align: justify;
+    height: 140px;
 }
 
 ul.pull-right {
@@ -822,7 +846,7 @@ ul.pull-right {
 
 #wspolpraca {
     height: 450px;
-    background: url(../../../bundles/portfolio/img/medytacja.jpg);
+    background: url(../../bundles/portfolio/img/medytacja.jpg);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -964,6 +988,7 @@ footer {
     padding: 10px 15px;
     font-size: 22px;
     font-weight: bold;
+    color: #fff;
 }
 
 .open > .dropdown-toggle.btn-primary {
@@ -1566,6 +1591,30 @@ footer {
     width: 40px;
     font-size: 23px;
 }
+
+
+/*::::::::::::FORMULARZ DARMOWEJ WYCENY::::::::::::::*/
+
+.free-form form{
+    margin-top: 70px;
+}
+
+.free-form .form-horizontal .form-group {
+    text-align: left;
+}
+
+.free-form label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.free-form .radio > label,
+.free-form .checkbox > label{
+    font-size: 13px;
+    font-weight: normal;
+}
+
+
 
 
 

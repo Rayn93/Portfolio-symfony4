@@ -1,26 +1,8 @@
 {% extends "PortfolioBundle::base.html.twig" %}
 
-{% block pageTitle %}Robert Saternus - portfolio webdevelopera{% endblock %}
+{% block pageTitle %}Robert Saternus - {% trans %}portfolio webdevelopera{% endtrans %}{% endblock %}
 
-{% block pageDesc %}"Portfolio freelancera - webdevelopera. Tworzenie stron internetowych, wizytówek, portfolia, sklepy internetowe, blogi, aplikacje. Potrzebujesz stworzyć wyjątkową stronę, serwis lub sklep internetowy. Zajrzyj tutaj!"{% endblock %}
-
-{% block stylesheets %}
-
-
-    <script src="{{ asset('bundles/portfolio/assets/sliderparallax/js/modernizr.custom.28468.js') }}"></script>
-
-    {% stylesheets
-        'bundles/portfolio/assets/sliderparallax/css/parallax-slider.css'
-        'bundles/portfolio/css/font-awesome.min.css'
-        'bundles/portfolio/css/mainpage.css'
-        'bundles/portfolio/css/media-queries.css'
-        filter = 'cssrewrite'
-        output ='assets/css/compiled-main.css'
-    %}
-     <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
-    {% endstylesheets %}
-
-{% endblock %}
+{% block pageDesc %}"{% trans %}Portfolio freelancera - webdevelopera. Tworzenie stron internetowych, wizytówek, portfolia, sklepy internetowe, blogi, aplikacje. Potrzebujesz stworzyć wyjątkową stronę, serwis lub sklep internetowy. Zajrzyj tutaj!{% endtrans %}"{% endblock %}
 
 
 {% block pageBody %}
@@ -33,8 +15,10 @@
         {% include "PortfolioBundle::sticky-header.html.twig" %}
 
         <div id="imie">
-            <h1>Robert Saternus <br /><strong><span>portfolio</span> webdevelopera</strong></h1>
-            <a class="button scroll" href="#projekty"> ZOBACZ PROJEKTY  </a>
+
+            <h1>Robert Saternus <br /><strong>{% trans %}<span>portfolio</span> webdevelopera{% endtrans %}</strong></h1>
+
+            <a class="button scroll" href="#projekty"> {% trans %}ZOBACZ PROJEKTY{% endtrans %}  </a>
         </div>
 
     </header>
@@ -44,10 +28,10 @@
         <div class="container">
             <div class="row">
                 <div class="omnie col-md-6 col-xs-12">
-                    <h2>Kilka słów <span>o mnie</span></h2>
-                    <p><span>Web Developer, programista PHP, geofizyk</span>. Na co dzień freelancer, który tworzy strony i serwisy internetowe, co sprawia mu ogromną radość. Głównie specjalizuje się w technologiach <span>back-end-owych</span> ale HTML, CSS i JS nie jest mu również obce. Od czasu do czasu zajmuje się również prostą grafiką</p> <p>W wolnych chwilach podróżuje po świecie, startuje w triathlonach i uwielbia wszystko co zwiększa poziom adrenaliny.</p>
+                    <h2>{% trans %}Kilka słów <span>o mnie</span>{% endtrans %}</h2>
+                    <p>{% trans %}<span>Web Developer, programista PHP, geofizyk</span>. Na co dzień freelancer, który tworzy strony i serwisy internetowe, co sprawia mu ogromną radość. Głównie specjalizuje się w technologiach <span>back-end-owych</span> ale HTML, CSS i JS nie jest mu również obce. Od czasu do czasu zajmuje się również prostą grafiką</p> <p>W wolnych chwilach podróżuje po świecie, startuje w triathlonach i uwielbia wszystko co zwiększa poziom adrenaliny.{% endtrans %}</p>
 
-                    <a class="button" href="{{ path('portfolio_cv') }}"> Zobacz moje CV </a>
+                    <a class="button" href="{{ path('portfolio_cv') }}"> {% trans %}Zobacz moje CV{% endtrans %} </a>
                 </div>
 
                 <div class="col-md-6 col-xs-12">
@@ -63,7 +47,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="parallax col-xs-12">
-                    <h2><span>Technologie</span>, z którymi pracuję</h2>
+                    <h2>{% trans %}<span>Technologie</span>, z którymi pracuję{% endtrans %}</h2>
                 </div>
 
                 <div id="da-slider" class="da-slider">
@@ -71,10 +55,10 @@
 
                     {% for technology in technologies %}
                         <div class="da-slide">
-                            <h2>{{ technology.title }}</h2>
-                            <p>{{ technology.content|raw }}</p>
+                            <h2>{{ technology.translate().title }}</h2>
+                            <p>{{ technology.translate().content|raw }}</p>
                             <div class="da-img button">
-                                <img class="img-responsive" src="{{ asset('uploads/technology/' ~ technology.thumbnail )}}" alt="{{ technology.title }}"/>
+                                <img class="img-responsive" src="{{ asset('uploads/technology/' ~ technology.thumbnail )}}" alt="{{ technology.translate().title }}"/>
                             </div>
                         </div>
 
@@ -93,7 +77,7 @@
         <div class="container">
             <div class="row">
                 <div class="parallax col-xs-12">
-                    <h2>Moje najnowsze <span>projekty</span></h2>
+                    <h2>{% trans %}Moje najnowsze <span>projekty</span>{% endtrans %}</h2>
                 </div>
 
                 {% for project in projects %}
@@ -115,7 +99,7 @@
                                 <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>
                             {% endfor %}
                         </ul>
-                        <a class="button" href="{{ project.link }}" target="_blank"> Zobacz projekt </a>
+                        <a class="button" href="{{ project.link }}" target="_blank"> {% trans %}Zobacz projekt{% endtrans %} </a>
                     </div>
                 </div>
 
@@ -128,7 +112,7 @@
                 {% endfor %}
 
 
-                <a class="button bigger" href="{{ path('portfolio_projects') }}">Zobacz więcej moich realizacji</a>
+                <a class="button bigger" href="{{ path('portfolio_projects') }}">{% trans %}Zobacz więcej moich realizacji{% endtrans %}</a>
 
             </div>
         </div>
@@ -142,7 +126,7 @@
                 <div class="row">
                     <div class="col-sm-12 testimonials section-description">
                         <div class="parallax col-xs-12">
-                            <h2>Opinie osób, z którymi <span>współpracuję</span> </h2>
+                            <h2>{% trans %}Opinie osób, z którymi <span>współpracuję</span>{% endtrans %} </h2>
                         </div>
 
                     </div>
@@ -255,8 +239,8 @@
             <div class="row">
                 <div class="col-lg-8 col-md-6 col-sm-5 hidden-xs"></div>
                 <div class="col-lg-4 col-md-6 col-sm-7 col-xs-12">
-                    <h2>Zapraszam do współpracy</h2>
-                    <p>Jako wolny strzelec, nie muszący opłacać biura czy pracowników, oferuję bardzo konkurencyjne ceny. Specjalizuję się w <span> systemie Wodpress (tworzenie szablonów, pluginów)</span> oraz w <span> tworzeniu aplikacji w Symfony</span>. Wykunuję praktycznie każdy rodzaj stron:<span> wizytówki firm, sklepy internetowe, blogi, portfolia</span> oraz <span>aplikacje webowe.</span> </p>
+                    <h2>{% trans %}Zapraszam do współpracy{% endtrans %}</h2>
+                    <p>{% trans %}Jako wolny strzelec, nie muszący opłacać biura czy pracowników, oferuję bardzo konkurencyjne ceny. Specjalizuję się w <span> systemie Wodpress (tworzenie szablonów, pluginów)</span> oraz w <span> tworzeniu aplikacji w Symfony</span>. Wykunuję praktycznie każdy rodzaj stron:<span> wizytówki firm, sklepy internetowe, blogi, portfolia</span> oraz <span>aplikacje webowe.</span> {% endtrans %}</p>
                 </div>
             </div>
         </div>
@@ -280,10 +264,10 @@
 
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
-                    <h2>KONTAKT</h2>
-                    <p><span>email:</span> robert.saternus<span>@</span>gmail.com</p>
-                    <p><span>tel:</span> (+48) 791-680-323</p>
-                    <p><span>skype:</span> roberto93123</p>
+                    <h2>{% trans %}KONTAKT{% endtrans %}</h2>
+                    <p><span>E-mail:</span> robert.saternus<span>@</span>gmail.com</p>
+                    <p><span>{% trans %}Tel{% endtrans %}:</span> (+48) 791-680-323</p>
+                    <p><span>Skype:</span> roberto93123</p>
                 </div>
 
                 <div class="col-xs-12 col-sm-6">

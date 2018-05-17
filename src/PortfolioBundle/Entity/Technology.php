@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\ExecutionContext;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Technology
@@ -21,6 +22,8 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Technology
 {
 
+    use ORMBehaviors\Translatable\Translatable;
+
     const DEFAULT_THUMBNAIL = 'defoult_thumbnail';
 
 
@@ -32,28 +35,6 @@ class Technology
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=30)
-     *
-     * @Assert\NotBlank()
-     * @Assert\Length(
-     *      min = 4,
-     *      max = 30
-     * )
-     */
-    private $title;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="text")
-     *
-     * @Assert\NotBlank()
-     */
-    private $content;
 
     /**
      * @var string
@@ -100,53 +81,6 @@ class Technology
         return $this->id;
     }
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Technology
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Technology
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
 
     /**
      * Set thumbnail

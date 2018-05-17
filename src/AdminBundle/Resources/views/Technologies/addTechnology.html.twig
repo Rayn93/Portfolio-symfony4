@@ -1,11 +1,17 @@
 {% extends 'AdminBundle::base.html.twig' %}
 {% form_theme form 'AdminBundle:Form:form_template.html.twig' %}
 
-{% set pageTitle = technology.id == null ? 'Dodaj nową technologie' : 'Edytuj technologie %s'|format(technology.title) %}
+{% set pageTitle = technology.id == null ? 'Dodaj nową technologie' : 'Edytuj technologie %s'|format(technology.translate().title)  %}
+
+
+
 
 {% block pageTitle %} {{ pageTitle }} {% endblock %}
 
 {% block adminContent %}
+
+
+    {#<p>{{ technology.translate('en').title }}</p>#}
 
     <div class="container">
         {{ form_start(form) }}
@@ -16,8 +22,8 @@
                         {{ pageTitle }}
                     </div>
                     <div class="panel-body">
-                        {{ form_row(form.title) }}
-                        {{ form_row(form.content) }}
+                        {{ form_row(form.translations) }}
+                        {#{{ form_row(form.content) }}#}
                     </div>
                 </div>
             </div> <!-- .col-md-8 -->

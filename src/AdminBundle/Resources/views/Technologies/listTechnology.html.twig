@@ -31,7 +31,7 @@
                                 {% for technology in allTechnology %}
                                     <tr>
                                         <td>{{ technology.id }}</td>
-                                        <td><a href="{{ path('addTechnology', {'id': technology.id}) }}">{{ technology.title }}</a></td>
+                                        <td><a href="{{ path('addTechnology', {'id': technology.id}) }}">{{ technology.translate().title }}</a></td>
                                         <td>{{ technology.publishedDate|date('d-M-Y') }}</td>
                                         <td>
                                             <div class="btn-group">

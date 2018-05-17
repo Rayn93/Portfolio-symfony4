@@ -5,19 +5,19 @@
 
 {% block pageDesc %}Internetowe CV Web Developera. Poznaj życiorys Roberta Saternus - freelancer, programista, geofizyk.{% endblock %}
 
-{% block stylesheets %}
+{#{% block stylesheets %}#}
 
-    {% stylesheets
-        'bundles/portfolio/css/font-awesome.min.css'
-        'bundles/portfolio/css/mainpage.css'
-        'bundles/portfolio/css/media-queries.css'
-        filter = 'cssrewrite'
-        output ='assets/css/compiled-projects.css'
-    %}
-        <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
-    {% endstylesheets %}
+    {#{% stylesheets#}
+        {#'bundles/portfolio/css/font-awesome.min.css'#}
+        {#'bundles/portfolio/css/mainpage.css'#}
+        {#'bundles/portfolio/css/media-queries.css'#}
+        {#filter = 'cssrewrite'#}
+        {#output ='assets/css/compiled-projects.css'#}
+    {#%}#}
+        {#<link rel="stylesheet" type="text/css" href="{{ asset_url }}">#}
+    {#{% endstylesheets %}#}
 
-{% endblock %}
+{#{% endblock %}#}
 
 
 {% block pageBody %}

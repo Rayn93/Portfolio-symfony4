@@ -16,7 +16,7 @@ class TechnologyController extends Controller
 {
     /**
      * @Route(
-     *      "/lista-technologii/{page}",
+     *      "lista-technologii/{page}",
      *      name="listTechnology",
      *      requirements={"page"="\d+"},
      *      defaults={"page"=1}
