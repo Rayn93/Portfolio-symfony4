@@ -22,22 +22,12 @@ class ProjectTranslation{
     /**
      * @ORM\Column(type="string", length=150, unique=true)
      *
-     * @Assert\NotBlank()
-     * @Assert\Length(
-     *      min = 4,
-     *      max = 150
-     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=150, unique=true)
      *
-     * @Assert\NotBlank()
-     * @Assert\Length(
-     *      min = 4,
-     *      max = 150
-     * )
      */
     private $slug;
 

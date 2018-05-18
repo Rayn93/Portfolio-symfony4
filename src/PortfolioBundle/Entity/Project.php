@@ -95,6 +95,12 @@ class Project{
      */
     private $homePage = false;
 
+    /**
+     * @ORM\Column(type="string", length=150, nullable=true)
+     *
+     */
+    private $readMore;
+
 
     /**
      * Constructor
@@ -321,6 +327,30 @@ class Project{
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set readMore
+     *
+     * @param string $readMore
+     *
+     * @return Project
+     */
+    public function setReadMore($readMore)
+    {
+        $this->readMore = $readMore;
+
+        return $this;
+    }
+
+    /**
+     * Get readMore
+     *
+     * @return string
+     */
+    public function getReadMore()
+    {
+        return $this->readMore;
     }
 
 

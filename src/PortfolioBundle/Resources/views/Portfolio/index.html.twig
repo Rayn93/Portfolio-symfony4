@@ -97,6 +97,9 @@
                             {% endfor %}
                         </ul>
                         <a class="button" href="{{ project.link }}" target="_blank"> {% trans %}Zobacz projekt{% endtrans %} </a>
+                        {% if (project.readMore is not null) and (app.request.getLocale() == 'pl') %}
+                            <a class="button" href="{{ project.readMore }}" target="_blank"> Czytaj więcej</a>
+                        {% endif %}
                     </div>
                 </div>
 

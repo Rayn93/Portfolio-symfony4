@@ -17,11 +17,9 @@
                             {{ pageTitle }}
                         </div>
                         <div class="panel-body">
-                            {#{{ form_row(form.title) }}#}
-                            {#{{ form_row(form.slug) }}#}
-                            {{ form_row(form.link) }}
-                            {#{{ form_row(form.content) }}#}
                             {{ form_row(form.translations) }}
+                            {{ form_row(form.link) }}
+                            {{ form_row(form.readMore) }}
                         </div>
                     </div>
                 </div> <!-- .col-md-8 -->
@@ -64,13 +62,6 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        {#<label class="col-lg-5 required">Data publikacji</label>#}
-                                        {#<div class="col-lg-7">#}
-                                            {#<div>#}
-                                                {#<input type="date" id="date" name="date" class="form-control">#}
-                                                {#<input type="time" id="time" name="time" class="form-control">#}
-                                            {#</div>#}
-                                        {#</div>#}
                                         {{ form_label(form.publishedDate, null, {'label_attr': {'class': 'col-lg-5'}}) }}
                                         {{ form_widget(form.publishedDate, {'attr': {'class': 'col-lg-7'}}) }}
 

@@ -50,31 +50,20 @@ class ProjectType extends AbstractType
                 ]
             ])
 
-//            ->add('title', Type\TextType::class, array(
-//                'label' => 'Tytuł',
-//                'attr' => array(
-//                    'placeholder' => 'Tytuł',
-//                ),
-//            ))
-//            ->add('slug', Type\TextType::class, array(
-//                'label' => 'Alias',
-//                'attr' => array(
-//                    'placeholder' => 'Alias',
-//                )
-//            ))
             ->add('link', Type\TextType::class, array(
                 'label' => 'Link',
                 'attr' => array(
                     'placeholder' => 'Link do projektu',
                 )
             ))
-//            ->add('content', Type\TextareaType::class, array(
-//                'label' => 'Opis',
-//                'attr' => array(
-//                    'rows' => 10,
-//                    'placeholder' => 'Opis projektu',
-//                )
-//            ))
+
+            ->add('readMore', Type\TextType::class, array(
+                'label' => 'Link więcej',
+                'attr' => array(
+                    'placeholder' => 'Link do projektu na blogu',
+                )
+            ))
+
             ->add('thumbnailFile', Type\FileType::class, array(
                 'label' => 'Miniaturka',
                 'data_class' => null,
