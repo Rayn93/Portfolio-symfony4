@@ -17,7 +17,7 @@ class CategoryType extends AbstractType
         $builder
             ->add('category', EntityType::class, array(
                 'label' => 'Wybierz nową kategorię dla postów',
-                'class' => 'PortfolioBundle\Entity\Category',
+                'class' => 'PortfolioBundle\Entity\CategoryTranslation',
                 'choice_label' => 'name',
                 'empty_data' => 'Wybierz kategorię',
             ))

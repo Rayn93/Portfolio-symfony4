@@ -11,7 +11,7 @@ use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 
-class TaxonomyType extends AbstractType
+class TagsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder,  array $options){
 
@@ -43,13 +43,13 @@ class TaxonomyType extends AbstractType
 
     public function getName()
     {
-        return 'category';
+        return 'tag';
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PortfolioBundle\Entity\Category',
+            'data_class' => 'PortfolioBundle\Entity\Tags',
         ));
     }
 

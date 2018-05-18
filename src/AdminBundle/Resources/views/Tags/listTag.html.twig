@@ -20,9 +20,14 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
+                                    {#<th>{{ knp_pagination_sortable(allTag, 'ID', 't.id') }}</th>#}
+                                    {#<th>{{ knp_pagination_sortable(allTag, 'Nazwa', 't.name') }}</th>#}
+                                    {#<th>{{ knp_pagination_sortable(allTag, 'Ilość przypisanych postów', 'projectCount') }}</th>#}
+                                    {#<th class="actions">Akcje</th>#}
+
                                     <th>{{ knp_pagination_sortable(allTag, 'ID', 't.id') }}</th>
-                                    <th>{{ knp_pagination_sortable(allTag, 'Nazwa', 't.name') }}</th>
-                                    <th>{{ knp_pagination_sortable(allTag, 'Ilość przypisanych postów', 'projectCount') }}</th>
+                                    <th>Nazwa</th>
+                                    <th>Ilość przypisanych postów</th>
                                     <th class="actions">Akcje</th>
                                 </tr>
                                 </thead>
@@ -32,7 +37,7 @@
                                 {% set tag = row[0] %}
                                 <tr>
                                     <td>{{ tag.id }}</td>
-                                    <td><a href="{{ path('addTag', {'id': tag.id}) }}">{{ tag.name }}</a></td>
+                                    <td><a href="{{ path('addTag', {'id': tag.id}) }}">{{ tag.translate().name }}</a></td>
                                     <td>{{ row['projectCount'] }}</td>
                                     <td>
                                         <div class="btn-group">

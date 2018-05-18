@@ -82,13 +82,13 @@ class ProjectType extends AbstractType
             ->add('category', EntityType::class, array(
                 'label' => 'Kategoria',
                 'class' => 'PortfolioBundle\Entity\Category',
-                'choice_label' => 'name',
+                'choice_label' => 'slug',
                 'empty_data' => 'Wybierz kategorię'
             ))
             ->add('tags', EntityType::class, array(
                 'label' => 'Tagi',
                 'class' => 'PortfolioBundle\Entity\Tags',
-                'choice_label' => 'name',
+                'choice_label' => 'slug',
                 'multiple' => true,
                 'attr' => array(
                     'placeholder' => 'Dodaj tagi'

@@ -14,15 +14,15 @@
                     </div>
                     <div class="panel-body">
                         <form action="{{ path('listProject') }}" method="get" class="form-inline filter-search" role="form">
-                            <div class="form-group">
-                                <input type="text" name="titleLike" value="{{ queryParams['titleLike'] }}" class="form-control" placeholder="Wyszukaj po tytule">
-                            </div>
+                            {#<div class="form-group">#}
+                                {#<input type="text" name="titleLike" value="{{ queryParams['titleLike'] }}" class="form-control" placeholder="Wyszukaj po tytule">#}
+                            {#</div>#}
 
                             <div class="form-group">
                                 <select name="category" class="select-block" placeholder="Kategoria">
                                     <option></option>
                                     {% for category in categoryList %}
-                                        <option {{ queryParams['categoryId']==category['id'] ? 'selected' : '' }} value="{{ category['id'] }}">{{ category['name'] }}</option>
+                                        <option {{ queryParams['categoryId']==category['id'] ? 'selected' : '' }} value="{{ category['id'] }}">{{ category['slug'] }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -67,9 +67,16 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
+                                    {#<th>{{ knp_pagination_sortable(projects, 'ID', 'p.id') }}</th>#}
+                                    {#<th>{{ knp_pagination_sortable(projects, 'Tytuł', 'p.title') }}</th>#}
+                                    {#<th>{{ knp_pagination_sortable(projects, 'Kategoria', 'c.name') }}</th>#}
+                                    {#<th>Tagi</th>#}
+                                    {#<th>Autor</th>#}
+                                    {#<th>{{ knp_pagination_sortable(projects, 'Data publikacji', 'p.publishedDate') }}</th>#}
+                                    {#<th>Akcje</th>#}
                                     <th>{{ knp_pagination_sortable(projects, 'ID', 'p.id') }}</th>
-                                    <th>{{ knp_pagination_sortable(projects, 'Tytuł', 'p.title') }}</th>
-                                    <th>{{ knp_pagination_sortable(projects, 'Kategoria', 'c.name') }}</th>
+                                    <th>Tytuł</th>
+                                    <th>Kategoria</th>
                                     <th>Tagi</th>
                                     <th>Autor</th>
                                     <th>{{ knp_pagination_sortable(projects, 'Data publikacji', 'p.publishedDate') }}</th>
@@ -82,10 +89,10 @@
                                 <tr>
                                     <td>{{ project.id }}</td>
                                     <td><a href="{{ path('admin_projectForm', {'id': project.id}) }}">{{ project.translate().title }}</a></td>
-                                    <td>{{ project.category.name }}</td>
+                                    <td>{{ project.category.translate().name }}</td>
                                     <td>
                                         {% for tag in project.tags %}
-                                             <span class="label label-success">{{ tag.name }}</span>
+                                             <span class="label label-success">{{ tag.translate().name }}</span>
                                         {% endfor %}
                                     </td>
                                     <td>Robert Saternus</td>

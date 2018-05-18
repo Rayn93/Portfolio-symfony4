@@ -1,7 +1,7 @@
 {% extends 'AdminBundle::base.html.twig' %}
 {% form_theme form 'AdminBundle:Form:form_template.html.twig' %}
 
-{% set pageTitle = tag.id == null ? 'Dodaj tag' : 'Edytuj tag %s'|format(tag.name) %}
+{% set pageTitle = tag.id == null ? 'Dodaj tag' : 'Edytuj tag %s'|format(tag.translate().name) %}
 
 {% block pageTitle %} {{ pageTitle }} {% endblock %}
 
@@ -17,7 +17,7 @@
                     <div class="panel-body">
 
                         {{ form_start(form) }}
-                        {{ form_row(form.name) }}
+                        {{ form_row(form.translations) }}
                         {{ form_row(form.slug) }}
                         {{ form_widget(form.save, {'attr': {'class': 'btn-success  pull-right'}}) }}
                         {{ form_rest(form) }}

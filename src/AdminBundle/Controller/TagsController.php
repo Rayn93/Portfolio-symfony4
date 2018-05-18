@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Controller;
 
+use AdminBundle\Form\Type\TagsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -53,7 +54,7 @@ class TagsController extends Controller
             $newTag = true;
         }
 
-        $form = $this->createForm(TaxonomyType::class, $Tag);
+        $form = $this->createForm(TagsType::class, $Tag);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

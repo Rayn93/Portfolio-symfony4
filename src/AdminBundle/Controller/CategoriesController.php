@@ -83,7 +83,7 @@ class CategoriesController extends Controller
      *      name="deleteCategory",
      *      requirements={"id"="\d+"}
      * )
-     * @Template("AdminBundle:Categories:delete Category.html.twig")
+     * @Template("AdminBundle:Categories:deleteCategory.html.twig")
      */
     public function deleteCategoryAction(Request $request, $id)
     {
@@ -117,7 +117,8 @@ class CategoriesController extends Controller
 
         return array(
             'form' => $form->createView(),
-            'category' => $Category
+            'category' => $Category,
+            'current_page' => 'taxonomy'
         );
     }
 }

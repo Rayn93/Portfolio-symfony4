@@ -93,7 +93,7 @@
                         <p>{{ project.translate().content }}</p>
                         <ul>
                             {% for tag in project.tags %}
-                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>
+                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.translate().name }}</a></li>
                             {% endfor %}
                         </ul>
                         <a class="button" href="{{ project.link }}" target="_blank"> {% trans %}Zobacz projekt{% endtrans %} </a>
