@@ -136,6 +136,10 @@ header #header-top {
     z-index: 900;
 }
 
+#cv header #header-top{
+    background: rgba(00, 00, 00, 0.2);
+}
+
 header #header-top.sticky {
     background: rgba(22, 22, 22, 0.4);
     height: 50px;
@@ -316,6 +320,28 @@ header #header-top .languages li a {
 
 header #header-top .social-media li a:hover,
 header #header-top .languages li a:hover {
+    color: #0BC687;
+}
+
+header #header-top .bar-lang{
+    margin-top: -3px;
+}
+
+header #header-top.sticky .bar-lang{
+    margin-top: 0;
+}
+
+header #header-top .bar-lang a{
+    font-size: 19px;
+    font-weight: bold;
+}
+
+header #header-top.sticky .bar-lang a{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header #header-top .bar-lang a.active{
     color: #0BC687;
 }
 
@@ -1254,13 +1280,14 @@ footer {
     font-weight: bold;
     margin-bottom: 0;
     margin-left: 15px;
+    margin-top: 15px;
 }
 
 #cv .personal-info h3{
     text-align: left;
     color: #a2a2a2;
     font-size: 20px;
-    margin-top: 0;
+    margin-top: 8px;
     margin-left: 15px;
 }
 
@@ -1314,7 +1341,7 @@ footer {
 #cv #service .box{
     background: #fff;
     height: 200px;
-    padding: 20px;
+    padding: 36px 20px;
     margin-bottom: 25px;
     box-shadow: 4px 4px 5px 0px rgb(49, 49, 49);
 }
@@ -1341,7 +1368,7 @@ footer {
     position: absolute;
     background: #fff;
     width: 84%;
-    height: 170px;
+    height: 115px;
     z-index: 2;
     opacity: 0;
     transform: scale(0.1);
@@ -1364,7 +1391,7 @@ footer {
     display: table-cell;
     vertical-align: middle;
     font-size: 18px;
-    height: 170px;
+    height: 115px;
 }
 
 #cv .skill .row{
@@ -1612,6 +1639,25 @@ footer {
 .free-form .checkbox > label{
     font-size: 13px;
     font-weight: normal;
+}
+
+
+/*::::::::::::STRONA LOGOWANIA:::::::::::::*/
+
+.login h1{
+    margin: 150px auto 100px auto;
+    font-weight: bold;
+    color: #00a651;
+}
+
+.login form{
+    margin: 50px auto;
+}
+
+#users footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 

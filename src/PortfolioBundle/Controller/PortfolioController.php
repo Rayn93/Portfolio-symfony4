@@ -153,7 +153,8 @@ class PortfolioController extends Controller
             'projects' => $pagination,
             'tag_cloud' => $TagsCloud,
             'title' => sprintf("%s <br /><span class=\"highlight\">%s</span>",$transTitle, $Tag->translate()->getName()),
-            'current_page' => 'projects'
+            'current_page' => 'projects',
+            'language_switcher_with_slug' => true
         );
     }
 
@@ -196,7 +197,8 @@ class PortfolioController extends Controller
             'current_category' => $CurrentCategory,
             'category_search' => true,
             'all_category' => $AllCategory,
-            'current_page' => 'projects'
+            'current_page' => 'projects',
+            'language_switcher_with_slug' => true
         );
     }
 

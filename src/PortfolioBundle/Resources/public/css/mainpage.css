@@ -141,7 +141,7 @@ header #header-top {
 }
 
 header #header-top.sticky {
-    background: rgba(22, 22, 22, 0.4);
+    background: rgba(22, 22, 22, 0.6);
     height: 50px;
 }
 
@@ -256,7 +256,7 @@ header .icons-header ul {
 }
 
 header #header-top.sticky .icons-header ul {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 header .icons-header ul li {

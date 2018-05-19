@@ -176,6 +176,8 @@
 
     </section>
 
+    {% if app.request.getLocale() == 'pl' %}
+
     <section id="blog">
 
         <div class="container">
@@ -230,8 +232,6 @@
             <a class="button bigger" href="projekty.html">Zobacz więcej artykułów</a>
 
         </div>
-
-
     </section>
 
     <section id="wspolpraca">
@@ -245,6 +245,8 @@
             </div>
         </div>
     </section>
+
+    {% endif %}
 
     <section id="kontakt">
         <div class="container">
