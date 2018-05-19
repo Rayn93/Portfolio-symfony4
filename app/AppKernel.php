@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
 //            new A2lix\AutoFormBundle\A2lixAutoFormBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
+            new BlogBundle\BlogBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
