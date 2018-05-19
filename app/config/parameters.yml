@@ -7,8 +7,8 @@ parameters:
     database_password: bosman93
     mailer_transport: gmail
     mailer_host: null
-    mailer_user: robert.saternus@gmail.com
-    mailer_password: bosman93
+    mailer_user: rankingowe.pl@gmail.com
+    mailer_password: bosman93123
     secret: 9eff58892lc735ac8e1ckalb9c91f61c7785382c
     locale: pl
     admin.pagination_limit: 10

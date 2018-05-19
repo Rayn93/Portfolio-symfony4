@@ -56,11 +56,11 @@ class PortfolioController extends Controller
                 $message = $contactForm->getData()['message'];
 
                 $this->sendMails($name, $email, $message);
-                $this->get('session')->getFlashBag()->add('success', $this->get('translator')->trans('contact.message.email_has_not_been_sent'));
+                $this->get('session')->getFlashBag()->add('success', $this->get('translator')->trans('contact.message.email_has_been_sent'));
                 return $this->redirect($this->generateUrl('portfolio_main').'#kontakt');
             }
             else{
-                $this->get('session')->getFlashBag()->add('fail', $this->get('translator')->trans('contact.message.email_has_been_sent'));
+                $this->get('session')->getFlashBag()->add('fail', $this->get('translator')->trans('contact.message.email_has_not_been_sent'));
                 return $this->redirect($this->generateUrl('portfolio_main').'#kontakt');
             }
         }
@@ -252,7 +252,7 @@ class PortfolioController extends Controller
                 $mailFreeForm = \Swift_Message::newInstance()
                     ->setSubject('Nowa wycena projektu | Robert Saternus - Portfolio web-developer-a')
                     ->setFrom($email)
-                    ->setTo('robert.saternus@gmail.com')
+                    ->setTo('rankingowe.pl@gmail.com')
                     ->setBody(
                         $this->renderView(
                             'PortfolioBundle:Mail:freeFormMail.html.twig',
@@ -298,7 +298,7 @@ class PortfolioController extends Controller
         $mailToMe = \Swift_Message::newInstance()
             ->setSubject('Wiadomość ze strony robertsaternus.pl | Robert Saternus - Portfolio web-developer-a')
             ->setFrom($email)
-            ->setTo('robert.saternus@gmail.com')
+            ->setTo('rankingowe.pl@gmail.com')
             ->setBody(
                 $this->renderView(
                     'PortfolioBundle:Mail:contactFormMail.html.twig',

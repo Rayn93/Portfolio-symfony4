@@ -1642,6 +1642,25 @@ footer {
 }
 
 
+/*::::::::::::STRONA LOGOWANIA:::::::::::::*/
+
+.login h1{
+    margin: 150px auto 100px auto;
+    font-weight: bold;
+    color: #00a651;
+}
+
+.login form{
+    margin: 50px auto;
+}
+
+#users footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
 
 
 
