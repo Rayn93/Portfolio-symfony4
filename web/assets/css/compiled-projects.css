@@ -1306,6 +1306,10 @@ button.btn-primary:focus{
     margin-top: 60px !important;
 }
 
+.mb40{
+    margin-bottom: 40px !important;
+}
+
 /*STYLIZACJA STRONY GŁÓWNEJ*/
 
 body {
@@ -1335,7 +1339,7 @@ header #header-top {
 }
 
 header #header-top.sticky {
-    background: rgba(22, 22, 22, 0.4);
+    background: rgba(22, 22, 22, 0.6);
     height: 50px;
 }
 
@@ -1450,7 +1454,7 @@ header .icons-header ul {
 }
 
 header #header-top.sticky .icons-header ul {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 header .icons-header ul li {
@@ -2005,6 +2009,7 @@ header #header-top .bar-lang a.active{
 
 #blog .thumbnail{
     margin-bottom: 0;
+    height: 250px;
 }
 
 #blog h2 span{

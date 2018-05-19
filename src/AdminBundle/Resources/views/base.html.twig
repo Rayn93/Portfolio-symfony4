@@ -48,12 +48,14 @@
                     <li><a href="{{ path('listTag') }}">Tagi</a></li>
                 </ul>
             </li>
+            <li class="{{ current_page == "post" ? "active" : "" }}"><a href="{{ path('admin_listPost') }}">Artykuły</a></li>
             <li class="{{ current_page == "testimonial" ? "active" : "" }}"><a href="{{ path('listTestimonial') }}">Opinie klientów</a></li>
             <li class="{{ current_page == "technology" ? "active" : "" }}"><a href="{{ path('listTechnology') }}">Technologie</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Robert Saternus</a></li>
+            {#<li><a href="#">{{ app.user.username }}</a></li>#}
+            <li><a href="#">{{ app.user.username }}</a></li>
             <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span></a></li>
         </ul>
     </div>

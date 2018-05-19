@@ -1,0 +1,81 @@
+{% extends 'AdminBundle::base.html.twig' %}
+{#{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}#}
+{% form_theme form 'AdminBundle:Form:form_template.html.twig' %}
+
+{% set pageTitle = post.id == null ? 'Dodawanie nowego artykułu' : 'Edycja artykułu "%s"'|format(post.title) %}
+
+{% block pageTitle %}{{ pageTitle }}{% endblock %}
+
+{% block adminContent %}
+
+    <div class="container">
+        {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {{ pageTitle }}
+                        </div>
+                        <div class="panel-body">
+                            {{ form_row(form.title) }}
+                            {{ form_row(form.slug) }}
+                            {{ form_row(form.excerpt) }}
+                            {{ form_row(form.content) }}
+                        </div>
+                    </div>
+                </div> <!-- .col-md-8 -->
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Akcje
+                                </div>
+                                <div class="panel-body">
+                                    {{ form_widget(form.save, {'attr': {'class': 'btn-success'}}) }}
+                                </div>
+                            </div>
+                        </div> <!-- .col-md-12 -->
+
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Miniaturka
+                                </div>
+                                <div class="panel-body">
+                                    {% if post.thumbnail is null %}
+                                        <p>Brak miniaturki</p>
+                                    {% else %}
+                                        <p><img src="{{ vich_uploader_asset(post, 'thumbnailFile') }}" alt="" class="img-thumbnail"></p>
+                                    {% endif %}
+
+                                    {{ form_widget(form.thumbnailFile) }}
+                                    {{ form_errors(form.thumbnailFile) }}
+                                </div>
+                            </div>
+                        </div> <!-- .col-md-12 -->
+
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Właściwości
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        {{ form_label(form.publishedDate, null, {'label_attr': {'class': 'col-lg-5'}}) }}
+                                        {{ form_widget(form.publishedDate, {'attr': {'class': 'col-lg-7'}}) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>  <!-- .col-md-4 -->
+            </div> <!-- .row -->
+              {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div> <!-- .container -->
+
+{% endblock %}

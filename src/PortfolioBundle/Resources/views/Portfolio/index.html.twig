@@ -186,50 +186,31 @@
                     <h2>Najnowsze <span>artykuły</span></h2>
                 </div>
 
-                <div class="col-lg-4 col-sm-6 article">
-                    {% image 'bundles/portfolio/img/slide1.jpg' %}
-                        <img class="img-responsive thumbnail" src="{{ asset_url }}" alt="artykuł1">
-                    {% endimage %}
 
-                    <div class="parent">
-                        <h3>Temat artykułu Temat </h3>
-                    </div>
-                    <div class="parent2">
-                        <p>Jako wolny strzelec, nie muszący opłacać biura czy pracowników, oferuję bardzo konkurencyjne ceny. Specjalizuję się w  systemie Wodpress (tworzenie szablonów, pluginów)</p>
-                    </div>
-                    <a class="button" href="#">Czytaj więcej</a>
-
-                </div>
+                {% for post in posts|slice(0, 3) %}
 
                 <div class="col-lg-4 col-sm-6 article">
-                    {% image 'bundles/portfolio/img/slide3.jpg' %}
-                        <img class="img-responsive thumbnail" src="{{ asset_url }}" alt="artykuł1">
-                    {% endimage %}
+                    {#{% image 'bundles/portfolio/img/slide1.jpg' %}#}
+                        {#<img class="img-responsive thumbnail" src="{{ asset_url }}" alt="artykuł1">#}
+                    {#{% endimage %}#}
+
+                    <img class="img-responsive thumbnail" src="{{ asset('uploads/blog/' ~ post.thumbnail)}}" alt="{{ post.title }}"/>
+
                     <div class="parent">
-                        <h3>Temat artykułu Temat artykułu Temat artykułu</h3>
+                        <h3>{{ post.title }}</h3>
                     </div>
                     <div class="parent2">
-                        <p>Jako wolny strzelec, nie muszący opłacać biura czy pracowników, oferuję bardzo konkurencyjne ceny. Specjalizuję się w  systemie Wodpress (tworzenie szablonów, pluginów)</p>
+                        <p>{{ post.excerpt|cutText(200, '') }}</p>
                     </div>
-                    <a class="button" href="#">Czytaj więcej</a>
+                    <a class="button" href="{{ path('blog_post', {'slug': post.slug}) }}">Czytaj więcej</a>
+
                 </div>
 
-                <div class="col-lg-4 hidden-md hidden-sm article">
-                    {% image 'bundles/portfolio/img/slide4.jpg' %}
-                        <img class="img-responsive thumbnail" src="{{ asset_url }}" alt="artykuł1">
-                    {% endimage %}
-                    <div class="parent">
-                        <h3>Temat artykułu Temat artykułu Temat artykułu</h3>
-                    </div>
-                    <div class="parent2">
-                        <p>Jako wolny strzelec, nie muszący opłacać biura czy pracowników, oferuję bardzo konkurencyjne ceny. Specjalizuję się w  systemie Wodpress (tworzenie szablonów, pluginów). Jako wolny strzelec, nie muszący opłacać biura czy pracowników,</p>
-                    </div>
-                    <a class="button" href="#">Czytaj więcej</a>
-                </div>
+                {% endfor %}
 
             </div>
 
-            <a class="button bigger" href="projekty.html">Zobacz więcej artykułów</a>
+            <a class="button bigger" href="{{ path('blog_list') }}">Zobacz więcej artykułów</a>
 
         </div>
     </section>

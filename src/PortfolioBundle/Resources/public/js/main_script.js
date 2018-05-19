@@ -51,6 +51,12 @@ $(document).ready(function () {
         }
     });
 
+    var width = $(window).width();
+    if (width <= 767) {
+        $("#cv .timeline li").removeClass("right").addClass("left")
+    }
+
+
 });
 
 

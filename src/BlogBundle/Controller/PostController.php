@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     /**
      * @Route(
-     *      "/blog/{page}",
+     *      "/{page}",
      *      name = "blog_list",
      *      defaults = {"page" = 1},
      *      requirements = {"page" = "\d+"}
@@ -19,36 +19,53 @@ class PostController extends Controller
      *
      * @Template("BlogBundle:Post:blogList.html.twig")
      */
-    public function blogListAction(){
+    public function blogListAction($page){
 
+        $params = array(
+            'status' => 'published',
+            'orderBy' => 'p.publishedDate',
+            'orderDir' => 'DESC'
+        );
 
+        $PostRepo = $this->getDoctrine()->getRepository('BlogBundle:Post');
+        $qb = $PostRepo->getQueryBuilder($params);
 
-
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate($qb, $page, 3);
 
         return array(
-            'current_page' => 'blog',
+            'posts' => $pagination,
+            'current_page' => 'blog'
         );
+
     }
 
 
     /**
      * @Route(
-     *      "/blog/{slug}",
+     *      "/{slug}",
      *      name = "blog_post",
      * )
      *
      * @Template("BlogBundle:Post:blogPost.html.twig")
      */
-    public function blogPostAction(){
+    public function blogPostAction(Request $request, $slug){
 
+        $PostRepo = $this->getDoctrine()->getRepository('BlogBundle:Post');
 
+        $Post = $PostRepo->getPublishedPost($slug);
 
+        if(null === $Post){
+            throw $this->createNotFoundException('Post nie został odnaleziony.');
+        }
 
 
         return array(
+            'post' => $Post,
             'current_page' => 'blog',
             'language_switcher_with_slug' => true
         );
+
     }
 
 

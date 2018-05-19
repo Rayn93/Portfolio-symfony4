@@ -17,11 +17,13 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @UniqueEntity(fields={"title"})
  * @UniqueEntity(fields={"slug"})
+ *
+ * @Vich\Uploadable
  */
 class Post {
 
     const DEFAULT_THUMBNAIL = 'default-thumbnail.jpg';
-    const UPLOAD_DIR = 'uploads/blog-thumbnails/';
+    const UPLOAD_DIR = 'uploads/blog';
 
     /**
      * @ORM\Column(type="integer")
@@ -58,6 +60,15 @@ class Post {
     private $content;
 
     /**
+     * @ORM\Column(type="text")
+     *
+     * @Assert\NotBlank
+     */
+    private $excerpt;
+
+
+
+    /**
      * @ORM\Column(type="string", length=100)
      *
      *
@@ -66,7 +77,7 @@ class Post {
 
 
     /**
-     * @Vich\UploadableField(mapping="project_image", fileNameProperty="thumbnail")
+     * @Vich\UploadableField(mapping="blog_image", fileNameProperty="thumbnail")
      *
      * @var File
      */
@@ -189,6 +200,29 @@ class Post {
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set excerpt
+     *
+     * @param string $content
+     * @return Post
+     */
+    public function setExcerpt($excerpt)
+    {
+        $this->excerpt = $excerpt;
+
+        return $this;
+    }
+
+    /**
+     * Get excerpt
+     *
+     * @return string
+     */
+    public function getExcerpt()
+    {
+        return $this->excerpt;
     }
 
     /**

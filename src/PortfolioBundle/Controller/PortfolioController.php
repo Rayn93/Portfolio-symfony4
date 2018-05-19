@@ -43,6 +43,19 @@ class PortfolioController extends Controller
         //Get Technology
         $Technology = $this->getDoctrine()->getRepository('PortfolioBundle:Technology')->findAll();
 
+        //Get post blog
+        $params = array(
+            'status' => 'published',
+            'orderBy' => 'p.publishedDate',
+            'orderDir' => 'DESC',
+            'limit' => 3
+        );
+
+        $PostRepo = $this->getDoctrine()->getRepository('BlogBundle:Post');
+        $qb = $PostRepo->getQueryBuilder($params);
+        $Posts = $qb->getQuery()->getResult();
+
+
         //Rendering a contact form
         $contactForm = $this->createForm(ContactFormType::class);
 
@@ -70,7 +83,8 @@ class PortfolioController extends Controller
             'testimonials' => $Testimonial,
             'technologies' => $Technology,
             'contactForm' => $contactForm->createView(),
-            'current_page' => 'home'
+            'current_page' => 'home',
+            'posts' => $Posts
         );
     }
 

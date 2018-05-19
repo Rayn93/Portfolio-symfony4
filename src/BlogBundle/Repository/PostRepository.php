@@ -22,9 +22,7 @@ class PostRepository extends EntityRepository {
     public function getQueryBuilder(array $params = array()){
 
         $qb = $this->createQueryBuilder('p')
-            ->select('p, c, t, a')
-            ->leftJoin('p.category', 'c')
-            ->leftJoin('p.tags', 't')
+            ->select('p, a')
             ->leftJoin('p.author', 'a');
 
         if(!empty($params['status'])){
@@ -42,25 +40,6 @@ class PostRepository extends EntityRepository {
             $qb->orderBy($params['orderBy'], $orderDir);
         }
 
-        if(!empty($params['categorySlug'])){
-            $qb->andWhere('c.slug = :categorySlug')
-                ->setParameter('categorySlug', $params['categorySlug']);
-        }
-
-        if(!empty($params['categoryId'])){
-            if(-1 == $params['categoryId']){
-                $qb->andWhere($qb->expr()->isNull('p.category'));
-            }else{
-                $qb->andWhere('c.id = :categoryId')
-                    ->setParameter('categoryId', $params['categoryId']);
-            }
-        }
-
-        if(!empty($params['tagSlug'])){
-            $qb->andWhere('t.slug = :tagSlug')
-                ->setParameter('tagSlug', $params['tagSlug']);
-        }
-
         if(!empty($params['search'])){
             $searchParam = '%'.$params['search'].'%';
             $qb->andWhere('p.title LIKE :searchParam OR p.content LIKE :searchParam')
@@ -73,23 +52,12 @@ class PostRepository extends EntityRepository {
                 ->setParameter('titleLike', $titleLike);
         }
 
+        if(!empty($params['limit'])){
+
+            $qb->setMaxResults($params['limit']);
+        }
+
         return $qb;
-    }
-
-
-    public function getRecentCommented($limit = 3) {
-
-        $qb = $this->createQueryBuilder('p')
-            ->select('p.title, p.slug, COUNT(c) as commentsCount')
-            ->leftJoin('p.comments', 'c')
-            ->groupBy('p.title')
-            ->having('commentsCount > 0')
-            ->where('p.publishedDate <= :currDate AND p.publishedDate IS NOT NULL')
-            ->setParameter('currDate', new \DateTime())
-            ->orderBy('commentsCount', 'DESC')
-            ->setMaxResults($limit);
-
-        return $qb->getQuery()->getArrayResult();
     }
 
     public function getStatistics(){
@@ -111,16 +79,5 @@ class PostRepository extends EntityRepository {
         );
     }
 
-    public function moveToCategory($oldCategoryId, $newCategoryId) {
-        return $this->createQueryBuilder('p')
-            ->update()
-            ->set('p.category', ':newCategoryId')
-            ->where('p.category = :oldCategoryId')
-            ->setParameters(array(
-                'newCategoryId' => $newCategoryId,
-                'oldCategoryId' => $oldCategoryId
-            ))
-            ->getQuery()
-            ->execute();
-    }
+
 }

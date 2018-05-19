@@ -119,6 +119,16 @@ vich_uploader:
                 delete_on_update:   false
                 delete_on_remove:   false
 
+            blog_image:
+                uri_prefix: /portfolio/web/uploads/blog
+                upload_destination: '%kernel.root_dir%/../web/uploads/blog'
+
+                inject_on_load:     false
+                delete_on_update:   false
+                delete_on_remove:   false
+
+
+
 a2lix_translation_form:
     locale_provider: default       # [1]
     locales: [pl, en]      # [1-a]

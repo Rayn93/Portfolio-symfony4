@@ -1,0 +1,129 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block pageTitle %}Lista postów{% endblock %}
+
+{% block adminContent %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Wyszukiwanie i filtracja
+                    </div>
+                    <div class="panel-body">
+                        <form action="{{ path('admin_listPost') }}" method="get" class="form-inline filter-search" role="form">
+                            <div class="form-group">
+                                <input type="text" name="titleLike" value="{{ queryParams['titleLike'] }}" class="form-control" placeholder="Wyszukaj po tytule">
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary">Filtruj</button>
+                            </div>
+
+                            <div class="form-group pull-right limit">
+                                <label for="limit" class="col-lg-5 control-label">Wyników</label>
+                                <div class="col-lg-7">
+
+                                    <select name="limit" class="select-block" id="limit" placeholder="Pokaż">
+                                    {% for limit in limits %}
+                                        <option {{ paginationLimit == limit ? 'selected' : '' }} value="{{ limit }}">{{ limit }}</option>
+                                    {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Posty
+                    </div>
+                    <div class="panel-body">
+
+                        {#<ul class="nav nav-pills pull-left">#}
+                            {#<li class="active">Wszystkie posty: {{ posts.getTotalItemCount }}</li>#}
+                        {#</ul>#}
+
+                        <ul class="nav nav-pills pull-left">
+                            {% for key,val in statusesList %}
+                                <li {{ currStatus == val ? 'class="active"':'' }}>
+                                    <a href="{{ path('admin_listPost', {'status': val}) }}">
+                                        {{ key }} ({{ statistics[val] }})
+                                    </a>
+                                </li>
+                            {% endfor %}
+
+                            {#
+                            <li class="active"><a href="#">Wszystkie (9)</a></li>
+                            <li><a href="#">Opublikowane (7)</a></li>
+                            <li><a href="#">Nieopublikowane (2)</a></li>
+                            #}
+                        </ul>
+
+                        <ul class="nav nav-pills pull-right">
+                            <li><a class="btn btn-primary" href="{{ path('admin_postForm') }}">Dodaj nowy</a></li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+
+                        <div style="margin-top: 20px;" class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>{{ knp_pagination_sortable(posts, 'ID', 'p.id') }}</th>
+                                    <th>{{ knp_pagination_sortable(posts, 'Tytuł', 'p.title') }}</th>
+                                    <th>Autor</th>
+                                    <th>{{ knp_pagination_sortable(posts, 'Data publikacji', 'p.publishedDate') }}</th>
+                                    <th>{{ knp_pagination_sortable(posts, 'Data stworzenia', 'p.createDate') }}</th>
+                                    <th>Akcje</th>
+                                    {#<th>{{ knp_pagination_sortable(projects, 'ID', 'p.id') }}</th>#}
+                                    {#<th>Tytuł</th>#}
+                                    {#<th>Kategoria</th>#}
+                                    {#<th>Tagi</th>#}
+                                    {#<th>Autor</th>#}
+                                    {#<th>{{ knp_pagination_sortable(projects, 'Data publikacji', 'p.publishedDate') }}</th>#}
+                                    {#<th>Akcje</th>#}
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for post in posts %}
+                                <tr>
+                                    <td>{{ post.id }}</td>
+                                    <td><a href="{{ path('admin_postForm', {'id': post.id}) }}">{{ post.title }}</a></td>
+                                    <td>{{ post.author }}</td>
+                                    <td>
+                                        {% if post.publishedDate is null %}
+                                            nie zaplanowano publikacji
+                                        {% else %}
+                                            {{ post.publishedDate|date('d-m-Y') }}
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ post.createDate|date('d-m-Y') }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ path('admin_postForm', {'id': post.id}) }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                                            <a href="{{ path('deletePost', {'id': post.id}) }} " onclick="return confirm('Na pewno chcesz usunąć ten post?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {{ knp_pagination_render(posts, 'PortfolioBundle:Pagination:pagination.html.twig') }}
+
+                    </div> <!-- .panel-body -->
+                </div> <!-- .panel -->
+            </div> <!-- .col-md-12 -->
+        </div> <!-- .row -->
+    </div> <!-- .container -->
+
+{% endblock %}
