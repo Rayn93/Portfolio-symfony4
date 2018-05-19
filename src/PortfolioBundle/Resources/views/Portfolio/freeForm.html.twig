@@ -2,29 +2,9 @@
 
 {% form_theme freeForm 'bootstrap_3_horizontal_layout.html.twig' %}
 
-{% block pageTitle %}Bezpłatna wycena | Robert Saternus{% endblock %}
+{% block pageTitle %}{% trans %}Bezpłatna wycena{% endtrans %} | Robert Saternus{% endblock %}
 
-{% block pageDesc %}Wypełnij formularz i sprawdź moją wycenę projektu strony internetowej. Dodatkowo przygotuję wstępny szkic Twojej nowej strony internetowej. To wszystko za darmo!{% endblock %}
-
-{#{% block stylesheets %}#}
-
-    {#{% stylesheets#}
-        {#'bundles/portfolio//css/html5reset-1.6.1.css'#}
-        {#'bundles/portfolio/css/bootstrap.min.css'#}
-        {#'bundles/portfolio/css/pace-theme-bounce.css'#}
-        {#'bundles/portfolio/css/nice-select.css'#}
-        {#'bundles/portfolio/assets/sliderparallax/css/parallax-slider.css'#}
-        {#'bundles/portfolio/css/font-awesome.min.css'#}
-        {#'bundles/portfolio/css/mainpage.css'#}
-        {#'bundles/portfolio/css/media-queries.css'#}
-        {#filter = 'cssrewrite'#}
-        {#output ='assets/css/compiled-projects.css'#}
-    {#%}#}
-        {#<link rel="stylesheet" type="text/css" href="{{ asset_url }}">#}
-    {#{% endstylesheets %}#}
-
-{#{% endblock %}#}
-
+{% block pageDesc %}{% trans %}Wypełnij formularz i sprawdź moją wycenę projektu strony internetowej. Dodatkowo przygotuję wstępny szkic Twojej nowej strony internetowej. To wszystko za darmo!{% endtrans %}{% endblock %}
 
 {% block pageBody %}
 <body class="projekty">
@@ -42,7 +22,7 @@
                     <img class="img-background" src="{{ asset_url }}" alt="object_bq" />
                 {% endimage %}
 
-                <h1>Formularz bezpłatnej wyceny</h1>
+                <h1>{% trans %}Formularz bezpłatnej wyceny{% endtrans %}</h1>
 
             </div>
         </div>
@@ -56,7 +36,7 @@
         <div class="row">
             <div class="col-xs-12">
 
-                <p class="lead">Potrzebujesz stworzyć stronę internetową? Myślisz o otwarciu sklepu w sieci? A może chcesz zmienić wygląd Twojego bloga? We wszystkich tych sprawach (i nie tylko) mogę Tobie pomóc. Przygotowałem dla Ciebie <span class="highlight"> darmową wycenę ze wstępnym szkicem Twojego nowego projektu</span>. Wystarczy, że wypełnisz poniższy formularz a ja do 3 dni roboczych prześlę na Twojego maila, <span class="highlight">moją propozycję dla Ciebie</span>. W ten sposób nic nie ryzykujesz.</p>
+                <p class="lead">{% trans %}Potrzebujesz stworzyć stronę internetową? Myślisz o otwarciu sklepu w sieci? A może chcesz zmienić wygląd Twojego bloga? We wszystkich tych sprawach (i nie tylko) mogę Tobie pomóc. Przygotowałem dla Ciebie <span class="highlight"> darmową wycenę ze wstępnym szkicem Twojego nowego projektu</span>. Wystarczy, że wypełnisz poniższy formularz a ja do 3 dni roboczych prześlę na Twojego maila, <span class="highlight">moją propozycję dla Ciebie</span>. W ten sposób nic nie ryzykujesz.{% endtrans %}</p>
 
                 {% for flashMessage in app.session.flashbag.get('success') %}
                     <div class="feedback_good">

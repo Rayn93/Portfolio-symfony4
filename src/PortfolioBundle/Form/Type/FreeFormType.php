@@ -62,7 +62,7 @@ class FreeFormType extends AbstractType{
                 'label' => 'Ilość  podstron na stronie',
                 'attr' => array(
                     'rows' => 3,
-                    'placeholder' => 'Ilość wszystkch podstron na stronie (np. "O firmie", "Oferta", "Kontakt"). Jeśli np. podstrona "oferta" ma posiadać kolejne podstrony, to te również proszę podać'
+                    'placeholder' => 'Ilość wszystkch podstron na stronie (np. O firmie, Oferta, Kontakt). Jeśli np. podstrona oferta ma posiadać kolejne podstrony, to te również proszę podać'
                 ),
             ))
             ->add('rwd', Type\ChoiceType::class, array(

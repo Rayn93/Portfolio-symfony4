@@ -3,22 +3,7 @@
 
 {% block pageTitle %}CV | Robert Saternus{% endblock %}
 
-{% block pageDesc %}Internetowe CV Web Developera. Poznaj życiorys Roberta Saternus - freelancer, programista, geofizyk.{% endblock %}
-
-{#{% block stylesheets %}#}
-
-    {#{% stylesheets#}
-        {#'bundles/portfolio/css/font-awesome.min.css'#}
-        {#'bundles/portfolio/css/mainpage.css'#}
-        {#'bundles/portfolio/css/media-queries.css'#}
-        {#filter = 'cssrewrite'#}
-        {#output ='assets/css/compiled-projects.css'#}
-    {#%}#}
-        {#<link rel="stylesheet" type="text/css" href="{{ asset_url }}">#}
-    {#{% endstylesheets %}#}
-
-{#{% endblock %}#}
-
+{% block pageDesc %}{% trans %}Internetowe CV Web Developera. Poznaj życiorys Roberta Saternus - freelancer, programista, geofizyk.{% endtrans %}{% endblock %}
 
 {% block pageBody %}
 <body id="cv">
@@ -35,7 +20,7 @@
             <div class="cv-top">
                 <h1>ROBERT SATERNUS</h1>
                 <h2>Web Developer</h2>
-                <a href="{{ asset('bundles/portfolio/assets/cv-saternus.pdf') }}" class="btn">POBIERZ CV</a>
+                <a href="{{ asset('bundles/portfolio/assets/cv-saternus.pdf') }}" class="btn">{% trans %}POBIERZ CV{% endtrans %}</a>
             </div>
         </div>
     </div>
@@ -57,19 +42,19 @@
                 <div class="col-sm-7 nopadding relative">
 
                     <h2>ROBERT SATERNUS</h2>
-                    <h3>Programista PHP, Freelancer, Geofizyk</h3>
+                    <h3>{% trans %}Programista PHP, Freelancer, Geofizyk{% endtrans %}</h3>
 
                     <hr >
 
                     <p>
-                        Od 3 lat zajmuję się komercyjnym tworzeniem stron internetowych, sklepów online oraz aplikacji webowych. Programowanie to moja pasja i sposób na życie.
+                        {% trans %}Od 3 lat zajmuję się komercyjnym tworzeniem stron internetowych, sklepów online oraz aplikacji webowych. Programowanie to moja pasja i sposób na życie.{% endtrans %}
                     </p>
 
                     <ul class="main-info">
-                        <li><strong>Wiek:</strong> 25 lat</li>
-                        <li><strong>Adres:</strong> Mysłowice, Śląsk</li>
+                        <li><strong>{% trans %}Wiek{% endtrans %}:</strong> {% trans %}25 lat{% endtrans %}</li>
+                        <li><strong>{% trans %}Adres{% endtrans %}:</strong> {% trans %}Mysłowice, Śląsk{% endtrans %}</li>
                         <li><strong>E-mail:</strong> robert.saternus@gmail.com</li>
-                        <li><strong>Telefon:</strong> +48 791-680-323</li>
+                        <li><strong>{% trans %}Telefon{% endtrans %}:</strong> +48 791-680-323</li>
                         <li><strong>Portfolio:</strong> robertsaternus.pl</li>
                     </ul>
 
@@ -90,25 +75,25 @@
         <div class="container service">
             <div class="row">
 
-                <h2 class="cv-title">CO DLA CIEBIE MOGĘ ZROBIĆ?</h2>
+                <h2 class="cv-title">{% trans %}CO MOGĘ DLA CIEBIE ZROBIĆ?{% endtrans %}</h2>
 
                 <div class="col-md-4 col-sm-6">
                     <div class="box">
                         <div class="box2">
-                            <p>Bardzo dobrze znam HTML 5, CSS3, JavaScript oraz jQuery co pozwola mi na zaprojektowanie i wykonanie dowolnego projektu webowego.</p>
+                            <p>{% trans %}Bardzo dobrze znam HTML 5, CSS3, JavaScript oraz jQuery co pozwola mi na zaprojektowanie i wykonanie dowolnego projektu webowego.{% endtrans %}</p>
                         </div>
                         <i class="fa fa-laptop" aria-hidden="true"></i>
-                        <h3>PROGRAMOWANIE <br /> FRONT-END</h3>
+                        <h3>{% trans %}PROGRAMOWANIE <br /> FRONT-END{% endtrans %}</h3>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-6">
                     <div class="box">
                         <div class="box2">
-                            <p>Jako programista PHP specjalizuję się w tworzeniu logiki aplikacji, dzięki czemu oddane projekty działają szybko, stabilnie i bezpiecznie.</p>
+                            <p>{% trans %}Jako programista PHP specjalizuję się w tworzeniu logiki aplikacji, dzięki czemu oddane projekty działają szybko, stabilnie i bezpiecznie.{% endtrans %}</p>
                         </div>
                         <i class="fa fa-desktop" aria-hidden="true"></i>
-                        <h3>PROGRAMOWANIE <br /> BACK-END</h3>
+                        <h3>{% trans %}PROGRAMOWANIE <br /> BACK-END{% endtrans %}</h3>
                     </div>
 
                 </div>
@@ -116,10 +101,10 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="box">
                         <div class="box2">
-                            <p>Specjalizuję się w tworzeniu dedykowanych aplikacji webowych w nowoczesnych frameworkach Symfony i Django. Potrzebujesz coś nieszablonowego? Wykonam to dla Ciebie.</p>
+                            <p>{% trans %}Tworze dedykowane aplikacje webowe w nowoczesnych frameworkach Symfony i Django. Potrzebujesz coś nieszablonowego? Wykonam to dla Ciebie.{% endtrans %}</p>
                         </div>
                         <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                        <h3>DEDYKOWANE <br /> APLIKACJE WEBOWE</h3>
+                        <h3>{% trans %}DEDYKOWANE <br /> APLIKACJE WEBOWE{% endtrans %}</h3>
                     </div>
 
                 </div>
@@ -127,7 +112,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="box">
                         <div class="box2">
-                            <p>Specjalizuję się w systemie WordPress. Tworzenie autorskich motywów czy dedykowanych wtyczek nie jest dla mnie obce.</p>
+                            <p>{% trans %}Specjalizuję się w systemie WordPress. Tworzenie autorskich motywów czy dedykowanych wtyczek nie jest dla mnie obce.{% endtrans %}</p>
                         </div>
                         <i class="fa fa-wordpress" aria-hidden="true"></i>
                         <h3>WORDPRESS</h3>
@@ -138,10 +123,10 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="box">
                         <div class="box2">
-                            <p>Potrzebujesze stworzyć sklep internetowy? Zrobię to dla Ciebie w takim systemie jak PrestaShop czy WooCommerce</p>
+                            <p>{% trans %}Potrzebujesz stworzyć sklep internetowy? Zrobię to dla Ciebie w takim systemie jak PrestaShop czy WooCommerce.{% endtrans %}</p>
                         </div>
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <h3>ROZWIĄZANIA E-COMMERCE</h3>
+                        <h3>{% trans %}ROZWIĄZANIA E-COMMERCE{% endtrans %}</h3>
                     </div>
 
                 </div>
@@ -149,7 +134,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="box">
                         <div class="box2">
-                            <p>Swoich klientów wspieram w zaistnieniu w internecie. Jeżeli nie masz swojego serwera, nic się nie martw. Dostarczam również usług hostingowych.</p>
+                            <p>{% trans %}Swoich klientów wspieram w zaistnieniu w internecie. Jeśli nie dysponujesz własnym serwerem - bez obaw. Dostarczam również wszelkie usługi hostingowe.{% endtrans %}</p>
                         </div>
                         <i class="fa fa-server" aria-hidden="true"></i>
                         <h3>WEB HOSTING</h3>
@@ -163,7 +148,7 @@
 
     <section id="skill">
 
-        <h2 class="cv-title">MOJE UMIEJĘTNOŚCI</h2>
+        <h2 class="cv-title">{% trans %}MOJE UMIEJĘTNOŚCI{% endtrans %}</h2>
 
         <div class="container skill">
             <div class="row">
@@ -174,7 +159,7 @@
 
                     <div class="line">
                         <h6 class="tech">HTML 5</h6>
-                        <h6 class="level">Bardzo dobrze</h6>
+                        <h6 class="level">{% trans %}Bardzo dobrze{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                         </div>
@@ -182,7 +167,7 @@
 
                     <div class="line">
                         <h6 class="tech">CSS 3</h6>
-                        <h6 class="level">Bardzo dobrze</h6>
+                        <h6 class="level">{% trans %}Bardzo dobrze{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                         </div>
@@ -190,7 +175,7 @@
 
                     <div class="line">
                         <h6 class="tech">JavaSccript</h6>
-                        <h6 class="level">Średnio</h6>
+                        <h6 class="level">{% trans %}Średnio{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
                         </div>
@@ -198,7 +183,7 @@
 
                     <div class="line">
                         <h6 class="tech">jQuery</h6>
-                        <h6 class="level">Dobrze</h6>
+                        <h6 class="level">{% trans %}Dobrze{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
                         </div>
@@ -206,7 +191,7 @@
 
                     <div class="line">
                         <h6 class="tech">Bootstrap 3</h6>
-                        <h6 class="level">Świetnie</h6>
+                        <h6 class="level">{% trans %}Świetnie{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;"></div>
                         </div>
@@ -214,7 +199,7 @@
 
                     <div class="line">
                         <h6 class="tech">WordPress</h6>
-                        <h6 class="level">Bardzo dobrze</h6>
+                        <h6 class="level">{% trans %}Bardzo dobrze{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
                         </div>
@@ -226,7 +211,7 @@
 
                     <div class="line">
                         <h6 class="tech">PHP 7</h6>
-                        <h6 class="level">Bardzo dobrze</h6>
+                        <h6 class="level">{% trans %}Bardzo dobrze{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                         </div>
@@ -234,7 +219,7 @@
 
                     <div class="line">
                         <h6 class="tech">mySQL</h6>
-                        <h6 class="level">Dobrze</h6>
+                        <h6 class="level">{% trans %}Dobrze{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
                         </div>
@@ -242,7 +227,7 @@
 
                     <div class="line">
                         <h6 class="tech">Symfony 3</h6>
-                        <h6 class="level">Dobrze</h6>
+                        <h6 class="level">{% trans %}Dobrze{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
                         </div>
@@ -250,7 +235,7 @@
 
                     <div class="line">
                         <h6 class="tech">Python 3</h6>
-                        <h6 class="level">Średnio</h6>
+                        <h6 class="level">{% trans %}Średnio{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
                         </div>
@@ -258,7 +243,7 @@
 
                     <div class="line">
                         <h6 class="tech">Django 2</h6>
-                        <h6 class="level">Średnio</h6>
+                        <h6 class="level">{% trans %}Średnio{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
                         </div>
@@ -266,7 +251,7 @@
 
                     <div class="line">
                         <h6 class="tech">PrestaShop</h6>
-                        <h6 class="level">Dobrze</h6>
+                        <h6 class="level">{% trans %}Dobrze{% endtrans %}</h6>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
                         </div>
@@ -279,7 +264,7 @@
 
     <section id="education">
 
-        <h2 class="cv-title">EDUKACJA I CERTYFIKATY</h2>
+        <h2 class="cv-title">{% trans %}EDUKACJA I CERTYFIKATY{% endtrans %}</h2>
 
         <div class="container">
             <div class="row">
@@ -292,8 +277,8 @@
                             <i class="fa fa-circle"></i>
                         </div>
                         <div class="timeline-panel">
-                            <p class="university">Uniwersytet Śląski</p>
-                            <p class="title">Studia licencjackie - Geofizyka</p>
+                            <p class="university">{% trans %}Uniwersytet Śląski{% endtrans %}</p>
+                            <p class="title">{% trans %}Studia licencjackie - Geofizyka{% endtrans %}</p>
                             <p class="time">2012 - 2015</p>
                             {#<a class="cert btn" href="#">Dyplom</a>#}
                         </div>
@@ -304,8 +289,8 @@
                             <i class="fa fa-circle"></i>
                         </div>
                         <div class="timeline-panel">
-                            <p class="university">Technical University of Ostrava (Czechy)</p>
-                            <p class="title">Międzynarodowa wymiana studencka Erasmus + </p>
+                            <p class="university">{% trans %}Technical University of Ostrava (Czechy){% endtrans %}</p>
+                            <p class="title">{% trans %}Międzynarodowa wymiana studencka Erasmus +{% endtrans %}</p>
                             <p class="time">2014 - 2015</p>
                             <!--<a class="cert btn" href="#">Certyfikat</a>-->
                         </div>
@@ -317,9 +302,9 @@
                         </div>
                         <div class="timeline-panel">
                             <p class="university">edx.org</p>
-                            <p class="title">Kurs - Bootstrap</p>
+                            <p class="title">{% trans %}Kurs - Bootstrap{% endtrans %}</p>
                             <p class="time">2015</p>
-                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/bootstrap-edx.pdf') }}">Certyfikat</a>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/bootstrap-edx.pdf') }}">{% trans %}Certyfikat{% endtrans %}</a>
                         </div>
                     </li>
 
@@ -329,9 +314,9 @@
                         </div>
                         <div class="timeline-panel">
                             <p class="university">edx.org</p>
-                            <p class="title">Kurs - HTML 5</p>
+                            <p class="title">{% trans %}Kurs - HTML 5{% endtrans %}</p>
                             <p class="time">2015</p>
-                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/HTML5-edx.pdf') }}">Certyfikat</a>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/HTML5-edx.pdf') }}">{% trans %}Certyfikat{% endtrans %}</a>
                         </div>
                     </li>
 
@@ -341,9 +326,9 @@
                         </div>
                         <div class="timeline-panel">
                             <p class="university">edx.org</p>
-                            <p class="title">Kurs - jQuery</p>
+                            <p class="title">{% trans %}Kurs - jQuery{% endtrans %}</p>
                             <p class="time">2016</p>
-                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/jQuery-edx.pdf') }}">Certyfikat</a>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/jQuery-edx.pdf') }}">{% trans %}Certyfikat{% endtrans %}</a>
                         </div>
                     </li>
 
@@ -352,10 +337,10 @@
                             <i class="fa fa-circle"></i>
                         </div>
                         <div class="timeline-panel">
-                            <p class="university">Akademia Górniczo - Hutnicza</p>
-                            <p class="title">Studia podyplomowe - Programowanie Aplikacji Webowych</p>
+                            <p class="university">{% trans %}Akademia Górniczo - Hutnicza{% endtrans %}</p>
+                            <p class="title">{% trans %}Studia podyplomowe - Programowanie Aplikacji Webowych{% endtrans %}</p>
                             <p class="time">2016 - 2017</p>
-                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/dyplom-agh.jpg') }}">Dyplom</a>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/dyplom-agh.jpg') }}">{% trans %}Dyplom{% endtrans %}</a>
                         </div>
                     </li>
 
@@ -364,8 +349,8 @@
                             <i class="fa fa-circle"></i>
                         </div>
                         <div class="timeline-panel">
-                            <p class="university">University of Patras (Grecja)</p>
-                            <p class="title">Międzynarodowa wymiana studencka Erasmus  +</p>
+                            <p class="university">{% trans %}University of Patras (Grecja){% endtrans %}</p>
+                            <p class="title">{% trans %}Międzynarodowa wymiana studencka Erasmus +{% endtrans %}</p>
                             <p class="time">2017</p>
                             <!--<a class="cert btn" href="#">Certyfikat</a>-->
                         </div>
@@ -376,8 +361,8 @@
                             <i class="fa fa-circle"></i>
                         </div>
                         <div class="timeline-panel">
-                            <p class="university">University of Ljubljana (Słowenia)</p>
-                            <p class="title">Międzynarodowa wymiana studencka Erasmus  +</p>
+                            <p class="university">{% trans %}University of Ljubljana (Słowenia){% endtrans %}</p>
+                            <p class="title">{% trans %}Międzynarodowa wymiana studencka Erasmus +{% endtrans %}</p>
                             <p class="time">2018</p>
                             <!--<a class="cert btn" href="#">Certyfikat</a>-->
                         </div>
@@ -388,8 +373,8 @@
                             <i class="fa fa-circle"></i>
                         </div>
                         <div class="timeline-panel">
-                            <p class="university">Uniwersytet Śląski</p>
-                            <p class="title">Studia magisterskie - Geofizyka</p>
+                            <p class="university">{% trans %}Uniwersytet Śląski{% endtrans %}</p>
+                            <p class="title">{% trans %}Studia magisterskie - Geofizyka{% endtrans %}</p>
                             <p class="time">2016 - 2018</p>
                             {#<a class="cert btn" href="#">Dyplom</a>#}
                         </div>
@@ -404,7 +389,7 @@
 
     <section id="experience">
 
-        <h2 class="cv-title">DOŚWIADCZENIE ZAWODOWE</h2>
+        <h2 class="cv-title">{% trans %}DOŚWIADCZENIE ZAWODOWE{% endtrans %}</h2>
 
         <div class="container">
             <div class="row">
@@ -417,8 +402,8 @@
                             <i class="fa fa-circle"></i>
                         </div>
                         <div class="timeline-panel">
-                            <p class="university">Państwowa Akademia Nauk</p>
-                            <p class="title">3 miesięczny staż</p>
+                            <p class="university">{% trans %}Państwowa Akademia Nauk{% endtrans %}</p>
+                            <p class="title">{% trans %}3 miesięczny staż{% endtrans %}</p>
                             <p class="time">2015</p>
                             {#<a class="cert btn" href="#">Rekomendacja</a>#}
                         </div>
@@ -432,7 +417,7 @@
                             <p class="university">Travel Asia Blue</p>
                             <p class="title">Junior Full Stack Web Developer</p>
                             <p class="time">2016</p>
-                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/recommedation-letter-asia-blue.pdf') }}">Rekomendacja</a>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/recommedation-letter-asia-blue.pdf') }}">{% trans %}Rekomendacja{% endtrans %}</a>
                         </div>
                     </li>
 
@@ -441,10 +426,9 @@
                             <i class="fa fa-circle"></i>
                         </div>
                         <div class="timeline-panel">
-                            <p class="university">Samozatrudniony</p>
+                            <p class="university">{% trans %}Samozatrudniony{% endtrans %}</p>
                             <p class="title">Full Stack Web Developer - freelancer</p>
-                            <p class="time">2015 - Obecnie</p>
-                            <!--<a class="cert btn" href="#">Certyfikat</a>-->
+                            <p class="time">2015 - {% trans %}Obecnie{% endtrans %}</p>
                         </div>
                     </li>
 
@@ -466,14 +450,14 @@
                 <div class="col-md-6">
 
                     <div class="box">
-                        <h2 class="title">DODATKOWE UMIEJĘTNOŚCI</h2>
+                        <h2 class="title">{% trans %}DODATKOWE UMIEJĘTNOŚCI{% endtrans %}</h2>
                         <ul>
-                            <li><i class="fa fa-language"></i>Języka Angielski - poziom C1</li>
-                            <li><i class="fa fa-american-sign-language-interpreting"></i>Języka Hiszpański - poziom A1/A2</li>
-                            <li><i class="fa fa-car"></i>Prawojazdy - kat B</li>
-                            <li><i class="fa fa-laptop"></i>Photoshop - mocne podstawy</li>
-                            <li><i class="fa fa-pie-chart"></i>Matlab - znajomość podstawowa</li>
-                            <li><i class="fa fa-briefcase"></i>MS Office - znajomość dobra</li>
+                            <li><i class="fa fa-language"></i>{% trans %}Język Angielski - poziom C1{% endtrans %}</li>
+                            <li><i class="fa fa-american-sign-language-interpreting"></i>{% trans %}Język Hiszpański - poziom A1/A2{% endtrans %}</li>
+                            <li><i class="fa fa-car"></i>{% trans %}Prawojazdy - kat B{% endtrans %}</li>
+                            <li><i class="fa fa-laptop"></i>{% trans %}Photoshop - mocne podstawy{% endtrans %}</li>
+                            <li><i class="fa fa-pie-chart"></i>{% trans %}Matlab - znajomość podstawowa{% endtrans %}</li>
+                            <li><i class="fa fa-briefcase"></i>{% trans %}MS Office - znajomość dobra{% endtrans %}</li>
                         </ul>
 
                     </div>
@@ -484,15 +468,15 @@
 
                     <div class="box">
 
-                        <h2 class="title">PASJE I ZAINTERESOWANIA</h2>
+                        <h2 class="title">{% trans %}PASJE I ZAINTERESOWANIA{% endtrans %}</h2>
 
                         <ul>
-                            <li><i class="fa fa-rocket"></i>Nowe technologie</li>
-                            <li><i class="fa fa-graduation-cap"></i>Rozwój osobisty</li>
-                            <li><i class="fa fa-fighter-jet"></i>Sporty ekstremalne</li>
+                            <li><i class="fa fa-rocket"></i>{% trans %}Nowe technologie{% endtrans %}</li>
+                            <li><i class="fa fa-graduation-cap"></i>{% trans %}Rozwój osobisty{% endtrans %}</li>
+                            <li><i class="fa fa-fighter-jet"></i>{% trans %}Sporty ekstremalne{% endtrans %}</li>
                             <li><i class="fa fa-bicycle"></i>Triathlon</li>
-                            <li><i class="fa fa-globe"></i>Podróże</li>
-                            <li><i class="fa fa-tree"></i>Góry i natura</li>
+                            <li><i class="fa fa-globe"></i>{% trans %}Podróże{% endtrans %}</li>
+                            <li><i class="fa fa-tree"></i>{% trans %}Góry i natura{% endtrans %}</li>
                         </ul>
 
                     </div>

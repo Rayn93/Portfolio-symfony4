@@ -1,2 +1,7 @@
 contact.message.email_has_been_sent: Dziękuję! Twoja wiadomość została wysłana. Odpiszę tak szybko jak to tylko możliwe
 contact.message.email_has_not_been_sent: Błąd. Sprawdź czy pełniłeś poprawnie formularz. Wszystkie pola są wymagane
+projects_category_title: Projekty z kategorią:
+projects_tag_title: Projekty z tagiem:
+projects_main_title: Projekty i realizacje
+projects_all_category: WSZYSTKIE
+free_form_has_been_sent: Dziękuję! Formularz z Twoimi informacjami został wysłany poprawnie. Niedługo wyślę moją propozycję projektu dla Ciebie.

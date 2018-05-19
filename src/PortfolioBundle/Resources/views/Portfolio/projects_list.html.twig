@@ -1,26 +1,12 @@
 {% extends "PortfolioBundle::base.html.twig" %}
 
-{% block pageTitle %}Robert Saternus - projekty{% endblock %}
+{% block pageTitle %}Robert Saternus - {% trans %}projekty{% endtrans %}{% endblock %}
 
-{% block pageDesc %}Projekty stron i aplikacji webowych stworzonych przez Roberta Saternus. Potrzebujesz stworzyć wyjątkową stronę, serwis lub sklep internetowy. Zajrzyj tutaj!{% endblock %}
-
-{#{% block stylesheets %}#}
-
-    {#{% stylesheets#}
-        {#'bundles/portfolio/css/font-awesome.min.css'#}
-        {#'bundles/portfolio/css/mainpage.css'#}
-        {#'bundles/portfolio/css/media-queries.css'#}
-        {#filter = 'cssrewrite'#}
-        {#output ='assets/css/compiled-projects.css'#}
-    {#%}#}
-        {#<link rel="stylesheet" type="text/css" href="{{ asset_url }}">#}
-    {#{% endstylesheets %}#}
-
-{#{% endblock %}#}
+{% block pageDesc %}{% trans %}Projekty stron i aplikacji webowych stworzonych przez Roberta Saternus. Potrzebujesz stworzyć wyjątkową stronę, serwis lub sklep internetowy. Zajrzyj tutaj!{% endtrans %}{% endblock %}
 
 
-{% block pageBody %}
-<body class="projekty">
+
+{% block pageBody %}<body class="projekty">
 
 <div class="cover"></div>
 
@@ -54,13 +40,13 @@
                         {% if all_projects is defined  %}
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{ all_projects }}
                         {% elseif current_category is defined  %}
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{ current_category.name }}
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{ current_category.translate().name }}
                         {% endif %}
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('portfolio_projects') }}">WSZYSTKIE</a></li>
+                            <li><a href="{{ path('portfolio_projects') }}">{% trans %}WSZYSTKIE{% endtrans %}</a></li>
                             {% for category in all_category %}
-                                <li><a href="{{ path('portfolio_projects_categories', {'slug': category.slug}) }}">{{ category.name|upper }}</a></li>
+                                <li><a href="{{ path('portfolio_projects_categories', {'slug': category.slug}) }}">{{ category.translate().name|upper }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -72,22 +58,22 @@
 
                 <div class="row">
                     <div class="col-md-6 computer  {{ cycle(["col-md-push-6", ""], loop.index) }}">
-                        {#{% image 'bundles/portfolio/img/pidsthailand.jpg' %}#}
-                        {#<img class="img-responsive" src="{{ asset_url }}" alt="{{ project.title }}"/>#}
-                        {#{% endimage %}#}
-                        <img class="img-responsive" src="{{ asset('uploads/' ~ project.thumbnail)}}" alt="{{ project.title }}"/>
+                        <img class="img-responsive" src="{{ asset('uploads/' ~ project.thumbnail)}}" alt="{{ project.translate().title }}"/>
                     </div>
 
                     <div class="col-md-6 project_desc {{ cycle(["col-md-pull-6", ""], loop.index)}}">
-                        <h3>{{ project.title }}</h3>
+                        <h3>{{ project.translate().title }}</h3>
 
-                        <p>{{ project.content }}</p>
+                        <p>{{ project.translate().content }}</p>
                         <ul>
                             {% for tag in project.tags %}
-                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>
+                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.translate().name }}</a></li>
                             {% endfor %}
                         </ul>
-                        <a class="button" href="{{ project.link }}" target="_blank"> Zobacz projekt </a>
+                        <a class="button" href="{{ project.link }}" target="_blank"> {% trans %}Zobacz projekt{% endtrans %} </a>
+                        {% if (project.readMore is not null) and (app.request.getLocale() == 'pl') %}
+                            <a class="button" href="{{ project.readMore }}" target="_blank"> Czytaj więcej</a>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -107,10 +93,10 @@
 
                 <div class="col-md-12 project_desc ">
                     <div id="tagCloud">
-                        <h3>Chmura tagów</h3>
+                        <h3>{% trans %}Chmura tagów{% endtrans %}</h3>
                         <ul>
                             {% for tag in tag_cloud %}
-                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>
+                                <li><a href="{{ path('portfolio_projects_tags', {'slug': tag.slug}) }}">{{ tag.translate().name }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

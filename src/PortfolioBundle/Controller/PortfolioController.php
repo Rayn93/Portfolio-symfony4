@@ -76,7 +76,7 @@ class PortfolioController extends Controller
 
     /**
      * @Route(
-     *      "/projekty/{page}",
+     *      "/{_locale}/projekty/{page}",
      *       name="portfolio_projects",
      *       requirements={"page"="\d+"},
      *       defaults={"page"=1}
@@ -102,11 +102,14 @@ class PortfolioController extends Controller
         $CategoryRepo = $this->getDoctrine()->getRepository('PortfolioBundle:Category');
         $AllCategory = $CategoryRepo->findAll();
 
+        $transTitle = $this->get('translator')->trans('projects_main_title');
+        $transAll = $this->get('translator')->trans('projects_all_category');
+
 
         return array(
             'projects' => $pagination,
-            'title' => 'Projekty i realizacje',
-            'all_projects' => 'WSZYSTKIE',
+            'title' => $transTitle,
+            'all_projects' => $transAll,
             'category_search' => true,
             'all_category' => $AllCategory,
             'current_page' => 'projects'
@@ -115,7 +118,7 @@ class PortfolioController extends Controller
 
     /**
      * @Route(
-     *      "/tag/{slug}/{page}",
+     *      "/{_locale}/tag/{slug}/{page}",
      *      name="portfolio_projects_tags",
      *      requirements={"page"="\d+"},
      *      defaults={"page"=1}
@@ -143,18 +146,20 @@ class PortfolioController extends Controller
         $Tag = $TagsRepo->findOneBy(array('slug' => $slug));
         $TagsCloud = $TagsRepo->findAll();
 
+        $transTitle = $this->get('translator')->trans('projects_tag_title');
+
 
         return array(
             'projects' => $pagination,
             'tag_cloud' => $TagsCloud,
-            'title' => sprintf("Projekty z tagiem: <span class=\"highlight\">%s</span>", $Tag->getName()),
+            'title' => sprintf("%s <br /><span class=\"highlight\">%s</span>",$transTitle, $Tag->translate()->getName()),
             'current_page' => 'projects'
         );
     }
 
     /**
      * @Route(
-     *      "/kategoria/{slug}/{page}",
+     *      "/{_locale}/kategoria/{slug}/{page}",
      *       name="portfolio_projects_categories",
      *       requirements={"page"="\d+"},
      *       defaults={"page"=1}
@@ -182,10 +187,12 @@ class PortfolioController extends Controller
         $CurrentCategory = $CategoryRepo->findOneBy(array('slug'=>$slug));
         $AllCategory = $CategoryRepo->findAll();
 
+        $transTitle = $this->get('translator')->trans('projects_category_title');
+
 
         return array(
             'projects' => $pagination,
-            'title' => sprintf("Projekty z kategorii: <span class=\"highlight\">%s</span>", $CurrentCategory->getName()),
+            'title' => sprintf("%s <br /><span class=\"highlight\">%s</span>",$transTitle, $CurrentCategory->translate()->getName()),
             'current_category' => $CurrentCategory,
             'category_search' => true,
             'all_category' => $AllCategory,
@@ -213,7 +220,7 @@ class PortfolioController extends Controller
 
     /**
      * @Route(
-     *      "/bezplatna-wycena",
+     *      "/{_locale}/bezplatna-wycena",
      *       name="portfolio_free_form",
      * )
      * @Template("PortfolioBundle:Portfolio:freeForm.html.twig")
@@ -269,7 +276,8 @@ class PortfolioController extends Controller
                 ;
 
                 $this->get('mailer')->send($mailFreeForm);
-                $this->get('session')->getFlashBag()->add('success', 'Dziękuję! Formularz z Twoimi informacjami został wysłany poprawnie. Niedługo wyślę moją propozycję projektu dla Ciebie.');
+                $this->get('session')->getFlashBag()->add('success', $this->get('translator')->trans('free_form_has_been_sent'));
+
             }
         }
 
