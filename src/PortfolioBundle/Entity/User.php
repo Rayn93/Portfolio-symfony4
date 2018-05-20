@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="PortfolioBundle\Repository\UserRepository")
  * @ORM\Table(name="portfolio_user")
  * @ORM\AttributeOverrides({
  *      @ORM\AttributeOverride(name="usernameCanonical",

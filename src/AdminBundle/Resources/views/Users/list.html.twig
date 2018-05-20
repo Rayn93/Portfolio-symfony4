@@ -1,0 +1,108 @@
+{% extends "AdminBundle::base.html.twig" %}
+
+{% block pageTitle %} Lista użytkowników {% endblock %}
+
+{% block pageDescription %} Lista użytkowników {% endblock %}
+
+{% block adminContent %}
+
+    <!-- content container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Wyszukiwanie i filtracja
+                    </div>
+                    <div class="panel-body">
+                        <form action="{{ path('admin_users') }}" method="get" class="form-inline filter-search" role="form">
+                            <div class="form-group">
+                                <input type="text" name="usernameLike" class="form-control" placeholder="Wyszukaj po nazwie" value="{{ queryParams['usernameLike'] }}">
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary">Filtruj</button>
+                            </div>
+
+                            <div class="form-group pull-right limit">
+                                <label for="limit" class="col-lg-5 control-label">Wyników</label>
+                                <div class="col-lg-7">
+                                    <select name="limit" class="select-block" id="limit" placeholder="Pokaż">
+                                        {% for limit in limitList %}
+                                            <option {{ limit == currLimit ? 'selected="selected"' : '' }} value="{{ limit }}">{{ limit }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Użytkownicy</div>
+                    <div class="panel-body">
+
+                        {#<ul class="nav nav-pills">#}
+                            {#<li><a class="btn btn-primary" href="{{ path('admin_userForm') }}">Dodaj nowego</a></li>#}
+                        {#</ul>#}
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>{{ knp_pagination_sortable(Pagination, 'ID', 'u.id' )}}</th>
+                                    <th>{{ knp_pagination_sortable(Pagination, 'Nazwa', 'u.username' ) }}</th>
+                                    <th>{{ knp_pagination_sortable(Pagination, 'Email', 'u.email') }}</th>
+                                    <th>Rola</th>
+                                    <th class="actions">Akcje</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                {% for user in Pagination %}
+                                    <tr>
+                                        <td>{{ user.id }}</td>
+                                        <td><a href="{{ path('admin_userForm', {'id': user.id }) }}">{{ user.username }}</a></td>
+                                        <td>{{ user.email }}</td>
+                                        <td>
+                                            {% if user.roles[0] == 'ROLE_USER' %} Użytkownik
+                                            {% elseif user.roles[0] == 'ROLE_ADMIN' %} Administrator
+                                            {% elseif user.roles[0] == 'ROLE_SUPER_ADMIN' %} Super Admin
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+
+                                                <a href="{{ path('admin_userForm', {'id': user.id }) }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                                                {% if is_granted('ROLE_ADMIN') and app.user.id != user.id %}
+                                                    <a href="{{ path('admin_userDelete', {'id': user.id }) }}" class="btn btn-danger" onclick="return confirm('Czy na pewno chcesz usunąć użytkownika: {{ user.username }}')">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="8">Brak dopasowanych użytkowników</td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {{ knp_pagination_render(Pagination, 'PortfolioBundle:Pagination:pagination.html.twig') }}
+
+                    </div> <!-- .panel-body -->
+                </div> <!-- .panel -->
+            </div> <!-- .col-md-12 -->
+        </div> <!-- .row -->
+    </div> <!-- .container -->
+    <!-- /content container -->
+
+{% endblock %}
