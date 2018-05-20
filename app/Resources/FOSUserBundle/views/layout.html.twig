@@ -1,20 +1,9 @@
 {% extends 'PortfolioBundle::base.html.twig' %}
 
-{% block pageTitle %}Logowanie | Robert Saternus{% endblock %}
+{% block pageTitle %}Logowanie / Rejestracja | Robert Saternus{% endblock %}
 
 {% block pageDesc %}"Portfolio freelancera - webdevelopera. Robert Saternus - logowanie"{% endblock %}
 
-{% block stylesheets %}
-
-    {% stylesheets
-        'bundles/portfolio/css/mainpage.css'
-        filter = 'cssrewrite'
-        output ='assets/css/compiled-login.css'
-    %}
-    <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
-    {% endstylesheets %}
-
-{% endblock %}
 
 {% block pageBody %}
 

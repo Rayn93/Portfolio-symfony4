@@ -14,37 +14,83 @@
 
 
 
+    {#<form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">#}
+        {#<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />#}
+
+        {#<div class="form-group">#}
+            {#<label class="col-sm-3 control-label" for="username">{{ 'security.login.username'|trans }} lub Email</label>#}
+            {#<div class="col-sm-9">#}
+                {#<input type="text" id="username" class="form-control" placeholder="Login lub e-mail" name="_username" value="{{ last_username }}" required="required" />#}
+            {#</div>#}
+        {#</div>#}
+
+        {#<div class="form-group">#}
+            {#<label class="col-sm-3 control-label" for="password">{{ 'security.login.password'|trans }}</label>#}
+            {#<div class="col-sm-9">#}
+                {#<input type="password" id="password" class="form-control" placeholder="Hasło" name="_password" value="{{ last_username }}" required="required" />#}
+            {#</div>#}
+        {#</div>#}
+
+        {#<div class="form-group">#}
+            {#<div class="col-sm-offset-3 col-sm-9">#}
+                {#<div class="checkbox pull-left">#}
+                    {#<label for="remember_me">#}
+                        {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ 'security.login.remember_me'|trans }}#}
+                    {#</label>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+        {#<div class="form-group">#}
+            {#<div class="col-sm-offset-3 col-sm-9">#}
+                {#<input type="submit" class="btn btn-success pull-left" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />#}
+            {#</div>#}
+        {#</div>#}
+
+    {#</form>#}
+
     <form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="username">{{ 'security.login.username'|trans }} lub Email</label>
-            <div class="col-sm-9">
-                <input type="text" id="username" class="form-control" placeholder="Login lub e-mail" name="_username" value="{{ last_username }}" required="required" />
+            <label class="col-xs-3 control-label"  for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+            <div class="col-xs-6">
+                <input class="form-control" type="text" id="username" name="_username" placeholder="Nick lub email" value="{{ last_username }}" required="required" />
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="password">{{ 'security.login.password'|trans }}</label>
-            <div class="col-sm-9">
-                <input type="password" id="password" class="form-control" placeholder="Hasło" name="_password" value="{{ last_username }}" required="required" />
+            <label class="col-xs-3 control-label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+            <div class="col-xs-6">
+                <input class="form-control" type="password" id="password" name="_password" placeholder="Hasło" required="required" />
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-                <div class="checkbox pull-left">
-                    <label for="remember_me">
-                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ 'security.login.remember_me'|trans }}
-                    </label>
+            <div class=" col-xs-10 col-xs-offset-3">
+                <div  class="checkbox ">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
                 </div>
             </div>
         </div>
+
         <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-                <input type="submit" class="btn btn-success pull-left" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+            <div class="col-xs-offset-3 col-xs-10 login-btn">
+                <input class="btn btn-lg btn-success" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
             </div>
         </div>
 
+
     </form>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="big_header">Nie masz jeszcze konta? <a href="{{ path('fos_user_registration_register') }}">Zarejestruj się</a> </h2>
+        </div>
+        <div class="col-md-6">
+            <h2 class="big_header">Nie pamiętasz hasła? <a href="{{ path('fos_user_resetting_request') }}">Odzyskiwanie hasła</a> </h2>
+        </div>
+    </div>
+
+
 {% endblock fos_user_content %}

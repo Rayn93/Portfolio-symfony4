@@ -19,6 +19,7 @@ class PortfolioController extends Controller
      *      "/{_locale}",
      *      name="portfolio_main",
      *     defaults={"_locale" = "pl"},
+     *     requirements={"_locale"="pl|en"},
      * )
      * @Template("PortfolioBundle:Portfolio:index.html.twig")
      */
@@ -93,6 +94,7 @@ class PortfolioController extends Controller
      *      "/{_locale}/projekty/{page}",
      *       name="portfolio_projects",
      *       requirements={"page"="\d+"},
+     *       requirements={"_locale"="pl|en"},
      *       defaults={"page"=1}
      * )
      * @Template("PortfolioBundle:Portfolio:projects_list.html.twig")
@@ -135,6 +137,7 @@ class PortfolioController extends Controller
      *      "/{_locale}/tag/{slug}/{page}",
      *      name="portfolio_projects_tags",
      *      requirements={"page"="\d+"},
+     *      requirements={"_locale"="pl|en"},
      *      defaults={"page"=1}
      * )
      * @Template("PortfolioBundle:Portfolio:projects_list.html.twig")
@@ -177,6 +180,7 @@ class PortfolioController extends Controller
      *      "/{_locale}/kategoria/{slug}/{page}",
      *       name="portfolio_projects_categories",
      *       requirements={"page"="\d+"},
+     *       requirements={"_locale"="pl|en"},
      *       defaults={"page"=1}
      * )
      * @Template("PortfolioBundle:Portfolio:projects_list.html.twig")

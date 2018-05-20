@@ -4,55 +4,15 @@
 
 {% block pageDesc %}Błąd 500 - serwer nie odpowiada.{% endblock %}
 
-{% block stylesheets %}
-
-    {% stylesheets
-        'bundles/portfolio/css/mainpage.css'
-        filter = 'cssrewrite'
-        output ='assets/css/compiled-projects.css'
-    %}
-        <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
-    {% endstylesheets %}
-
-{% endblock %}
-
 
 {% block pageBody %}
 <body class="projekty">
 
 <div class="cover"></div>
 
-<header id="projects_menu">
-    <nav class="navigation">
-        <ul>
-            <li class="scroll"><a href="{{ path('portfolio_main') }}#home">HOME</a></li>
-            <li class="scroll"><a href="{{ path('portfolio_main') }}#kim">KIM JESTEM?</a></li>
-            <li class="scroll"><a href="{{ path('portfolio_main') }}#technologie">TECHNOLOGIE</a></li>
-            <li class="special scroll"><a href="{{ path('portfolio_main') }}#projekty">PROJEKTY</a></li>
-            <li class="scroll"><a href="{{ path('portfolio_main') }}#kontakt">KONTAKT</a></li>
-            {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
-            {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
-        </ul>
-    </nav>
+<header id="projects_menu errorpage">
 
-    <div class="burger">
-        <button type="button" class="tcon tcon-menu--xbutterfly" aria-label="toggle menu">
-            <span class="tcon-menu__lines" aria-hidden="true"></span>
-            <span class="tcon-visuallyhidden">toggle menu</span>
-        </button>
-
-        <div class="traggle">
-            <ul>
-                <li class="scroll"><a href="{{ path('portfolio_main') }}#home">HOME</a></li>
-                <li class="scroll"><a href="{{ path('portfolio_main') }}#kim">KIM JESTEM?</a></li>
-                <li class="scroll tech"><a href="{{ path('portfolio_main') }}#technologie">TECHNOLOGIE</a></li>
-                <li class="special scroll active"><a href="">PROJEKTY</a></li>
-                <li class="scroll"><a href="{{ path('portfolio_main') }}#kontakt">KONTAKT</a></li>
-                {#<li class="flag flag_pl flag-active"><a href="#"><img src="{{ asset('bundles/portfolio/img/pl.png') }}" /> </a></li>#}
-                {#<li class="flag flag_en"><a href="#"><img src="{{ asset('bundles/portfolio/img/en.png') }}" alt="flaga brytyjska" /></a></li>#}
-            </ul>
-        </div>
-    </div>
+    {#{% include "PortfolioBundle::sticky-header.html.twig" %}#}
 
 </header>
 
@@ -60,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2>Błąd serwera. Spróbuj później</h2>
+                <h2> {% trans %}Błąd serwera. Spróbuj później{% endtrans %}</h2>
                 {% image 'bundles/portfolio/img/error500.png' %}
                     <img class="img-responsive" src="{{ asset_url }}" alt="Błąd 500"/>
                 {% endimage %}
