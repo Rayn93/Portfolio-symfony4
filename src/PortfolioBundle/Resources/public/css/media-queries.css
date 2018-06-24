@@ -1,0 +1,540 @@
+/***************************MEDIA QUERIES******************************/
+
+@media all and (max-width: 1199px) {
+
+    #kim img {
+        width: 90%;
+        margin-top: 150px;
+    }
+
+    #technologie .img-responsive {
+        margin-top: 40px;
+    }
+
+    #projekty img {
+        margin-top: 70px;
+    }
+
+    #projekty .project_desc p {
+        font-size: 1.3em;
+    }
+
+    #projekty h3 {
+        font-size: 1.9em;
+    }
+
+    #blogList #postList article h3 {
+        font-size: 25px;
+        margin-top: 0;
+        height: 50px;
+    }
+
+    #blogList #postList article p.dot {
+        height: 150px;
+    }
+
+    #staticPage article .simpleArticle{
+        width: 70%;
+    }
+
+    .testimonial-list .testimonial-text {
+        height: 290px;
+        margin-bottom: 20px;
+    }
+
+    #blog .article .parent2{
+        height: 120px;
+    }
+
+    #cv .personal-info .relative,
+    #cv #personal-info{
+        height: 404px;
+
+    }
+
+    #cv .personal-info p{
+        font-size: 18px;
+    }
+
+    #cv .personal-info ul.main-info {
+        font-size: 17px;
+        line-height: 25px;
+    }
+
+    #cv #service .box .box2 {
+        width: 79%;
+    }
+
+    #cv .right .cert {
+        right: 72px;
+    }
+}
+
+@media all and (max-width: 991px) {
+
+    #kim .omnie {
+        padding-top: 50px;
+    }
+
+    #kim img {
+        width: 70%;
+        margin-top: 30px;
+        margin-bottom: 48px;
+
+    }
+
+    #technologie .img-responsive {
+        margin-top: 60px;
+    }
+
+    #technologie .button {
+        margin-top: 10px;
+    }
+
+    #projekty img {
+        margin-top: 10px;
+        width: 80%;
+    }
+
+    #projekty h3 {
+        margin-top: 0;
+        font-size: 2.2em;
+    }
+
+    #projekty .project_desc p {
+        font-size: 1.4em;
+        text-align: justify;
+    }
+
+    #projekty .separator {
+        margin: 60px auto 0 auto;
+        width: 100%;
+    }
+
+    #blogPost .static-top h1 {
+        font-size: 70px;
+        padding-left: 100px;
+        line-height: 60px;
+    }
+
+    #blogPost .static-top .infoBox {
+        margin-left: 100px;
+    }
+
+    #blogPost article, #staticPage article {
+        padding: 70px 0;
+    }
+
+    #blogPost article .simpleArticle,
+    #staticPage article .simpleArticle {
+        width: 70%;
+    }
+
+    #blogList #postList article h3,
+    #blogList #postList article p.dot{
+        height: auto;
+    }
+
+    #blogList #postList article{
+        height: auto;
+        padding-bottom: 55px !important;
+    }
+
+    #blogList #postList article.imgLeft img,
+    #blogList #postList article.imgRight img{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    #blogList #postList article a.button {
+        position: absolute;
+        bottom: -50px;
+        right: 10px;
+    }
+
+    #staticPage .styled-input {
+        width: 100%;
+    }
+
+    .testimonial-list .testimonial-text {
+        height: 230px;
+    }
+
+    #cv .personal-info .relative,
+    #cv #personal-info{
+        height: 313px;
+    }
+
+    #cv .personal-info h2{
+        font-size: 25px;
+        margin-top: 8px;
+    }
+
+    #cv .personal-info h3{
+        font-size: 20px;
+    }
+
+    #cv hr {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    #cv .personal-info p{
+        font-size: 16px;
+        width: 97%;
+    }
+
+    #cv .personal-info ul.social {
+        height: 35px;
+        line-height: 35px;
+    }
+
+    #cv .personal-info ul.social li a{
+        font-size: 25px;
+    }
+
+    #cv .personal-info ul.main-info {
+        font-size: 15px;
+        line-height: 21px;
+    }
+
+    #cv .personal-info ul.social li {
+        margin-left: 12%;
+    }
+
+    #cv .skill .row {
+        padding: 35px 15px 30px 50px;
+    }
+
+    #cv .right .cert {
+        right: 50px;
+    }
+
+    .static-top h1{
+        font-size: 80px;
+    }
+
+}
+
+@media all and (max-width: 820px) {
+    #technologie .button {
+        margin-top: 40px;
+    }
+
+    #kim .omnie h2,
+    #technologie h2,
+    #projekty h2,
+    #kontakt h2 {
+        font-size: 3.3em;
+    }
+}
+
+@media all and (max-width: 767px) {
+
+    #home #imie h1 {
+        font-size: 60px;
+    }
+
+    header .traggle-menu ul {
+        padding-bottom: 30px;
+
+    }
+
+    #kim .omnie {
+        padding-top: 40px;
+    }
+
+    #kim .omnie h2 {
+        margin-bottom: 40px;
+    }
+
+    #kim .omnie p {
+        text-align: justify;
+        margin: 0 10px;
+    }
+
+    #kim img {
+        margin: 20px 0;
+    }
+
+    #technologie, .tech {
+        display: none;
+    }
+
+    #cv .tech {
+        display: block;
+    }
+
+    #projekty {
+        border-top: 5px solid #0BC687;
+    }
+
+    .project_desc {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #wspolpraca h2 {
+        padding-top: 70px;
+    }
+
+    #wspolpraca p {
+        text-align: center;
+    }
+
+    #kontakt form {
+        margin-top: 30px;
+    }
+
+    #blogPost .static-top h1 {
+        font-size: 60px;
+        padding-left: 60px;
+        line-height: 55px;
+    }
+
+    #blogPost .static-top .infoBox {
+        margin-left: 60px;
+    }
+
+    #blogPost article .simpleArticle,
+    #staticPage article .simpleArticle {
+        width: 80%;
+    }
+
+    .testimonial-list .testimonial-text {
+        height: 260px;
+    }
+
+    #blog .article .parent{
+        height: auto;
+    }
+
+    #blog .article .parent2{
+        height: auto;
+    }
+
+    #blog .article{
+        width: 80%;
+        margin-left: 10%;
+        padding-bottom: 60px;
+    }
+
+    .static-top h1{
+        font-size: 70px;
+    }
+
+    #cv #service .box {
+        height: 200px;
+        width: 70%;
+        margin: 20px auto;
+    }
+
+    #cv #service .box .box2 {
+        width: 60%;
+    }
+
+    .timeline::before {
+        left: 80%;
+    }
+
+    .timeline li.left {
+        width: 80%;
+    }
+
+    .timeline li.mt60{
+        margin-top: 30px !important;
+    }
+
+    #cv .skill .row {
+        width: 96%;
+        margin-left: 2%;
+    }
+
+    #cv .personal-info {
+        width: 96%;
+    }
+
+    #cv .cv-top h1,
+    #cv .cv-top h2{
+        display: none;
+    }
+
+    #cv .cv-top .btn {
+        margin-top: 125px;
+        margin-right: 40px;
+    }
+
+}
+
+@media all and (max-width: 550px) {
+
+    #home #imie h1 strong {
+        font-size: 30px;
+    }
+
+    #home #imie h1 {
+        margin-top: -5px;
+        font-size: 40px;
+    }
+
+    #wspolpraca {
+        height: 550px;
+    }
+
+    #blogPost .static-top h1 {
+        font-size: 50px;
+        padding-left: 25px;
+        line-height: 50px;
+    }
+
+    #blogPost .static-top .infoBox {
+        margin-left: 25px;
+    }
+
+    #blogPost article .simpleArticle,
+    #staticPage article .simpleArticle {
+        width: 90%;
+    }
+
+    .test-long{
+        display: none;
+    }
+
+    .test-short{
+        display: block;
+    }
+
+    #blog .article{
+        width: 94%;
+        margin-left: 3%;
+        padding-bottom: 60px;
+    }
+
+    header .burger {
+        margin-left: 20px;
+    }
+
+    .static-top h1{
+        font-size: 60px;
+    }
+
+    #cv #service .box {
+        width: 90%;
+    }
+
+    #cv #service .box .box2 {
+        width: 74%;
+    }
+
+    #cv .skill .row {
+        padding: 34px 0px 30px 30px;
+    }
+
+    #cv .personal-info .relative, #cv #personal-info {
+        height: 330px;
+    }
+
+    #cv .personal-info ul.social li {
+        margin-left: 11%;
+    }
+
+    .timeline::before {
+        left: 90%;
+    }
+
+    .timeline li.left {
+        width: 90%;
+    }
+
+    #cv #additional .box ul li {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    #cv #additional .box ul li i {
+        width: 35px;
+        font-size: 19px;
+    }
+
+}
+
+/*@media all and (max-width: 600px){*/
+    /*.testimonial-list .testimonial-text {*/
+        /*height: 260px;*/
+        /*margin-bottom: 20px;*/
+    /*}*/
+/*}*/
+
+@media all and (max-width: 400px) {
+
+    #wspolpraca h2 {
+        padding-top: 20px;
+    }
+
+    #projekty .project_desc p {
+        text-align: left;
+    }
+
+    .testimonial-list .testimonial-text p {
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    #testimonials h2 {
+        font-size: 3em;
+    }
+
+    #blog .article{
+        width: 98%;
+        margin-left: 1%;
+        padding-bottom: 60px;
+    }
+
+    #cv #service .box {
+        width: 98%;
+    }
+
+    #cv #service .box .box2 {
+        width: 77%;
+    }
+
+    #cv #service .box .box2 p {
+        font-size: 16px;
+    }
+
+    #cv .skill .row {
+        padding: 34px 0px 30px 10px;
+    }
+
+    #cv .personal-info .relative, #cv #personal-info {
+        height: 380px;
+    }
+
+    /*#cv .personal-info ul.social li {*/
+        /*margin-left: 8%;*/
+    /*}*/
+
+    .timeline::before {
+        left: 95%;
+    }
+
+    .timeline li.left {
+        width: 95%;
+    }
+
+    #cv .cv-title {
+        font-size: 30px;
+    }
+
+    #cv #additional .box ul li {
+        font-size: 16px;;
+    }
+
+    #cv #additional .box ul li i {
+        font-size: 17px;
+    }
+
+
+}

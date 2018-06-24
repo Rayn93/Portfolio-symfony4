@@ -177,7 +177,7 @@ header .burger i {
 
 header .traggle-menu {
     display: none;
-    width: 215px;
+    width: 240px;
     background: #141212;
     position: absolute;
     top: 0;
@@ -527,7 +527,7 @@ header #header-top .bar-lang a.active{
 #kim .omnie p {
     color: #666;
     font-size: 1.5em;
-    text-align: left;
+    text-align: justify;
 }
 
 #kim .omnie p a {
@@ -600,7 +600,7 @@ header #header-top .bar-lang a.active{
 
 #projekty .project_desc p {
     font-size: 1.5em;
-    text-align: left;
+    text-align: justify;
 }
 
 #projekty .project_desc ul {
@@ -814,7 +814,7 @@ header #header-top .bar-lang a.active{
 }
 
 #blog .thumbnail{
-    margin-bottom: 0;
+    margin: 0 auto;
     height: 250px;
 }
 
@@ -886,7 +886,7 @@ ul.pull-right {
 }
 
 #wspolpraca h2 {
-    font-size: 2.1em;
+    font-size: 2.3em;
     font-weight: 900;
     padding-top: 30px;
     text-shadow: 3px 1px #000;
@@ -896,7 +896,7 @@ ul.pull-right {
 #wspolpraca p {
     font-size: 1.5em;
     font-weight: 400;
-    text-align: right;
+    text-align: justify;
     letter-spacing: 1px;
     text-shadow: 2px 1px #000;
 }
