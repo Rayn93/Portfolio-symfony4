@@ -280,7 +280,7 @@
                             <p class="university">{% trans %}Uniwersytet Śląski{% endtrans %}</p>
                             <p class="title">{% trans %}Studia licencjackie - Geofizyka{% endtrans %}</p>
                             <p class="time">2012 - 2015</p>
-                            {#<a class="cert btn" href="#">Dyplom</a>#}
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/dyplom_GF_bechelor.pdf') }}">{% trans %}Dyplom{% endtrans %}</a>
                         </div>
                     </li>
 
@@ -340,7 +340,7 @@
                             <p class="university">{% trans %}Akademia Górniczo - Hutnicza{% endtrans %}</p>
                             <p class="title">{% trans %}Studia podyplomowe - Programowanie Aplikacji Webowych{% endtrans %}</p>
                             <p class="time">2016 - 2017</p>
-                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/dyplom-agh.jpg') }}">{% trans %}Dyplom{% endtrans %}</a>
+                            <a class="cert btn" href="{{ asset('bundles/portfolio/assets/dyplom-agh.pdf') }}">{% trans %}Dyplom{% endtrans %}</a>
                         </div>
                     </li>
 
@@ -452,7 +452,10 @@
                     <div class="box">
                         <h2 class="title">{% trans %}DODATKOWE UMIEJĘTNOŚCI{% endtrans %}</h2>
                         <ul>
-                            <li><i class="fa fa-language"></i>{% trans %}Język Angielski - poziom C1{% endtrans %}</li>
+                            <li>
+                                <i class="fa fa-language"></i>{% trans %}Język Angielski - poziom C1{% endtrans %}
+                                <a class="cert cert-ang btn" href="{{ asset('bundles/portfolio/assets/OLS-test-result.pdf') }}">{% trans %}Certyfikat{% endtrans %}</a>
+                            </li>
                             <li><i class="fa fa-american-sign-language-interpreting"></i>{% trans %}Język Hiszpański - poziom A1/A2{% endtrans %}</li>
                             <li><i class="fa fa-car"></i>{% trans %}Prawojazdy - kat B{% endtrans %}</li>
                             <li><i class="fa fa-laptop"></i>{% trans %}Photoshop - mocne podstawy{% endtrans %}</li>

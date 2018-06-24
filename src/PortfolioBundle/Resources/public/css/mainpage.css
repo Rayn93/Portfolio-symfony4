@@ -1579,6 +1579,11 @@ footer {
     transition: 0.5s;
 }
 
+#cv .cert-ang{
+    position: inherit;
+    margin-left: 10px;
+}
+
 #cv .right .cert{
     right: 95px;
 }
